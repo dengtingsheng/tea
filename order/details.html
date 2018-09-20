@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="ie-comp">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>商家后台管理系统</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/self.css">
+    <link rel="icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/title.ico" type="image/x-icon">
+    <style>
+        html,
+        body {
+            background: #f8f8f8
+        }
+
+        .centerbody {
+            width: 1200px;
+        }
+
+        .centerLeft {
+            width: 200px;
+        }
+
+        .centerRight {
+            width: 1000px;
+        }
+
+        .dropdown-menu {
+            min-width: auto
+        }
+
+        .activeLi {
+            background: #D4FFF7;
+            border-left: 4px solid #00BB9C;
+        }
+
+        .center-left {
+            min-height: 600px
+        }
+        /* ************** */
+
+        li:hover {
+            background: #00BB9C;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .border-e8 {
+            border-color: #e8e8e8
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="centerbody" style="margin: 0 auto">
+        <div class="herder" style="height:80px;">
+            <div class="lf centerLeft bg-color-b9c h-full text-center">
+                <img src="../../images/index/home_logo.png" style="margin-top: 18px" alt="">
+            </div>
+            <div class="rt centerRight bg-color-w h-full">
+                <div class="" style="margin-top: 25px">
+                    <div class="bg-f8 m-lg m-none-t p-xs p-xl-l p-md-r position-r" style="display: inline-block;border-radius: 5px"><img src="../../images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: 5px;" alt="">&nbsp;商家管理中心</div>
+                    <div class="display-lin" style="width: 215px"></div>
+                    <div class="display-lin position-r color-2b">
+                        <img src="../../images/index/home_icon_head.png" alt="images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: -16px;">
+                        <span class="className" style="padding-left:70px ">....</span>
+                        <span> &nbsp;|&nbsp;</span>
+                        <span class="color-b9c quit" style="padding-right:30px ">退出</span>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    我的订单
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">待付款订单</a></li>
+                                <li><a href="#">待确认收货  </a></li>
+                                <li><a href="#">待评价交易</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    我的收藏
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                <li><a href="#">收藏的商品</a></li>
+                                <li><a href="#">收藏的店铺</a></li>
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    客户服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                <li><a href="#">帮助中心</a></li>
+                                <li><a href="#">售后服务</a></li>
+                                <li><a href="#">客服中心</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    站点服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                <li><a href="#">商城首页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- center -->
+        <div class="centerbody p-xxl-b" style="background: #fff">
+            <!-- center右边 -->
+            <div class="center-right h-full m-sm-t color-2b">
+                <div class="p-md-l p-md-r m-lg-b">
+                    <div class="b-samll-b border-e8" style="height: 50px;line-height: 50px;">
+                        <div>
+                            <span>商家中心</span>
+                            <span>&nbsp;&gt;&nbsp;</span>
+                            <span>订单管理</span>
+                            <span>&nbsp;&gt;&nbsp;</span>
+                            <span class="color-b9c ">订单详情</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-xxl-r p-xxl-l">
+                    <div class=" row" style="margin: 0 auto;height: 200px;">
+                        <div class="col-lg-4 col-xs-4 p-none b-samll-b b-samll-l  border-e8 h-full">
+                            <div class="p-sm p-md-l p-md-r" style="background: #e8e8e8">
+                                <div class="lf"><b>信息  </b></div>
+                                <div class="rt">下单时间：<span class="addTime"> </span></div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="p-md">
+                                <div>
+                                    <div class="lf">
+                                        <span>收货人：
+                                            <span class="trueName"></span>
+                                        </span>
+                                    </div>
+                                    <div class="rt">
+                                        <span>联系电话：
+                                            <span class="mobPhone"></span>
+                                        </span>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="p-sm-t">
+                                    <span>收货地址：<span class="areaInfo"></span></span>
+                                </div>
+                                <div class="p-sm-t">
+                                    <span>邮政编码：
+                                        <span class="zipCode"></span>
+                                    </span>
+                                </div>
+                                <div class="p-sm-t">
+                                    <div class="lf position-r">
+                                        <img src="../images/all/order_icon_shang.png" alt="" class="position-a" style="left: 0;top: -1px">
+                                        <span class="p-xl-l">店铺名称：
+                                            <span class="storeName"></span>
+                                        </span>
+                                    </div>
+                                    <div class="rt position-r">
+                                        <span class="rt color-999 moverSHow">
+                                            更多 
+                                            <i class="glyphicon glyphicon-menu-down"></i>
+                                        </span>
+                                        <div class="popover fade bottom in" role="tooltip" id="111" style="top: 20px; left: -174px; display: none;width: 500px">
+                                            <div class="arrow" style="left: 78%;"></div>
+                                            <h3 class="popover-title" style="display: none;"></h3>
+                                            <div class="popover-content">
+                                                <div class="m-xs-b">
+                                                    所在地区：
+                                                    <span class="dataAreaInfo"></span>
+                                                </div>
+                                                <div class="m-xs-b">
+                                                    联系电话：
+                                                    <span class="dataMobPhone"></span>
+                                                </div>
+                                                <!-- <div class="m-xs-b">
+                                                        <span>旺旺： </span>
+                                                        <span class="m-md-l"> QQ：</span>
+                                                    </div> -->
+                                                <div class="m-xs-b">
+                                                    详细地址：
+                                                    <span class="storeAddress"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-xs-8 p-none b-samll border-e8 h-full">
+                            <div class="p-lg-t p-xl-b" style="width: 85%;margin: 0 auto">
+                                <div class="position-r">
+                                    <img src="../images/all/20180716152246.png" alt="" class="position-a " style="left:-10px;top: -5px">
+                                    <h3 class="p-xxl-l">订单状态：<span class="color-b9c orderState"></span></h3>
+                                </div>
+                                <div class="p-xxl-l m-md-t">
+                                    <ul>
+                                        <li class="m-sm-t">
+                                            <b class="color-b9c">·</b> 订单编号：
+                                            <span class="orderSn"></span>
+                                        </li>
+                                        <li class="m-sm-t">
+                                            <b class="color-b9c">·</b> 圆通物流
+                                        </li>
+                                        <li class="m-sm-t">
+                                            <b class="color-b9c">·</b> 运单编号：
+                                            <span class="shippingCode"></span>
+                                        </li>
+                                    </ul>
+                                    <div class="m-sm-t ">
+                                        &nbsp; &nbsp;<span class="color-b9c">2018-06-12 19:20 【成都市】快件已到达，四川成都市武侯新城</span>
+                                        <span class="rt color-999 position-r moverSHow">
+                                            更多 <i class="glyphicon glyphicon-menu-down"></i>
+                                        </span>
+                                        <div class="popover fade bottom in" role="tooltip" id="popover215147" style="top: 165px; left: 456px; display: none;max-width: 500px">
+                                            <div class="arrow" style="left: 78.5%;"></div>
+                                            <h3 class="popover-title" style="display: none;"></h3>
+                                            <div class="popover-content p-none-r p-none-l">
+                                                <ul>
+                                                    <li class="m-sm-b p-sm-l p-sm-r">2018-06-12 19:20 【成都市】快件已到达，四川成都市武侯新城</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-md-t m-md-b"><b>订单信息</b></div>
+                    <div class="bg-f8">
+                        <div class="b-samll-b text-center border-e8 p-sm row">
+                            <div class="col-lg-6 col-xs-6 text-left p-xl-l">商品名称</div>
+                            <div class="col-lg-3 col-xs-3">数量</div>
+                            <div class="col-lg-3 col-xs-3">价格</div>
+                        </div>
+                        <div class="p-sm row ">
+                            <div class="col-lg-6 col-xs-6">
+                                <div class="p-md-r p-md-l m-sm-t position-r" style="text-align: left;">
+                                    <img src="" alt="" class="goodsImage" style="height: 70px;width: 70px;">
+                                    <div class="goodsName  position-a " style="overflow: hidden;left: 120px;top: 23px">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-xs-3 text-center m-xl-t goodsNum"></div>
+                            <div class="col-lg-3 col-xs-3 text-center m-xl-t goodsPrices"></div>
+                        </div>
+
+                    </div>
+                    <div class="p-sm p-md-t p-md-b" style="border-bottom: 3px solid #e8e8e8">
+                        <div class="rt m-md-r text-right">
+                            <div class="m-xs-b">总价：<span class="color-r display-lin allMoney" style="width: 100px">￥500</span></div>
+                            <div class="m-xs-b">运费：<span class="display-lin yunMoney" style="width: 100px">免费运</span></div>
+                            <div class="m-xs-b">支付方式：<span class="display-lin paymentName" style="width: 100px">微信支付</span></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="m-md-t m-md-b"><b>促销活动</b></div>
+                    <div class="bg-f8 p-md">
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/validator.min.js"></script>
+    <script src="../js/ValidatorSelf.js"></script>
+    <script src="../js/all.js"></script>
+    <script src="../js/index.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover()
+            // 获取店铺信息
+            indexContent();
+            $(".moverSHow").mouseleave(function () {
+                $(this).next().css("display", "none")
+            })
+            $(".moverSHow").mouseenter(function () {
+                $(this).next().css("display", "block")
+            });
+        });
+    </script>
+    <script>
+        var ids = location.search.split('?')[1];
+        if (location.search.split('?')[1] > 100) {
+            $.ajax({
+                url: 'http://47.104.204.162:8084/order/stroe/checkOne',
+                type: 'post',
+                data: {
+                    recId: ids
+                },
+                success: function (data) {
+                    console.log('1111', data);
+                    $(".orderSn").html(data.orderSn);
+                    $(".addTime").html(timestampToTime(data.addTime));
+                    $(".trueName").html(data.orderAddress.trueName);
+                    $(".zipCode").html(data.orderAddress.zipCode);
+                    $(".mobPhone").html(data.orderAddress.mobPhone);
+                    $(".areaInfo").html(data.orderAddress.areaInfo + data.orderAddress.address);
+                    $(".goodsImage").attr("src", data.goodsImage);
+                    $(".goodsName").html(data.goodsName);
+                    $(".storeName").html(data.storeName);
+                    $(".goodsNum").html(data.goodsNum);
+                    $(".dataAreaInfo").html(data.areaInfo);
+                    $(".dataMobPhone").html(data.mobPhone);
+                    $(".storeAddress").html(data.storeAddress);
+                    $(".goodsPrices").html("￥" + data.goodsPrices);
+                    $(".shippingCode").html(data.shippingCode);
+                    $(".paymentName").html(data.paymentName)
+                    if (data.shippingFee == null || data.shippingFee == 0) {
+                        $(".yunMoney").html('( 免运费 )');
+                        $(".allMoney").html(data.goodsPrices + "元");
+                    }
+                    else {
+                        $(".allMoney").html(data.goodsPrices + data.shippingFee + "元");
+                        $(".yunMoney").html('运费为：' + data.shippingFee + "元");
+                    }
+                    if (data.orderState == 10) {
+                        // 待买家付款
+                        $(".orderState").html("待买家付款");
+                    }
+                    else if (data.orderState == 20) {
+                        // 待卖家发货
+                        $(".orderState").html("待卖家发货");
+                    }
+                    else if (data.orderState == 30) {
+                        // 卖家已发货
+                        $(".orderState").html("卖家已发货");
+                    }
+                    else if (data.orderState == 40) {
+                        // 买家已收货
+                        $(".orderState").html("买家已收货");
+                    }
+                    else if (data.orderState == 50) {
+                        // 已完成
+                        $(".orderState").html("已完成");
+                    }
+                    else if (data.orderState == 60) {
+                        // 已取消
+                        $(".orderState").html("已取消");
+                    }
+                    else if (data.orderState == 70) {
+                        // 退款退货
+                        $(".orderState").html("退款退货");
+                    };
+                }
+            });
+        } else {
+            $.ajax({
+                url: 'http://47.104.204.162:8084/order/store/refund/one',
+                type: 'post',
+                data: {
+                    refId: ids
+                },
+                success: function (data) {
+                    console.log('222222', data);
+                    $(".addTime").html(timestampToTime(data.data.addTime));
+                    $(".orderSn").html(data.data.orderSn);
+                    $(".trueName").html(data.data.refMemberName);
+                    $(".zipCode").html(data.data.shippingExpressId);
+                    $(".mobPhone").html(data.data.mobPhone);
+                    $(".areaInfo").html(data.data.areaInfo + data.data.address);
+                    $(".goodsImage").attr("src", data.data.goodsImage);
+                    $(".goodsName").html(data.data.goodsName);
+                    $(".storeName").html(data.data.refStoreName);
+                    $(".goodsNum").html(data.data.refGoodsNum);
+                    $(".dataAreaInfo").html(data.data.areaInfo);
+                    $(".dataMobPhone").html(data.data.mobPhone);
+                    $(".storeAddress").html(data.data.address);
+                    $(".goodsPrices").html("￥" + data.data.refAmount);
+                    $(".shippingCode").html(data.data.shippingCode);
+                    $(".paymentName").html(data.data.paymentName)
+                    if (data.data.shippingFee == null || data.data.shippingFee == 0) {
+                        $(".yunMoney").html('( 免运费 )');
+                        $(".allMoney").html(data.data.refAmount + "元");
+                    }
+                    else {
+                        $(".allMoney").html(data.data.refAmount + data.data.shippingFee + "元");
+                        $(".yunMoney").html('运费为：' + data.data.shippingFee + "元");
+                    }
+                    if (data.orderState == 10) {
+                        // 待买家付款
+                        $(".orderState").html("待买家付款");
+                    }
+                    else if (data.orderState == 20) {
+                        // 待卖家发货
+                        $(".orderState").html("待卖家发货");
+                    }
+                    else if (data.orderState == 30) {
+                        // 卖家已发货
+                        $(".orderState").html("卖家已发货");
+                    }
+                    else if (data.orderState == 40) {
+                        // 买家已收货
+                        $(".orderState").html("买家已收货");
+                    }
+                    else if (data.orderState == 50) {
+                        // 已完成
+                        $(".orderState").html("已完成");
+                    }
+                    else if (data.orderState == 60) {
+                        // 已取消
+                        $(".orderState").html("已取消");
+                    }
+                    else if (data.orderState == 70) {
+                        // 退款退货
+                        $(".orderState").html("退款退货");
+                    };
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

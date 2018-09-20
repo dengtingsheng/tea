@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="ie-comp">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>登录</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/self.css">
+    <link rel="icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/title.ico" type="image/x-icon">
+    <style>
+        .all-content {
+            background: #00BB9C;
+            padding: 150px 0 0 0;
+        }
+        .centers {
+            background: #fff;
+            border-radius: 40px;
+        }
+        .padding-t-b {
+            padding: 126px 0;
+        }
+        .form-horizontal .form-group {
+            margin-right: 0;
+            margin-left: 0;
+        }
+        .form-horizontal .control-label {
+            text-align: left
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid all-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-lg-12 centers p-none">
+                    <div class="row">
+                        <div class="col-xs-6 col-lg-6" style="height: 100%;margin-top: 64px; padding: 0;">
+                            <img src="../images/login_pic.png" alt="">
+                        </div>
+                        <div class="col-xs-5 col-lg-5 padding-t-b">
+                            <div class="m-xl-b p-md-l p-md-r">
+                                <b class="text-lg color-2b">用户登录</b>
+                            </div>
+                            <div class="b-samll-b m-md-l m-md-r m-lg-b" style="border-color:#D3D3D3 "></div>
+                            <div class="">
+                                <form class="form-horizontal text-md">
+                                    <div class="form-group m-xl-b position-r">
+                                        <label class="col-lg-2 col-md-3 col-xs-4 control-label  color-68">手机号</label>
+                                        <div class="col-lg-10 col-md-9 col-xs-8 ">
+                                            <input type="text" class="form-control border50  userName" value="15198231515" placeholder="请输入手机号">
+                                        </div>
+                                        <span class="color-r position-a text-base userNameSpan" style="bottom: -23px;left: 110px"></span>
+                                    </div>
+                                    <div class="form-group position-r">
+                                        <label class="col-lg-2 col-md-3 col-xs-4 control-label  color-68">密&nbsp;&nbsp; 码</label>
+                                        <div class="col-lg-10 col-md-9 col-xs-8 ">
+                                            <input type="password" class="form-control border50 userPassword" value="111111" placeholder="请输入密码">
+                                        </div>
+                                        <span class="color-r position-a text-base userPasswordSpan" style="bottom: -23px;left: 110px"></span>
+                                    </div>
+                                    <div class="form-group m-sm-b">
+                                        <label class="col-lg-2 col-md-3 col-xs-4"></label>
+                                        <div class="col-lg-10 col-md-9 col-xs-8  m-md-t">
+                                            <div class="row" style="line-height: 32px">
+                                                <div class="col-lg-9 col-xs-8 p-none-l">
+                                                    <button type="button" class="btn  border50 w-full b-none clickSubmit" style=" background:#00BB9C;color: #ffff ">登录</button>
+                                                </div>
+                                                <div class="col-lg-3 p-none col-xs-4 color-68 text-base"><a href="forget.html" style="color: #00BB9C;"> 忘记密码？</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 col-md-3 col-xs-4"></label>
+                                        <div class="col-lg-10 col-md-9 col-xs-8">
+                                            <div class="color-68 p-sm-l text-base">还不是本站会员？立即 &nbsp;&nbsp;
+                                                <a href="register.html" class="btn border50 btn-xs p-md-l p-md-r b-none" style=" background:#00BB9C;color:#ffff ">注册</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div class="bg-color-w  w-full p-lg-b p-md-t" style="position:fixed;bottom:0;">
+            <div class="container text-center">
+                <a href="#" class="color-68">&nbsp;首页&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;|&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;招聘英才&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;|&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;广告合作&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;|&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;联系我们&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;|&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;关于我们&nbsp;</a>
+            </div>
+        </div>
+    </div>
+    <!-- 提示模态框 -->
+    <div class="modal bs-example-login-success " tabindex="-1" role="dialog" style="margin-top: 300px">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+            <div class="modal-header p-sm-t p-sm-b">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">提示</h4>
+            </div>
+            <div class="modal-body">
+                <p class="error400"></p>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="../js/jquery.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script src="../../js/ajax.js"></script> 
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/validator.min.js"></script>
+    <script src="../js/ValidatorSelf.js"></script>
+    <script src="../js/all.js"></script>
+    <script>
+        $(function(){
+            HeightTOP()
+            // 失去焦点验证
+            $(".userName").blur(function(){
+                checkPhone($(".userName"),$(".userNameSpan"))
+            })
+            $(".userPassword").blur(function(){
+                checkNull($(".userPassword"),$(".userPasswordSpan"))
+            })
+            //点击登录
+            var  loginT = true
+            $(".clickSubmit").click(function(){
+                var $username = $(".userName").val(),$password =  $(".userPassword").val();
+                if(checkPhone($(".userName"),$(".userNameSpan"))&&checkNull($(".userPassword"),$(".userPasswordSpan"))){
+                    if(loginT == true){
+                        loginT = false;
+                        $.ajax({
+                            url:"http://47.104.204.162:8088/store/login",
+                            type:"post",
+                            //dataType:'jsonp',
+                            data:{
+                                username:$username,
+                                password:$password
+                            },
+                            success:function(data){
+                                console.log(data);
+                                loginT = true;
+                                if(data.status != 200){
+                                    $('.bs-example-login-success').modal('toggle');
+                                    $(".error400").html(data.msg)
+                                }
+                                else{
+                                    $.cookie("token",data.data,{ expires: 7 , path: '/' });
+                                    $(".clickSubmit").html("登录成功");
+                                    // 登录成功之后，获取用户信息token
+                                    $.ajax({
+                                        url:"http://47.104.204.162:8088/token",
+                                        type:"get",
+                                        data:{
+                                            "token":data.data
+                                        },
+                                        success:function(data2){
+                                            console.log(data2);
+                                            // 用户信息暂存cookie中
+                                            $.cookie('user_phone', data2.data.storeTel, { expires: 7 , path: '/' });
+                                            $.cookie('user_name', data2.data.storeName, { expires: 7 , path: '/' });
+                                            $.cookie('storeId', data2.data.storeId, { expires: 7, path: '/'  });
+                                            if(data2.status==400){
+                                                //window.location.href="http://47.104.204.162:8088";
+                                            }
+                                            if(data2.status==416){
+                                                alert(data2.msg)
+                                                window.location.href="login.html";
+                                            }
+                                            
+                                            var storeStatus=data2.data.storeState;
+                                            if(storeStatus==3){
+                                                //店铺尚未完善资料
+                                                setTimeout(function(){
+                                                    window.location.href="../index/Oneindex.html"; 
+                                                },1000);
+                                            }
+                                            if(storeStatus==2){
+                                                //店铺审核中
+                                                setTimeout(function(){
+                                                    window.location.href="../index/Towindex.html"; 
+                                                },1000);
+                                            }
+                                            if(storeStatus==1){
+                                                //店铺开启
+                                                setTimeout(function(){
+                                                    window.location.href="../index.html"; 
+                                                },1000);
+                                            }
+                                            if(storeStatus==0){
+                                                //店铺已关闭
+                                                setTimeout(function(){
+                                                    window.location.href="../index/Treindex.html"; 
+                                                },1000);
+                                            }
+                                 
+                                        }
+                                    });
+                                }
+                                
+                                
+                            }
+                        })
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

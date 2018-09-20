@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="ie-comp">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>商家后台管理系统</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/self.css">
+    <link rel="icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <link href="../css/froala_editor.min.css" rel="stylesheet" type="text/css">
+
+
+    <style>
+        html,
+        body {
+            background: #f8f8f8
+        }
+
+         ::selection {
+            background: #00BB9C;
+            color: #FFF;
+        }
+
+        .centerbody {
+            width: 1200px;
+        }
+
+        .centerLeft {
+            width: 200px;
+        }
+
+        .centerRight {
+            width: 1000px;
+        }
+
+        .centerRightMargin {
+            width: 990px;
+        }
+
+        .dropdown-menu {
+            min-width: auto
+        }
+
+        .activeLi {
+            background: #D4FFF7;
+            border-left: 4px solid #00BB9C;
+        }
+
+        .center-left {
+            min-height: 600px
+        }
+        /* ************** */
+
+        .froala-editor {
+            border: solid 1px #e8e8e8;
+            border-top: solid 5px #e8e8e8;
+        }
+
+        .froala-element {
+            min-height: 200px;
+            border: solid 1px #e8e8e8 !important;
+            background: #fff
+        }
+
+        .fa {
+            opacity: 0.8;
+        }
+
+        .Imgall img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .froala-editor.f-basic .fr-bttn {
+            margin: 0;
+            float: none;
+        }
+
+        .skuTable td {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .f-sep {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="centerbody" style="margin: 0 auto">
+        <div class="herder" style="height:80px;">
+            <div class="lf centerLeft bg-color-b9c h-full text-center">
+                <img src="../../images/index/home_logo.png" style="margin-top: 18px" alt="">
+            </div>
+            <div class="rt centerRight bg-color-w h-full">
+                <div class="" style="margin-top: 25px">
+                    <div class="bg-f8 m-lg m-none-t p-xs p-xl-l p-md-r position-r" style="display: inline-block;border-radius: 5px"><img src="../../images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: 5px;" alt="">&nbsp;商家管理中心</div>
+                    <div class="display-lin" style="width: 215px"></div>
+                    <div class="display-lin position-r color-2b">
+                        <img src="../../images/index/home_icon_head.png" alt="images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: -16px;">
+                        <span class="className" style="padding-left:70px ">....</span>
+                        <span> &nbsp;|&nbsp;</span>
+                        <span class="color-b9c quit" style="padding-right:30px ">退出</span>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    我的订单
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">待付款订单</a></li>
+                                <li><a href="#">待确认收货  </a></li>
+                                <li><a href="#">待评价交易</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    我的收藏
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                <li><a href="#">收藏的商品</a></li>
+                                <li><a href="#">收藏的店铺</a></li>
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    客户服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                <li><a href="#">帮助中心</a></li>
+                                <li><a href="#">售后服务</a></li>
+                                <li><a href="#">客服中心</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    站点服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                <li><a href="#">商城首页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- center -->
+        <div class="">
+            <!-- center左边 -->
+            <div class="center-left lf centerLeft bg-color-w h-full text-center m-sm-r color-2b">
+                <div class="m-md-t text-md ">
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_manage.png" class="position-a" style="left: 50px;top: 2px" alt="">
+                            <b style="padding-left:25px ">商品管理</b>
+                        </div>
+                        <ul class="m-md-t text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b activeLi"><a href="../manager/edit.html" data-id="0" class="color-68 ">商品发布</a></li>
+                            <li class="p-xs-t p-xs-b "><a href="../manager/sell.html" data-id="1" class="color-68 ">出售中的商品</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/warehouse.html" data-id="2" class="color-68 ">仓库中的商品</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/brandList.html" data-id="3" class="color-68 ">品牌列表</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_set.png" class="position-a" style="left: 50px;" alt="">
+                            <b style="padding-left:25px ">交易管理</b>
+                        </div>
+                        <ul class="m-md-t m-xl-b text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b"><a href="../order/index.html" data-id="4" class="color-68 ">订单管理</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/deliver.html" data-id="5" class="color-68 ">发货</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/address.html" data-id="6" class="color-68 ">发货设置</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/reimburse.html" data-id="7" class="color-68 ">退款退货</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/freight.html" data-id="8" class="color-68 ">物流工具</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/evaluate.html" data-id="9" class="color-68 ">评价管理</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_password.png" class="position-a" style="left: 50px;" alt="">
+                            <b style="padding-left:25px ">密码管理</b>
+                        </div>
+                        <ul class="m-md-t m-xl-b text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b"><a href="../index/findPwd.html" data-id="9" class="color-68 ">修改密码</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- center右边 -->
+            <div class="center-right rt centerRightMargin h-full color-2b">
+                <div style="margin: 30px 100px 30px 90px;">
+                    <form id="itemAddForm">
+                        <!-- 品牌赋值input -->
+                        <input type="hidden" name="brandId" id="brandId">
+                        <!-- SKU赋值input -->
+                        <input type="hidden" name="skuParams" />
+                        <!-- 商品显示属性select 赋值 -->
+                        <input type="hidden" name="attrParams" />
+                        <!-- 商品显示属性 input 赋值 -->
+                        <input type="hidden" name="attrChangedParams" />
+                        <!-- ********************** -->
+                        <input type="hidden" name="gcId" id="gcId">
+                        <input type="hidden" name="gcName" id="gcName">
+                        <input type="hidden" name="typeId" id="typeId">
+                        <input type="hidden" name="storeId" id="storeId">
+                        <input type="hidden" name="stapleName" id="stapleName">
+                        <input type="hidden" name="goodsId" id="goodsId">
+                        <div class="form-group">
+                            <label class="m-sm-b">商品标题：</label>
+                            <input type="text" class="form-control b-none goodsName allINputNull" name="goodsName" maxlength="40">
+                        </div>
+                        <div class="form-group">
+                            <label class="m-sm-b">商品副标题：</label>
+                            <input type="text" class="form-control b-none goodsSubtitle allINputNull" name="goodsSubtitle" maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <label class="m-sm-b">商品图片：</label>
+                            <div class="position-r">
+                                <input type="hidden" value="" class="goodsImageMore" name="goodsImageMore">
+                                <button type="button" class="btn color-w bg-color-b9c">
+                                <input type="file" class="position-a display-lin allINputNull" accept="image/jpeg,image/jpg,image/png" name="uploadFile"  style="opacity: 0;width: 80px;left: 0;" onchange="selectImage(this);">
+                                上传图片
+                            </button>
+                            </div>
+                            <div class="Imgall">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label class="m-sm-b ">商品描述：</label>
+                            <div>
+                                <input type="hidden" name="goodsDescription" class="goodsDescription">
+                                <section id="editor">
+                                    <div id='edit'>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="form-group text-center m-xxl-t">
+                            <label class="m-sm-b display-lin w-full m-lg-b">
+                            <div class="lf b-samll-b m-sm-t position-r"  style="width: 322px;border-color: #D3D3D3">
+                                <span class="display-lin position-a" style="width: 6px;height: 6px;border-radius: 50%;background:#999;right: 0px;top: -3px; "></span>
+                            </div> 
+                            商品显示属性
+                            <div class="rt b-samll-b m-sm-t position-r" style="width: 322px;border-color: #D3D3D3">
+                                <span class="display-lin position-a" style="width: 6px;height: 6px;border-radius: 50%;background:#999;left: 0px;top: -3px; "></span>
+                            </div> 
+                            <div class="clear"></div>
+                        </label>
+                            <div class="bg-color-w p-lg" id="allEch">
+                                <div class="lf" style="width: 380px" id="allText">
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">品牌：</label>
+                                        <select class="form-control display-lin b-none allINputNull" id="brand" data-item="1" style="width: 60%;background: #f8f8f8">
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">价格区间：</label>
+                                        <select class="form-control display-lin b-none allINputNull" id="priceInterval" data-item="2" style="width: 60%;background: #f8f8f8">
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">年份：</label>
+                                        <select class="form-control display-lin b-none allINputNull" id="creatYear" data-item="3" style="width: 60%;background: #f8f8f8">
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">形状：</label>
+                                        <select class="form-control display-lin b-none allINputNull" id="xingzhuang" data-item="4" style="width: 60%;background: #f8f8f8">
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">工艺：</label>
+                                        <select class="form-control display-lin b-none allINputNull" id="gongyi" data-item="5" style="width: 60%;background: #f8f8f8">
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">需求：</label>
+                                        <select class="form-control display-lin b-none allINputNull" id="xuqiu" data-item="6" style="width: 60%;background: #f8f8f8">
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">重量：</label>
+                                        <select class="form-control display-lin b-none allINputNull" id="zhongliang" data-item="7" style="width: 60%;background: #f8f8f8">
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">规格：</label>
+                                        <input type="text" class="form-control b-none display-lin allINputNull" id="guige" data-item="" style="width: 60%;background: #f8f8f8">
+                                    </div>
+                                </div>
+                                <div class="rt" style="width: 380px" id="allInput">
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">原料：</label>
+                                        <input type="text" class="form-control b-none display-lin inputs allINputNull" id="yuanliao" data-item="" style="width: 60%;background: #f8f8f8">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">保质期：</label>
+                                        <input type="text" class="form-control b-none display-lin inputs allINputNull" id="baozhiqi" data-item="" style="width: 60%;background: #f8f8f8">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">储藏方法：</label>
+                                        <input type="text" class="form-control b-none display-lin inputs allINputNull" id="chuchang" data-item="" style="width: 60%;background: #f8f8f8">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">产地：</label>
+                                        <input type="text" class="form-control b-none display-lin inputs allINputNull" id="changdi" data-item="" style="width: 60%;background: #f8f8f8">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">茶区：</label>
+                                        <input type="text" class="form-control b-none display-lin inputs allINputNull" id="chaqu" data-item="" style="width: 60%;background: #f8f8f8">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="display-lin" style="width: 20%;">厂名：</label>
+                                        <input type="text" class="form-control b-none display-lin inputs allINputNull" id="changming" data-item="" style="width: 60%;background: #f8f8f8">
+                                    </div>
+                                    <div class="form-group position-r">
+                                        <label for="" class="position-a" style="width: 20%;left: 35px;">厂址：</label>
+                                        <textarea cols="30" rows="10" class="form-control display-lin b-none inputs allINputNull" id="changzhi" data-item="" style="width: 60%;height:83px;background: #f8f8f8;margin-left: 20%"></textarea>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="form-group m-xxl-t">
+                            <label class="m-sm-b display-lin w-full m-lg-b text-center">
+                            <div class="lf b-samll-b m-sm-t position-r"  style="width: 322px;border-color: #D3D3D3">
+                                <span class="display-lin position-a" style="width: 6px;height: 6px;border-radius: 50%;background:#999;right: 0px;top: -3px; "></span>
+                            </div> 
+                            商品规格选择
+                            <div class="rt b-samll-b m-sm-t position-r" style="width: 322px;border-color: #D3D3D3">
+                                <span class="display-lin position-a" style="width: 6px;height: 6px;border-radius: 50%;background:#999;left: 0px;top: -3px; "></span>
+                            </div> 
+                            <div class="clear"></div>
+                        </label>
+                            <div class="bg-color-w p-lg">
+                                <div id="skuCheckBox"></div>
+                                <div id="skuTable"></div>
+                            </div>
+                        </div>
+                        <div class="form-group m-xxl-t">
+                            <label class="m-sm-b display-lin w-full m-lg-b text-center">
+                            <div class="lf b-samll-b m-sm-t position-r"  style="width: 322px;border-color: #D3D3D3">
+                                <span class="display-lin position-a" style="width: 6px;height: 6px;border-radius: 50%;background:#999;right: 0px;top: -3px; "></span>
+                            </div> 
+                            商品物流信息
+                            <div class="rt b-samll-b m-sm-t position-r" style="width: 322px;border-color: #D3D3D3">
+                                <span class="display-lin position-a" style="width: 6px;height: 6px;border-radius: 50%;background:#999;left: 0px;top: -3px; "></span>
+                            </div> 
+                            <div class="clear"></div>
+                        </label>
+                            <div class="bg-color-w p-lg">
+                                <div class="form-group">
+                                    <div class="m-sm-b">
+                                        <label for="">所在地：</label>
+                                    </div>
+                                    <select class="form-control display-lin b-none select_province" name="provinceId" style="width: 30%;background: #f8f8f8">
+                                </select>
+                                    <span class="m-sm-l m-lg-r">省</span>
+                                    <select class="form-control display-lin b-none select_city" name="cityId" style="width: 30%;background: #f8f8f8">
+                                </select>
+                                    <span class="m-sm-l m-lg-r">市</span>
+                                </div>
+                                <div class="form-group">
+                                    <div class="m-sm-b">
+                                        <label for="">运费：</label>
+                                    </div>
+                                    <div class="m-sm-b radioCange">
+                                        <div class="display-lin position-r" style="width: 200px">
+                                            <input type="radio" id="MAY" checked value="1" name="goods_transfee_charge" class="regular-radio" />
+                                            <label for="MAY"></label>
+                                            <span class="position-a" style="left:35px ;top: 0;">卖家承担运费</span>
+                                        </div>
+                                        <div class="display-lin position-r" style="width: 200px">
+                                            <input type="radio" id="MAYs" value="0" name="goods_transfee_charge" class="regular-radio" />
+                                            <label for="MAYs"></label>
+                                            <span class="position-a" style="left:35px ;top: 0;">买家承担运费</span>
+                                        </div>
+                                    </div>
+                                    <div class="radioDiv display-none">
+                                        <div class="m-sm-b">
+                                            <div class="display-lin position-r" style="width: 400px">
+                                                <input type="radio" id="modelInput" checked name="isApplyPostage" value="1" class="regular-radio" />
+                                                <label for="modelInput"></label>
+                                                <span class="position-a positionSpan" style="left:35px ;top: -5px;">
+                                                <span class="radioHtml">使用运费模板</span>&nbsp;&nbsp;
+                                                <input type="hidden" name="transportId" class="radioVal">
+                                                <button type="button" class="btn bg-color-b9c b-none color-w btnMyModal" data-toggle="modal" data-target="#myModal">
+                                                    选择模板
+                                                </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="m-sm-b position-r CHANGinput">
+                                            <div class="display-lin position-a" style="left: 0;top: 8px">
+                                                <input type="radio" id="modelRadio" class="regular-radio" name="isApplyPostage" value="0" />
+                                                <label for="modelRadio"></label>
+                                            </div>
+                                            <div class="display-lin" style="padding-left: 35px">
+                                                <div class="display-lin" style="width: 230px">
+                                                    <span for="" class="display-lin" style="width: 20%;">平邮：</span>
+                                                    <input type="text" class="form-control b-none display-lin" name="pyPrice" id="py_price" disabled style="width: 40%;background: #f8f8f8">&nbsp;元
+                                                </div>
+                                                <div class="display-lin" style="width: 230px">
+                                                    <span for="" class="display-lin" style="width: 20%;">快递：</span>
+                                                    <input type="text" class="form-control b-none display-lin" name="kdPrice" id="kd_price" disabled style="width: 40%;background: #f8f8f8">&nbsp;元
+                                                </div>
+                                                <div class="display-lin" style="width: 230px">
+                                                    <span for="" class="display-lin" style="width: 20%;">EMS：</span>
+                                                    <input type="text" class="form-control b-none display-lin" name="esPrice" id="es_price" disabled style="width: 40%;background: #f8f8f8">&nbsp;元
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group m-xxl-t text-center">
+                            <div class="lf" style="width: 50%;">
+                                <button class="btn bg-color-b9c color-w" id="clickSUBmit" style="width: 200px;" type="button">提交</button>
+                            </div>
+                            <div class="lf" style="width: 50%;">
+                                <button class="btn btn-default" id="clickBELall" style="width: 200px;">重置</button>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- 运费模板模态框 -->
+
+    <div class="modal fade myModalfade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="width: 600px;margin: 200px auto 0">
+        <div class="modal-dialog" role="document" style="width: 600px;margin:0 auto ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">选择模板</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="m-sm-b radioEach">
+
+                        </div>
+                        <div class="tableRadioEach display-none">
+                            <table class="table text-center m-none-b">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">运送方式</th>
+                                        <th class="text-center">运送到</th>
+                                        <th class="text-center">首件(个)</th>
+                                        <th class="text-center">运费(元)</th>
+                                        <th class="text-center">续件(个)</th>
+                                        <th class="text-center">运费(元)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="text-align: left">
+                    <button type="button" class="btn bg-color-b9c b-none color-w">新增模板</button>
+                    <button type="button" class="btn btn-default rt  m-lg-l" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn bg-color-b9c rt m-lg-l b-none color-w clickRadioSuccess">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 提示模态框 -->
+    <div class="modal add-success " tabindex="-1" role="dialog" style="margin-top: 300px">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header p-sm-t p-sm-b">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="error400">上传图片已达上限</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/validator.min.js"></script>
+    <script src="../js/ValidatorSelf.js"></script>
+    <script src="../js/all.js"></script>
+    <script src="../js/index.js"></script>
+    <!-- //文本编辑器JS -->
+    <script src="../js/froala_editor.min.js"></script>
+    <script src="../js/plugins/tables.min.js"></script>
+    <script src="../js/plugins/lists.min.js"></script>
+    <script src="../js/plugins/colors.min.js"></script>
+    <script src="../js/plugins/media_manager.min.js"></script>
+    <script src="../js/plugins/font_family.min.js"></script>
+    <script src="../js/plugins/font_size.min.js"></script>
+    <script src="../js/plugins/block_styles.min.js"></script>
+    <script src="../js/plugins/video.min.js"></script>
+    <!-- 图片上传 -->
+    <script src="../js/imgUp.js"></script>
+    <!-- 地区三级联动 -->
+    <script src="../js/site.js"></script>
+    <!-- 动态生成SKU -->
+    <script src="../js/createSkuTable.js"></script>
+    <script>
+        // 动态生成SKU
+        // 渲染select
+        $.ajax({
+            url: 'http://47.104.204.162:8081/goods/addModel',
+            type: 'post',
+            async: false,
+            dataType: "json",
+            data: {
+                gcId: $.cookie("gcId"),
+                storeId: $.cookie("storeId")
+            },
+            success: function (data) {
+                console.log('渲染的data', data)
+                function showSelect(one, two) {
+                    var allText = '<option value="">请选择</option>';
+                    for (var j = 0; j < two.list.length; j++) {
+                        allText += '<option value="' + two.list[j].attrValueId + '">' + two.list[j].attrValueName + '</option>';
+                    }
+                    one.attr("data-item", two.attrId);
+                    one.html(allText);
+                }
+                // data.listSpec为SKU
+                var tableDate = "<div class=\"demo-title m-md-b\"><b>选择生成商品规格表格：</b></div>";
+                $.each(data.listSpec, function (id, obj) {
+                    tableDate += "<ul class=\"SKU_TYPE lf\"><li is_required=\"1\" propid=\"" + obj.spId + "\" sku-type-name=\"" + obj.spName + "\"><em class='color-b9c m-xs-r'>*</em>" + obj.spName + "：</li></ul> <ul class='lf'>";
+                    $.each(obj.listValue, function (id, value) {
+                        tableDate += "<li class='lf m-xs-b'><label style='font-weight: normal;' class='position-r'><input type=\"checkbox\" id='checkbox-1-" + value.spValueId + "' class=\"sku_value regular-checkbox\" propvalid=\"" + value.spValueId + "\" value=\"" + value.spValueName + "\" /><label for='checkbox-1-" + value.spValueId + "' class='m-none-b m-md-l m-xs-r' style='margin-top: 1px;'></label><span class='rt'>" + value.spValueName + "</span></label></li>";
+                    });
+                    tableDate += "</ul> <div class=\"clear\"></div>";
+                });
+                $("#skuCheckBox").html(tableDate);
+                var listAttr = data.listAttr;
+                for (var i = 0; i < listAttr.length; i++) {
+                    if (i == 0) {
+                        // 品牌
+                        listAttr[i].list = [{
+                            attrValueId: 10, attrValueName: $.cookie('gcName'), attrId: 2, attrValueSort: null
+                        }]
+                        showSelect($("#brand"), listAttr[i]);
+                        console.log(listAttr[i]);
+                        // console.log($.cookie());
+                    }
+                    if (i == 1) {
+                        // 价格区间
+                        showSelect($("#priceInterval"), listAttr[i])
+                    }
+                    if (i == 2) {
+                        // 年份
+                        showSelect($("#creatYear"), listAttr[i])
+                    }
+                    if (i == 3) {
+                        // 形状
+                        showSelect($("#xingzhuang"), listAttr[i])
+                    }
+                    if (i == 4) {
+                        // 工艺
+                        showSelect($("#gongyi"), listAttr[i])
+                    }
+                    if (i == 5) {
+                        // 需求
+                        showSelect($("#xuqiu"), listAttr[i])
+                    }
+                    if (i == 6) {
+                        // 重量
+                        showSelect($("#zhongliang"), listAttr[i])
+                    }
+                    if (i == 7) {
+                        // 茶区
+                        $("#chaqu").attr("data-item", listAttr[i].attrId);
+                    }
+                    if (i == 8) {
+                        // 厂名
+                        $("#changming").attr("data-item", listAttr[i].attrId);
+                    }
+                    if (i == 9) {
+                        // 厂址
+                        $("#changzhi").attr("data-item", listAttr[i].attrId);
+                    }
+                    if (i == 10) {
+                        // 产地
+                        $("#changdi").attr("data-item", listAttr[i].attrId);
+                    }
+                    if (i == 11) {
+                        // 原料
+                        $("#yuanliao").attr("data-item", listAttr[i].attrId);
+                    }
+                    if (i == 12) {
+                        // 保质期
+                        $("#baozhiqi").attr("data-item", listAttr[i].attrId);
+                    }
+                    if (i == 13) {
+                        // 储藏方法
+                        $("#chuchang").attr("data-item", listAttr[i].attrId);
+                    }
+                    if (i == 14) {
+                        // 规格
+                        $("#guige").attr("data-item", listAttr[i].attrId);
+                    }
+
+                }
+            }
+        });
+    </script>
+    <script>
+        $(function () {
+            /*导入头部和左侧菜单栏*/
+            // $(".center-left").load("../all/left.html");
+            // 设置左侧高度
+            HeightCenter();
+            // 获取店铺信息
+            indexContent();
+            //编辑器
+            $('#edit').editable({ inlineMode: false, alwaysBlank: true })
+            // 删除上传的图片
+            $(".Imgall").on("click", ".clickDelImg", function () {
+                var imgURLdel = $(this).parents("dl").find("img").attr("src");
+                for (var i = 0; i <= ListVal.length; i++) {
+                    if (ListVal[i] == imgURLdel) {
+                        ListVal.splice(i, 1)
+                    }
+                }
+                $(".goodsImageMore").val(ListVal);
+                $(this).parents("dl").remove();
+            });
+            // 调用地区三级联动
+            area_cont(0, 1, $(".select_province"), $(".select_city"));
+            area_cont(110000, 2, $(".select_province"), $(".select_city"));
+            $(".select_province").change(function () {
+                var vals = $(this).val();
+                area_cont(vals, 2, $(".select_province"), $(".select_city"));
+            });
+            // 选择运费方式
+            $(".radioCange").on("change", "input", function () {
+                if ($(this).attr("id") == "MAYs") {
+                    $(".radioDiv").removeClass("display-none");
+                    $(".radioDiv").find("input").prop("disabled", false);
+                }
+                else {
+                    $(".radioDiv").find("input").prop("disabled", true);
+                    $(".radioDiv").addClass("display-none")
+                }
+            });
+            // 使用运费模板 平邮 快递 EMS
+            $(".radioDiv").on("change", ".regular-radio", function () {
+                if ($(this).attr("id") == "modelInput") {
+                    // 使用运费模板
+                    $(".radioDiv").removeClass("display-none");
+                    $(".CHANGinput").find("input[type='text']").attr("disabled", true);
+                    $(".CHANGinput").find("input[type='text']").val("");
+                    $(".btnMyModal").css("display", "inline-block");
+                    $(".positionSpan").css("top", "-5px");
+                }
+                else {
+                    // 平邮 快递 EMS
+                    $(".CHANGinput").find("input[type='text']").attr("disabled", false);
+                    $(".btnMyModal").css("display", "none");
+                    $(".positionSpan").css("top", "0");
+                    $(".radioHtml").html("使用运费模板");
+                    $(".radioVal").val("");
+                };
+            });
+            //点击选择模板
+            $(".btnMyModal").click(function () {
+                $.ajax({
+                    url: "http://47.104.204.162:8081/store/transport",
+                    type: "post",
+                    data: {
+                        storeId: $.cookie("storeId")
+                    },
+                    success: function success(data) {
+                        for (var i = 0, html = ""; i < data.length; i++) {
+                            html += '<div class="display-lin position-r m-sm-b" style="width: 185px">  ' +
+                                '<input type="radio" data-id="' + i + '" id="' + data[i].id + '"  name="radioSet" class="regular-radio" />' +
+                                '<label for="' + data[i].id + '"></label>' +
+                                '<span class="position-a positionSpan" style="left:30px ;top: 0px;">' + data[i].title +
+                                '</span>' +
+                                '</div>'
+                        };
+                        $(".radioEach").html(html);
+                    }
+                });
+            })
+            // 选择模板
+            $(".radioEach").on("change", ".regular-radio", function () {
+                $(".tableRadioEach").removeClass("display-none");
+                var ids = $(this).attr("id");
+                $.ajax({
+                    url: "http://47.104.204.162:8081/store/transport/getone",
+                    type: "post",
+                    data: {
+                        id: ids
+                    },
+                    success: function (data) {
+                        var extendList = data.extendList;
+                        for (var i = 0, htmls = ""; i < extendList.length; i++) {
+                            htmls += '<tr>' +
+                                '<td>快递</td>' +
+                                '<td>' + extendList[i].areaName + '</td>' +
+                                '<td>' + extendList[i].snum + '</td>' +
+                                '<td>' + extendList[i].sprice + '</td>' +
+                                '<td>' + extendList[i].xnum + '</td>' +
+                                '<td>' + extendList[i].xprice + '</td>' +
+                                '</tr>';
+                        }
+                        $(".table tbody").html(htmls);
+                        $(".table").attr("id", data.id);
+                        $(".table").attr("data-title", data.title);
+                    }
+                });
+            });
+            //确认选择模板
+            $(".clickRadioSuccess").click(function () {
+                if (!$(".tableRadioEach").hasClass("display-none")) {
+                    $('.myModalfade').modal('toggle');
+                    $(".radioHtml").html($(".table").attr("data-title"))
+                    $(".radioVal").val($(".table").attr("id"))
+                }
+            });
+            $('.fr-bttn[data-cmd="html"]').css("display", "none")
+        });
+    </script>
+    <script>
+        $(function () {
+            function myCheck() {
+                for (var i = 0; i < $('.allINputNull').length - 1; i++) {
+                    if ($($('.allINputNull')[i]).val() == "") {
+                        $($('.allINputNull')[i]).focus();
+                        return false;
+                    }
+                }
+                return true;
+            };
+            //重置表单
+            $("#clickBELall").click(function () {
+                $("#itemAddForm").reset();
+            });
+            //提交表单
+            $("#clickSUBmit").click(function () {
+                // 检验是否为空
+                // console.log($.cookie());
+                if (true) {
+                    $("#gcId").val($.cookie('gcId'));
+                    $("#gcName").val($.cookie('gcName'));
+                    $("#typeId").val($.cookie('typeId'));
+                    $("#storeId").val($.cookie('storeId'));
+                    $("#stapleName").val($.cookie('stapleName'));
+                    //将文本编辑器的类容放入input
+                    $(".goodsDescription").val($('#edit>.not-msie').html());
+                    //创建一个空的对象和数组select
+                    var attr = {}, attrArray = [];
+                    //创建一个空的对象和数组input
+                    var attrInput = {}, attrArrayInput = [];
+                    // 商品显示属性select
+                    var allText = $('#allText>div');
+                    for (var i = 0; i < allText.length; i++) {
+                        var attrName = $(allText[i]).find("select").attr("id");
+                        if (i == allText.length - 1) {
+                            var attrChangedId = $(allText[i]).find("input").attr("data-item");
+                            var attrChangedVal = $(allText[i]).find("input").val();
+                            var Top = {
+                                'attrChangedId': attrChangedId,
+                                'attrChangedVal': attrChangedVal
+                            };
+                            attrArrayInput.push(Top);
+                        }
+                        else {
+                            // 检验是否有品牌
+                            // if(attrName=="brand"){
+                            //     $("#brandId").val($(this).find("option:selected").val());
+                            // }
+                            if (attrName) {
+                                attr = {
+                                    'attrId': $(allText[i]).find("select").attr("data-item"),
+                                    'attrValId': $(allText[i]).find("option:selected").val(),
+                                    'attrValName': $(allText[i]).find("option:selected").text()
+                                }
+                                attrArray.push(attr);
+                            }
+                        }
+                    }
+                    attrArray = JSON.stringify(attrArray);
+                    //将select的值数组放入input
+                    $("#itemAddForm [name=attrParams]").val(attrArray);
+                    // 商品显示属性input
+                    $('#allInput>div').each(function () {
+                        var attrChangedId = $(this).find(".inputs").attr("data-item");
+                        var attrChangedVal = $(this).find(".inputs").val();
+                        attrInput = {
+                            'attrChangedId': attrChangedId,
+                            'attrChangedVal': attrChangedVal
+                        }
+                        attrArrayInput.push(attrInput);
+                    });
+                    attrArrayInput = JSON.stringify(attrArrayInput);
+                    //将select的值数组放入input
+                    $("#itemAddForm [name=attrChangedParams]").val(attrArrayInput);
+
+                    //SKU表格数据
+                    var spec = {};//创建一个空的json
+                    var Array = [];//一个空的数组
+                    $('#skuTable tbody .sku_table_tr').each(function () {
+                        spec = {
+                            'specIds': $(this).attr("propids"),
+                            'specValIds': $(this).attr("propvalids"),
+                            'specValNames': $(this).attr("propvalnames"),
+                            'specNames': $(this).attr("propnames"),
+                            'price': $(this).find("#price").val(),
+                            'stock': $(this).find("#stock").val(),
+                            'serial': $(this).find("#serial").val(),
+                            'barcode': $(this).find("#barcode").val()
+                        };//把每一个tr的数据写成一个json数据
+                        Array.push(spec);//把json数据写入数组
+                    });
+                    Array = JSON.stringify(Array);
+                    //将SKU表格表格数据放入input内
+                    $("#itemAddForm [name=skuParams]").val(Array);
+                    $.ajax({
+                        // 方法报错
+                        url: 'http://47.104.204.162:8081/item/add',
+                        type: 'post',
+                        data: $("#itemAddForm").serialize(),
+                        success: function (data) {
+                            // console.log('111',data)
+                            if (data.status == 200) {
+                                $(".error400").html("添加成功");
+                                $('.add-success').modal('toggle');
+                                setInterval(function () {
+                                    window.location.href = "sell.html";
+                                }, 2000)
+                            }
+                        },
+                        error: function () {
+                            alert("添加失败")
+                        }
+                    });
+                }
+            });
+        })
+    </script>
+    <!-- <script>
+        $(function () {
+            if (location.search.split('?')[1]) {
+                var goodsIds = location.search.split('?')[1]
+                $.ajax({
+                    // 编辑商品
+                    url: "http://47.104.204.162:8081/goods/store/edit/" + $.cookie("storeId"),
+                    type: "post",
+                    async: false,
+                    data: {
+                        storeId: $.cookie("storeId"),
+                        goodsId: goodsIds
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        var List = data.data.attrList;
+                        var tableList = data.data.selectedList;
+                        var skuList = data.data.skuList;
+                        var gcId = data.data.gcId;
+                        var goodsId = data.data.goodsId;
+                        var typeId = data.data.typeId;
+                        var gcName = data.data.gcName;
+                        var goodsDescription = data.data.goodsDescription;
+                        var goodsImageMoreS = data.data.goodsImageMore.split(",");
+                        var goodsImageMoreA = data.data.goodsImageMore;
+                        for (var u = 0, htmls = ""; u < goodsImageMoreS.length; u++) {
+                            htmls += '<dl class="display-lin text-center m-sm-r m-sm-t chiNumberImg"> ' +
+                                '<dt>' +
+                                '<img src="' + goodsImageMoreS[u] + '" alt="">' +
+                                ' </dt>' +
+                                ' <dd class="m-sm-t" style="cursor: pointer;">' +
+                                ' <button type="button" class="btn btn-default btn-sm clickDelImg">删除上图 </button>' +
+                                ' </dd> ' +
+                                ' </dl>'
+                        }
+                        $(".Imgall").html(htmls)
+                        $(".goodsImageMore").val(goodsImageMoreA);
+                        for (var i = 0; i < tableList.length; i++) {
+                            $("#skuCheckBox .sku_value[value='" + tableList[i].spValueName + "']").prop("checked", true);
+                        };
+                        credS();
+                        var trInput = $(".skuTable .sku_table_tr");
+                        for (var b = 0; b < trInput.length; b++) {
+                            for (var l = 0; l < skuList.length; l++) {
+                                if ($(trInput[b]).attr("propvalnames") == skuList[l].specName) {
+                                    $(trInput[b]).attr("id", skuList[l].specId);
+                                    $(trInput[b]).find(".setting_sku_price").val(skuList[l].specGoodsPrice);
+                                    $(trInput[b]).find(".setting_sku_stock").val(skuList[l].specGoodsStorage);
+                                    $(trInput[b]).find(".setting_sku_serial").val(skuList[l].specGoodsSerial);
+                                    $(trInput[b]).find(".setting_sku_barcode").val(skuList[l].specGoodsColor);
+                                    getAlreadySetSkuVals();
+                                }
+                            }
+                        }
+                        $("#gcId").val(gcId);
+                        $("#typeId").val(typeId);
+                        $("#gcName").val(gcName);
+                        $("#goodsId").val(goodsId);
+                        $(".goodsName").val(data.data.goodsName);
+                        $(".goodsSubtitle").val(data.data.goodsSubtitle);
+                        $(".not-msie").html(goodsDescription);
+                        $("#brand option[value='" + List[0].attrValueId + "']").prop("selected", true);
+                        $("#priceInterval option[value='" + List[1].attrValueId + "']").prop("selected", true);
+                        $("#creatYear option[value='" + List[2].attrValueId + "']").prop("selected", true);
+                        $("#xingzhuang option[value='" + List[3].attrValueId + "']").prop("selected", true);
+                        $("#gongyi option[value='" + List[4].attrValueId + "']").prop("selected", true);
+                        $("#xuqiu option[value='" + List[5].attrValueId + "']").prop("selected", true);
+                        $("#zhongliang option[value='" + List[6].attrValueId + "']").prop("selected", true);
+                        $("#allEch input#chaqu").val(List[7].attrValueName);
+                        $("#allEch input#changming").val(List[8].attrValueName);
+                        $("#allEch #changzhi").val(List[9].attrValueName);
+                        $("#allEch input#changdi").val(List[10].attrValueName);
+                        $("#allEch input#yuanliao").val(List[11].attrValueName);
+                        $("#allEch input#baozhiqi").val(List[12].attrValueName);
+                        $("#allEch input#chuchang").val(List[13].attrValueName);
+                        $("#allEch input#guige").val(List[14].attrValueName);
+                        $("#py_price").val(data.data.pyPrice);
+                        $("#kd_price").val(data.data.kdPrice);
+                        $("#es_price").val(data.data.esPrice);
+                        $(".select_province option[value='" + data.data.provinceId + "']").prop("selected", true);
+                        area_cont(data.data.provinceId, 2, $(".select_province"), $(".select_city"));
+                        $(".select_city option[value='" + data.data.cityId + "']").prop("selected", true);
+                    }
+                });
+            }
+        })
+
+    </script> -->
+</body>
+
+</html>

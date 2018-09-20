@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="ie-comp">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>商家后台管理系统</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/self.css">
+    <link rel="icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/title.ico" type="image/x-icon">
+    <link href="../js/time/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link href="../js/page/simplePaging.css" rel="stylesheet" media="screen">
+
+    <style>
+        html,
+        body {
+            background: #f8f8f8
+        }
+
+        .centerbody {
+            width: 1200px;
+        }
+
+        .centerLeft {
+            width: 200px;
+        }
+
+        .centerRight {
+            width: 1000px;
+        }
+
+        .centerRightMargin {
+            width: 990px;
+        }
+
+        .dropdown-menu {
+            min-width: auto
+        }
+
+        .activeLi {
+            background: #D4FFF7;
+            border-left: 4px solid #00BB9C;
+        }
+
+        .center-left {
+            min-height: 600px
+        }
+        /* ************** */
+
+        .border-color-e8 {
+            border-color: #E7E8E8
+        }
+
+        .heightAllDiv>.lf {
+            height: 60px;
+        }
+
+        .activeBtn {
+            background: #00BB9C !important;
+            color: #fff !important;
+        }
+
+        .nav-tabs>li {
+            margin-bottom: -2px;
+        }
+
+        .nav-tabs>li.active>a,
+        .nav-tabs>li.active>a:hover,
+        .nav-tabs>li.active>a:focus {
+            border: 2px solid #00BB9C;
+            border-bottom-color: transparent;
+            color: #00BB9C;
+            font-weight: bold
+        }
+
+        .nav-tabs>li>a,
+        .nav-tabs>li>a:hover,
+        .nav-tabs>li>a:focus {
+            background: #fff;
+            border: none;
+            color: #666
+        }
+
+        .clikEditALL {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="centerbody" style="margin: 0 auto">
+        <div class="herder" style="height:80px;">
+            <div class="lf centerLeft bg-color-b9c h-full text-center">
+                <img src="../../images/index/home_logo.png" style="margin-top: 18px" alt="">
+            </div>
+            <div class="rt centerRight bg-color-w h-full">
+                <div class="" style="margin-top: 25px">
+                    <div class="bg-f8 m-lg m-none-t p-xs p-xl-l p-md-r position-r" style="display: inline-block;border-radius: 5px"><img src="../../images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: 5px;" alt="">&nbsp;商家管理中心</div>
+                    <div class="display-lin" style="width: 215px"></div>
+                    <div class="display-lin position-r color-2b">
+                        <img src="../../images/index/home_icon_head.png" alt="images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: -16px;">
+                        <span class="className" style="padding-left:70px ">....</span>
+                        <span> &nbsp;|&nbsp;</span>
+                        <span class="color-b9c quit" style="padding-right:30px ">退出</span>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    我的订单
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">待付款订单</a></li>
+                                <li><a href="#">待确认收货  </a></li>
+                                <li><a href="#">待评价交易</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    我的收藏
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                <li><a href="#">收藏的商品</a></li>
+                                <li><a href="#">收藏的店铺</a></li>
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    客户服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                <li><a href="#">帮助中心</a></li>
+                                <li><a href="#">售后服务</a></li>
+                                <li><a href="#">客服中心</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    站点服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                <li><a href="#">商城首页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- center -->
+        <div class="">
+            <!-- center左边 -->
+            <div class="center-left lf centerLeft bg-color-w h-full text-center m-sm-r color-2b">
+                <div class="m-md-t text-md ">
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_manage.png" class="position-a" style="left: 50px;top: 2px" alt="">
+                            <b style="padding-left:25px ">商品管理</b>
+                        </div>
+                        <ul class="m-md-t text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b "><a href="../manager/edit.html" data-id="0" class="color-68 ">商品发布</a></li>
+                            <li class="p-xs-t p-xs-b "><a href="../manager/sell.html" data-id="1" class="color-68 ">出售中的商品</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/warehouse.html" data-id="2" class="color-68 ">仓库中的商品</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/brandList.html" data-id="3" class="color-68 ">品牌列表</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_set.png" class="position-a" style="left: 50px;" alt="">
+                            <b style="padding-left:25px ">交易管理</b>
+                        </div>
+                        <ul class="m-md-t m-xl-b text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b"><a href="../order/index.html" data-id="4" class="color-68 ">订单管理</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/deliver.html" data-id="5" class="color-68 ">发货</a></li>
+                            <li class="p-xs-t p-xs-b activeLi"><a href="../order/address.html" data-id="6" class="color-68 ">发货设置</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/reimburse.html" data-id="7" class="color-68 ">退款退货</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/freight.html" data-id="8" class="color-68 ">物流工具</a></li>
+                            <li class="p-xs-t p-xs-b "><a href="../order/evaluate.html" data-id="9" class="color-68 ">评价管理</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_password.png" class="position-a" style="left: 50px;" alt="">
+                            <b style="padding-left:25px ">密码管理</b>
+                        </div>
+                        <ul class="m-md-t m-xl-b text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b"><a href="../index/findPwd.html" data-id="9" class="color-68 ">修改密码</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- center右边 -->
+            <div class="center-right rt centerRightMargin h-full  color-2b">
+                <div class="bg-color-w m-sm-t h-full">
+                    <div class="p-lg p-none-t p-none-b">
+                        <div class="b-samll-b border-color-e8" style="height: 50px;line-height: 50px">
+                            <div>
+                                <span>商家中心</span>
+                                <span>&nbsp;&gt;&nbsp;</span>
+                                <span>发货设置</span>
+                                <span>&nbsp;&gt;&nbsp;</span>
+                                <span class="color-b9c ">地址库</span>
+                            </div>
+                        </div>
+                        <div class="p-md-t p-md-b position-r">
+                            <ul class="nav nav-tabs navList" style="border-bottom:2px solid #00BB9C">
+                                <li role="presentation" class="active" data-id="">
+                                    <a href="address.html">地址库</a>
+                                </li>
+                                <li role="presentation" data-id="10">
+                                    <a href="setting.html">默认物流公司</a>
+                                </li>
+                            </ul>
+                            <div class="position-a" style="right: 0;top: 15px">
+                                <button type="button" class="btn color-w bg-color-b9c showModal" data-toggle="modal">新增地址</button>
+                            </div>
+                        </div>
+
+                        <div class="b-samll-b b-samll-t border-color-e8 p-sm-t p-sm-b p-md-l p-md-r">
+                            <div class="lf text-center b-samll-r border-color-e8" style="width: 200px">
+                                联系人
+                            </div>
+                            <div class="lf text-center b-samll-r border-color-e8" style="width: 220px">
+                                所在地区
+                            </div>
+                            <div class="lf text-center b-samll-r border-color-e8" style="width: 140px">
+                                街道地址
+                            </div>
+                            <div class="lf text-center b-samll-r border-color-e8" style="width: 100px">
+                                邮编
+                            </div>
+                            <div class="lf text-center b-samll-r border-color-e8" style="width:140px">
+                                电话/手机
+                            </div>
+                            <div class="lf text-center" style="width: 120px">
+                                操作
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="p-md-l p-md-r p-md-b">
+                            <!-- 商品展示列表  -->
+                            <div class="ctentList">
+                                <!-- <div class="bg-f8 m-md-t">
+                                    <div class="p-md-t p-md-b ">
+                                        <div class="heightAllDiv">
+                                            <div class="lf text-center b-samll-r border-color-e8" style="width: 200px">
+                                                <div class="p-md-r p-md-l m-lg-t position-r" style="text-align: left;">
+                                                    <div class="display-lin position-r" style="height: 20px;width:80px;">
+                                                        <input type="radio" id="MAY" checked value="1" name="goods_transfee_charge" class="regular-radio" />
+                                                        <label for="MAY"></label>
+                                                        <span class="position-a" style="left:35px ;top: 0;">默认</span>  
+                                                    </div>
+                                                    <div class=" position-a text-center" style="width: 80px;height: 20px;overflow: hidden;left: 100px;top: 0">大帅哥</div>
+                                                </div>
+                                            </div>
+                                            <div class="lf text-center  b-samll-r border-color-e8" style="width: 220px">
+                                                <div class="m-lg-t">
+                                                    <div>
+                                                        成都市敬牛渠
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="lf text-center  b-samll-r border-color-e8" style="width: 140px">
+                                                <div class="m-lg-t">
+                                                    <div>
+                                                        西部智谷
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="lf text-center  b-samll-r border-color-e8" style="width: 100px">
+                                                <div class="m-lg-t">
+                                                    <div>
+                                                        618400
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="lf text-center  b-samll-r border-color-e8" style="width: 140px">
+                                                <div class="m-lg-t">
+                                                    <div>
+                                                        15982925912
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="lf text-center " style="width: 120px">
+                                                <div class="m-xs-t">
+                                                    <div>
+                                                        <div class="m-xs-b color-b9c text-sm">编辑地址</div>
+                                                        <button class="btn btn-sm b-samll color-w bg-color-w color-666 editClick border-color-e8 " data-id="'+data.data[i].goodsId+'" style="height: 25px;width: 80px;line-height: 10px">删除</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <!-- 分页 -->
+                            <div class="simplePaging2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    </div>
+    <!-- 新增地址弹窗 -->
+    <div class="modal add-list" id="address" style="width: 600px;margin: 200px auto 0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">地址信息</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal forms">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">联系人：</label>
+                            <div class="col-sm-9">
+                                <input type="text" style="width: 94.5%" class="form-control allINputNull sellerName" name="sellerName" placeholder="请输入联系人">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-3 control-label">所在地区：</label>
+                            <div class="col-sm-9">
+                                <div class="display-lin m-lg-r" style="width: 27%;">
+                                    <select name="provinceId" id="one" class="form-control allINputNull select_province">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                                <div class="display-lin m-lg-r" style="width: 28%;">
+                                    <select name="cityId" id="tow" class="form-control allINputNull select_city">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                                <div class="display-lin m-lg-r" style="width: 28%;">
+                                    <select name="areaId" id="tre" class="form-control allINputNull select_area">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                                <input type="hidden" name="areaInfo" class="areaInfo">
+                                <input type="hidden" name="isDefault" value="false" class="isDefault">
+                                <input type="hidden" name="storeId" value="" class="storeIdInput">
+                                <input type="hidden" name="addressId" class="addressId" disabled>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">街道地址：</label>
+                            <div class="col-sm-9">
+                                <input type="text" style="width: 94.5%" class="form-control allINputNull address" name="address" placeholder="请输入街道地址">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">邮编：</label>
+                            <div class="col-sm-9">
+                                <input type="text" style="width: 94.5%" class="form-control allINputNull zipCode" name="zipCode" placeholder="请输入邮编">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">电话号码：</label>
+                            <div class="col-sm-9">
+                                <input type="text" style="width: 94.5%" class="form-control allINputNull telPhone" name="telPhone" placeholder="请输入电话号码称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">手机号码：</label>
+                            <div class="col-sm-9">
+                                <input type="text" style="width: 94.5%" class="form-control allINputNull mobPhone" name="mobPhone" placeholder="请输入手机号码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">公司：</label>
+                            <div class="col-sm-9">
+                                <input type="text" style="width: 94.5%" class="form-control allINputNull company" name="company" placeholder="请输入公司">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">备注：</label>
+                            <div class="col-sm-9">
+                                <input type="text" style="width: 94.5%" class="form-control allINputNull content" name="content" placeholder="请输入备注 ">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn bg-color-b9c color-w p-xl-l p-xl-r clickADD">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/validator.min.js"></script>
+    <script src="../js/ValidatorSelf.js"></script>
+    <script src="../js/all.js"></script>
+    <script src="../js/index.js"></script>
+    <!-- 地区三级联动 -->
+    <script src="../js/site.js"></script>
+    <script type="text/javascript" src="../js/page/simplePaging.js"></script>
+    <script>
+        $(function () {
+            /*导入头部和左侧菜单栏*/
+            // $(".center-left").load("../all/left.html");
+            // 获取店铺信息
+            indexContent();
+            function areaInfo() {
+                $(".areaInfo").val($(".select_province").find("option:selected").text() + " " + $(".select_city").find("option:selected").text() + " " + $(".select_area").find("option:selected").text());
+            }
+            // 调用地区三级联动
+            area_cont(0, 1, $(".select_province"), $(".select_city"));
+            area_cont(110000, 2, $(".select_province"), $(".select_city"));
+            area_cont(110100, 3, $(".select_province"), $(".select_city"), $(".select_area"));
+            areaInfo()
+            $(".select_province").change(function () {
+                var vals = $(this).val();
+                area_cont(vals, 2, $(".select_province"), $(".select_city"));
+                $(".select_area").html('<option>请选择</option>');
+            });
+            $(".select_city").change(function () {
+                var vals = $(this).val();
+                area_cont(vals, 3, $(".select_province"), $(".select_city"), $(".select_area"));
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            var dataPages = 0;
+            // 渲染列表
+            function pageContent(data) {
+                $(".ctentList").html("");
+                var one = "";
+                for (var i = 0, html = "", time = ""; i < data.data.length; i++) {
+                    if (data.data[i].isDefault == true) {
+                        one = '<input type="radio" id="' + data.data[i].addressId + '" checked value="' + data.data[i].addressId + '"  name="goods_transfee_charge" class="regular-radio check_choose" />' +
+                            '<label for="' + data.data[i].addressId + '"></label>'
+                    }
+                    else {
+                        one = '<input type="radio" id="' + data.data[i].addressId + '"  value="' + data.data[i].addressId + '"  name="goods_transfee_charge" class="regular-radio check_choose" />' +
+                            '<label for="' + data.data[i].addressId + '"></label>'
+                    }
+                    html += '<div class="bg-f8 m-md-t">' +
+                        '<div class="p-md-t p-md-b ">' +
+                        '<div class="heightAllDiv">' +
+                        '<div class="lf text-center b-samll-r border-color-e8" style="width: 200px">' +
+                        '<div class="p-md-r p-md-l m-lg-t position-r" style="text-align: left;">' +
+                        '<div class="display-lin position-r" style="height: 20px;width:80px;">' + one + '<span class="position-a" style="left:35px ;top: 0;">默认</span>  ' +
+                        '</div>' +
+                        '<div class=" position-a text-center " style="width: 80px;height: 20px;overflow: hidden;left: 100px;top: 0">' + data.data[i].sellerName + '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="lf text-center  b-samll-r border-color-e8" style="width: 220px">' +
+                        '<div class="m-lg-t">' +
+                        '<div >' + data.data[i].areaInfo + '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="lf text-center  b-samll-r border-color-e8" style="width: 140px">' +
+                        '<div class="m-lg-t">' +
+                        '<div >' + data.data[i].address + '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="lf text-center  b-samll-r border-color-e8" style="width: 100px">' +
+                        '<div class="m-lg-t">' +
+                        '<div>' + data.data[i].zipCode + '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="lf text-center  b-samll-r border-color-e8" style="width: 140px">' +
+                        '<div class="m-sm-t">' +
+                        '<div class="m-xs-b">' + data.data[i].telPhone + '</div>' +
+                        '<div >' + data.data[i].mobPhone + '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="lf text-center " style="width: 120px">' +
+                        '<div class="m-sm-t">' +
+                        '<div>' +
+                        '<div class="m-xs-b color-b9c text-sm clikEditALL" data-id=' + data.data[i].addressId + ' data-toggle="modal" >编辑地址</div>' +
+                        '<button class="btn btn-sm b-samll color-w bg-color-w color-666 editClick border-color-e8 " data-id="' + data.data[i].addressId + '" style="height: 25px;width: 80px;line-height: 10px">删除</button>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="clear"></div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>'
+                };
+                $(".ctentList").html(html);
+            };
+            function pageList() {
+                $(".simplePaging2").simplePaging({
+                    allPage: dataPages,//总页数
+                    showPage: 9,//显示页数
+                    startPage: 1,//第一页页码数字
+                    // initPage: 1,//加载完毕自动跳转到第n页
+                    callBack: function (num) {
+                        getPage(num, 3);
+                    }
+                });
+            };
+            //加载列表
+            var indexS = true;
+            function getPage(pages, conNum) {
+                $.ajax({
+                    url: "http://47.104.204.162:8088/store/daddress/get",
+                    type: "get",
+                    async: false,
+                    data: {
+                        storeId: $.cookie("storeId"),
+                        page: pages,
+                        pageSize: conNum,
+                    },
+                    success: function (data) {
+                        // 有值
+                        if (data.status == 200) {
+                            // 渲染数据
+                            pageContent(data);
+                            // 渲染分页
+                            dataPages = data.totalPage;
+
+                        }
+                        // 无值
+                        else {
+                            $(".simplePaging2").children().remove();
+                            $(".ctentList").html('<div class="text-center m-xxl-t m-xxl-b"><img src="../../images/null.png"><div class="m-md-t">暂无订单信息</div></div>');
+                        };
+                        //设置左侧高度
+                        HeightCenter();
+                    }
+                });
+
+            };
+            //渲染
+            getPage(1, 3);
+            //渲染分页
+            if (dataPages > 1) {
+                pageList();
+            } else {
+                $(".simplePaging2").children().remove();
+            }
+        })
+    </script>
+    <script>
+        // 删除地址函数
+        function delet_address($addressId) {
+            $.ajax({
+                url: "http://47.104.204.162:8088/store/daddress/del",
+                type: "post",
+                data: {
+                    addressId: $addressId,
+                    storeId: $.cookie("storeId"),
+                },
+                success: function (data) {
+                    if (data.status == 200) {
+                        alert("删除成功");
+                        location.reload();
+                    } else {
+                        alert("删除失败");
+                    }
+                }
+            })
+        };
+        // 新增地址函数
+        function add_new(forms, successMsg, errorMsg) {
+            $.ajax({
+                url: 'http://47.104.204.162:8088/store/daddress/add',
+                type: "post",
+                data: forms,
+                success: function (data) {
+                    if (data.status == 200) {
+                        alert(successMsg)
+                        location.reload();
+                    } else {
+                        alert(errorMsg)
+                    }
+                }
+            })
+        }
+        // 验证表单
+        function myCheck() {
+            for (var i = 0; i < $('.allINputNull').length; i++) {
+                if ($($('.allINputNull')[i]).val() == "") {
+                    $($('.allINputNull')[i]).focus();
+                    return false;
+                }
+            }
+            return true;
+        };
+        $(function () {
+            $(".storeIdInput").val($.cookie("storeId"))
+            //点击选中默认
+            $(".ctentList").on("change", ".check_choose", function () {
+                if ($(this).prop("checked")) {
+                    $.ajax({
+                        url: 'http://47.104.204.162:8088/store/daddress/add',
+                        type: "post",
+                        data: {
+                            storeId: $.cookie("storeId"),
+                            addressId: $(this).val(),
+                            isDefault: true,
+                        },
+                        success: function (data) {
+                            if (data.status == 200) {
+                                alert("设置成功")
+                            } else {
+                                alert("设置失败")
+                            }
+                        }
+                    })
+                };
+            });
+            //删除一行
+            $(".ctentList").on("click", ".editClick", function () {
+                var $addressId = $(this).attr("data-id");
+                if (confirm("确认删除吗")) {
+                    delet_address($addressId);
+                } else {
+                    return;
+                }
+            });
+            // 现实弹窗
+            $(".showModal").click(function () {
+                $('#address').modal('toggle');
+                $(".addressId").prop("disabled", true);
+
+                $(".sellerName").val('');
+                $(".address").val('');
+                $(".zipCode").val('');
+                $(".telPhone").val('');
+                $(".mobPhone").val('');
+                $(".company").val('');
+                $(".content").val('');
+                // $(".addressId").val('');
+                // $(".isDefault").val('');
+                // $(".storeIdInput").val(''); // 此为必传参数，不能设置为空
+                $(".areaInfo").val('');
+
+                $(".select_province option").prop("selected", false);
+                $(".select_city option").prop("selected", false);
+                $(".select_area option").prop("selected", false);
+            })
+            //点击新增地址
+            $(".clickADD").on("click", function () {
+                // areaInfo();
+                $(".areaInfo").val($(".select_province").find("option:selected").text() + " " + $(".select_city").find("option:selected").text() + " " + $(".select_area").find("option:selected").text());
+                if (myCheck()) {
+                    if ($(".addressId").prop("disabled")) {
+                        add_new($(".forms").serialize(), "新增成功", "新增失败");
+                    }
+                    else {
+                        add_new($(".forms").serialize(), "修改成功", "修改失败");
+                    }
+                }
+            });
+            //点击修改地址
+            $(".ctentList").on("click", ".clikEditALL", function () {
+                $.ajax({
+                    url: "http://47.104.204.162:8088/store/daddress/getone",
+                    type: "post",
+                    data: {
+                        addressId: $(this).attr("data-id")
+                    },
+                    success: function (data) {
+                        console.log(data)
+                        if (data.status == 200) {
+                            $('#address').modal('toggle');
+                            $(".addressId").prop("disabled", false);
+                            $(".sellerName").val(data.data.sellerName);
+                            $(".address").val(data.data.address);
+                            $(".zipCode").val(data.data.zipCode);
+                            $(".telPhone").val(data.data.telPhone);
+                            $(".mobPhone").val(data.data.mobPhone);
+                            $(".company").val(data.data.company);
+                            $(".content").val(data.data.content);
+                            $(".addressId").val(data.data.addressId);
+                            $(".isDefault").val(data.data.isDefault);
+                            $(".storeIdInput").val(data.data.storeId);
+                            $(".areaInfo").val(data.data.areaInfo);
+                            // 调用地区三级联动
+                            area_cont(data.data.provinceId, 2, $(".select_province"), $(".select_city"));
+                            area_cont(data.data.cityId, 3, $(".select_province"), $(".select_city"), $(".select_area"));
+                            $(".select_province option[value=" + data.data.provinceId + "]").prop("selected", true);
+                            $(".select_city option[value=" + data.data.cityId + "]").prop("selected", true);
+                            $(".select_area option[value=" + data.data.areaId + "]").prop("selected", true);
+                        }
+
+                    }
+                })
+            });
+        })
+    </script>
+</body>
+
+</html>

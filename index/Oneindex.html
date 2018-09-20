@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="ie-comp">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>商家后台管理系统</title>
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/self.css">
+    <link rel="icon" href="../../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../images/title.ico" type="image/x-icon">
+    <style>
+        html,body{
+            background: #f8f8f8
+        }
+        .centerbody{
+            width: 1200px;
+        }
+        .centerLeft{
+            width: 200px;
+        }
+        .centerRight{
+            width: 1000px;
+        }
+        .centerRightMargin{
+            width: 990px;
+        }
+        .dropdown-menu{
+            min-width: auto
+        }
+        .activeLi{
+            background: #D4FFF7;
+            border-left: 4px solid #00BB9C;
+        }
+        .center-left{
+            min-height: 600px
+        }
+        /* ************** */
+       
+
+    </style>
+</head>
+<body>
+
+    <div class="centerbody" style="margin: 0 auto">
+        <div class="herder" style="height:80px;">
+            <div class="lf centerLeft bg-color-b9c h-full text-center">
+                <img src="../../images/index/home_logo.png" style="margin-top: 18px" alt="">
+            </div>
+            <div class="rt centerRight bg-color-w h-full">
+                <div class="" style="margin-top: 25px">
+                    <div class="bg-f8 m-lg m-none-t p-xs p-xl-l p-md-r position-r" style="display: inline-block;border-radius: 5px"><img src="../../images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: 5px;" alt="">&nbsp;商家管理中心</div>
+                    <div class="display-lin" style="width: 215px"></div>
+                    <div class="display-lin position-r color-2b" >
+                        <img src="../../images/index/home_icon_head.png" alt="images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: -16px;">
+                        <span class="className" style="padding-left:70px ">....</span>
+                        <span > &nbsp;|&nbsp;</span>
+                        <span class="color-b9c quit" style="padding-right:30px ">退出</span>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    我的订单
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">待付款订单</a></li>
+                                <li><a href="#">待确认收货  </a></li>
+                                <li><a href="#">待评价交易</a></li>
+                              
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    我的收藏
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                <li><a href="#">收藏的商品</a></li>
+                                <li><a href="#">收藏的店铺</a></li>
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    客户服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                <li><a href="#">帮助中心</a></li>
+                                <li><a href="#">售后服务</a></li>
+                                <li><a href="#">客服中心</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    站点服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                <li><a href="#">商城首页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- center -->
+        <div class="">
+            <!-- center左边 -->
+            <div class="center-left lf centerLeft bg-color-w h-full text-center m-sm-r color-2b">
+                <div class="m-md-t text-md ">
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_manage.png" class="position-a" style="left: 50px;top: 2px" alt="">
+                            <b style="padding-left:25px ">商品管理</b>
+                        </div>
+                        <ul class="m-md-t text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b "><a href="../manager/edit.html" data-id="0" class="color-68 ">商品发布</a></li>
+                            <li class="p-xs-t p-xs-b "><a href="../manager/sell.html" data-id="1" class="color-68 ">出售中的商品</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/warehouse.html" data-id="2" class="color-68 ">仓库中的商品</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/brandList.html" data-id="3" class="color-68 ">品牌列表</a></li>
+                        </ul>
+                    </div>
+                    <div >
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_set.png" class="position-a" style="left: 50px;" alt="">
+                            <b style="padding-left:25px ">交易管理</b>
+                        </div>
+                        <ul class="m-md-t m-xl-b text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b"><a href="../order/index.html" data-id="4" class="color-68 ">订单管理</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/deliver.html" data-id="5" class="color-68 ">发货</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/address.html" data-id="6" class="color-68 ">发货设置</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/reimburse.html" data-id="7" class="color-68 ">退款退货</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/freight.html" data-id="8" class="color-68 ">物流工具</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/evaluate.html" data-id="9" class="color-68 ">评价管理</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_password.png" class="position-a" style="left: 50px;" alt="">
+                            <b style="padding-left:25px ">密码管理</b>
+                        </div>
+                        <ul class="m-md-t m-xl-b text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b"><a href="../index/findPwd.html" data-id="9" class="color-68 ">修改密码</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- center右边 -->
+            <div class="center-right rt centerRightMargin h-full  color-2b">
+                <!-- 店铺尚未完善资料 -->
+                <div class="bg-color-w m-sm-t h-full">
+                    <div class="p-lg p-xxl-t">
+                        <h2 class="color-b9c">欢迎来到商城系统演示站商家中心</h2>
+                        <h5 class="m-xs-t m-lg-b color-666">您现在还没有店铺，无法对商家中心功能进行操作，您可以：</h5>
+                        <div class="p-md bg-f8 position-r">
+                            <a href="edit.html" class="display-lin">
+                                <img src="../../images/all/home_icon_shop_1.png" alt="" style="width: 50px;" >
+                                <div class="position-a" style="left: 90px;top: 17px;">
+                                    <div class="m-xs-b color-666"><b class="text-lg">马上开店</b> <i class="glyphicon glyphicon-chevron-right"></i></div>
+                                    <div class="color-999">选择店铺等级并填写相关信息，即可开设您的店铺。</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+    </div>
+<script src="../../js/jquery.js"></script>  
+<script src="../../js/cookie.js"></script> 
+<script src="../../js/ajax.js"></script> 
+<script src="../../js/bootstrap.js"></script> 
+<script src="../../js/validator.min.js"></script> 
+<script src="../../js/ValidatorSelf.js"></script>
+<script src="./../js/all.js"></script>
+<script src="./../js/index.js"></script>
+<script>
+    $(function(){
+        /*导入头部和左侧菜单栏*/
+        // $(".center-left").load("../all/left.html");
+        // 设置左侧高度
+        HeightCenter();
+         // 获取店铺信息
+         indexContent();
+    });
+</script> 
+</body>
+</html>

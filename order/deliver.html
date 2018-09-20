@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="ie-comp">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>商家后台管理系统</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/self.css">
+    <link rel="icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/title.ico" type="image/x-icon">
+    <link href="../js/time/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link href="../js/page/simplePaging.css" rel="stylesheet" media="screen">
+
+    <style>
+        html,body{
+            background: #f8f8f8
+        }
+        .centerbody{
+            width: 1200px;
+        }
+        .centerLeft{
+            width: 200px;
+        }
+        .centerRight{
+            width: 1000px;
+        }
+        .centerRightMargin{
+            width: 990px;
+        }
+        .dropdown-menu{
+            min-width: auto
+        }
+        .activeLi{
+            background: #D4FFF7;
+            border-left: 4px solid #00BB9C;
+        }
+        .center-left{
+            min-height: 600px
+        }
+        /* ************** */
+        .border-color-e8{
+            border-color:#E7E8E8
+        }
+        .heightAllDiv>.lf{
+            height: 100px;
+        }
+        .activeBtn{
+            background: #00BB9C !important;
+            color: #fff !important;
+        }
+        .nav-tabs > li{
+            margin-bottom: -2px;
+        }
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+            border: 2px solid #00BB9C;
+            border-bottom-color: transparent;
+            color: #00BB9C;
+            font-weight: bold
+        }
+        .nav-tabs > li > a, .nav-tabs > li > a:hover, .nav-tabs > li > a:focus{
+           background: #fff;
+           border: none;
+           color: #666
+        }
+    </style>
+</head>
+<body>
+
+    <div class="centerbody" style="margin: 0 auto">
+        <div class="herder" style="height:80px;">
+            <div class="lf centerLeft bg-color-b9c h-full text-center">
+                <img src="../../images/index/home_logo.png" style="margin-top: 18px" alt="">
+            </div>
+            <div class="rt centerRight bg-color-w h-full">
+                <div class="" style="margin-top: 25px">
+                    <div class="bg-f8 m-lg m-none-t p-xs p-xl-l p-md-r position-r" style="display: inline-block;border-radius: 5px"><img src="../../images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: 5px;" alt="">&nbsp;商家管理中心</div>
+                    <div class="display-lin" style="width: 215px"></div>
+                    <div class="display-lin position-r color-2b" >
+                        <img src="../../images/index/home_icon_head.png" alt="images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: -16px;">
+                        <span class="className" style="padding-left:70px ">....</span>
+                        <span > &nbsp;|&nbsp;</span>
+                        <span class="color-b9c quit" style="padding-right:30px ">退出</span>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    我的订单
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">待付款订单</a></li>
+                                <li><a href="#">待确认收货  </a></li>
+                                <li><a href="#">待评价交易</a></li>
+                              
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    我的收藏
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                <li><a href="#">收藏的商品</a></li>
+                                <li><a href="#">收藏的店铺</a></li>
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    客户服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                <li><a href="#">帮助中心</a></li>
+                                <li><a href="#">售后服务</a></li>
+                                <li><a href="#">客服中心</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    站点服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                <li><a href="#">商城首页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- center -->
+        <div class="">
+            <!-- center左边 -->
+            <div class="center-left lf centerLeft bg-color-w h-full text-center m-sm-r color-2b">
+                <div class="m-md-t text-md ">
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_manage.png" class="position-a" style="left: 50px;top: 2px" alt="">
+                            <b style="padding-left:25px ">商品管理</b>
+                        </div>
+                        <ul class="m-md-t text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b "><a href="../manager/edit.html" data-id="0" class="color-68 ">商品发布</a></li>
+                            <li class="p-xs-t p-xs-b "><a href="../manager/sell.html" data-id="1" class="color-68 ">出售中的商品</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/warehouse.html" data-id="2" class="color-68 ">仓库中的商品</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/brandList.html" data-id="3" class="color-68 ">品牌列表</a></li>
+                        </ul>
+                    </div>
+                    <div >
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_set.png" class="position-a" style="left: 50px;" alt="">
+                            <b style="padding-left:25px ">交易管理</b>
+                        </div>
+                        <ul class="m-md-t m-xl-b text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b"><a href="../order/index.html" data-id="4" class="color-68 ">订单管理</a></li>
+                            <li class="p-xs-t p-xs-b activeLi"><a href="../order/deliver.html" data-id="5" class="color-68 ">发货</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/address.html" data-id="6" class="color-68 ">发货设置</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/reimburse.html" data-id="7" class="color-68 ">退款退货</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/freight.html" data-id="8" class="color-68 ">物流工具</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/evaluate.html" data-id="9" class="color-68 ">评价管理</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_password.png" class="position-a" style="left: 50px;" alt="">
+                            <b style="padding-left:25px ">密码管理</b>
+                        </div>
+                        <ul class="m-md-t m-xl-b text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b"><a href="../index/findPwd.html" data-id="9" class="color-68 ">修改密码</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+           <!-- center右边 -->
+            <div class="center-right rt centerRightMargin h-full color-2b">
+                <div class="bg-color-w m-sm-t h-full">
+                    <div class="p-lg p-none-t p-none-b" >
+                        <div class="b-samll-b border-color-e8" style="height: 50px;line-height: 50px">
+                            <div>
+                                <span>商家中心</span>
+                                <span>&nbsp;&gt;&nbsp;</span>
+                                <span class="color-b9c ">订单管理</span>
+                            </div>
+                        </div>
+                        <div class="p-md-t p-md-b" >
+                            <ul class="nav nav-tabs navList" style="border-bottom:2px solid #00BB9C">
+                                <li role="presentation" class="active" data-id="20">
+                                    <a href="#">等待发货的订单</a>
+                                </li>
+                                <li role="presentation" data-id="30">
+                                    <a href="#">发货中的订单</a>
+                                </li>
+                                <li role="presentation" data-id="40">
+                                    <a href="#">已收到货的订单</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="b-samll-b border-color-e8" >
+                            <div class="p-md p-none-t">
+                                <div class="rt" style="height: 32px;line-height:30px;">
+                                    <button class="btn color-b9c b-samll color-w rt bg-color-w p-xl-r p-xl-l submitSeach" style="height: 31px;border-color: #00BB9C;line-height: 18px;">搜索</button>
+                                </div>
+                                <div class="rt m-lg-r" style="height: 32px;line-height:30px;">
+                                    <span class="">订单编号：</span>
+                                    <input type="text" class="p-xs b-none m-md-r order_sn text-xs" style="width: 200px;background: #f8f8f8;height: 32px;border-radius: 3px">
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    
+                        <div class="p-md-l p-md-r">
+                            <!-- 商品展示列表 -->
+                            <div class="ctentList">
+                                <!-- <div class="bg-f8 m-md-t">
+                                    <div class="p-lg-b ">
+                                        <div class="b-samll-b border-color-e8 m-sm-r m-sm-l p-md-t p-sm-b">
+                                            <div class="lf m-xxl-r">
+                                                <div  class="m-xs-t">订单编号：</div>
+                                            </div>
+                                            <div class="lf  m-xxl-r">
+                                                <div  class="m-xs-t">下单时间：</div>
+                                            </div>
+                                            <div class="clear"></div>
+                                            </div>
+                                        <div class="heightAllDiv m-md-t">
+                                            <div class="lf text-center b-samll-r border-color-e8" style="width: 380px">
+                                                <div class="p-md-r p-md-l m-sm-t position-r" style="text-align: left;">
+                                                    <img src="http://mocds.oss-cn-shenzhen.aliyuncs.com/goods/1395/20180612/1528774290830.jpg" alt="" style="height: 80px;width: 80px;">
+                                                    <div class="shName m-xs-t position-a " style="width: 160px;height: 40px;overflow: hidden;left: 110px;top: 15px">2018年八角亭 布朗早春 生茶 357克/饼 单片</div>
+                                                    <div class="m-xs-t position-a text-center" style="width: 80px;height: 40px;overflow: hidden;right: 10px;top: 25px"><span class="color-b9c">0.01</span> X <span>1</span></div>
+                                                </div>
+                                            </div>
+                                            <div class="lf  b-samll-r border-color-e8 p-md-r p-md-l" style="width: 380px">
+                                                <div class="m-sm-b text-right ">
+                                                    <div class="lf" style="width: 80px">买家：</div>
+                                                    <div class="lf m-xs-l">王波</div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="m-sm-b text-right">
+                                                    <div class="lf" style="width: 80px">收货信息：</div>
+                                                    <div class="lf m-xs-l">
+                                                        <div>1111111</div>
+                                                        <div>1111111</div>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="m-sm-b text-right">
+                                                    <div class="lf" style="width: 80px">运费选择：</div>
+                                                    <div class="lf m-xs-l">王波</div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            
+                                            </div>
+                                            <div class="lf text-center " style="width: 150px">
+                                                <div class="m-xxl-t">
+                                                    <div>
+                                                        <button class="btn btn-sm color-b9c b-samll color-w bg-color-w editClick" data-id="'+data.data[i].goodsId+'" style="border-color: #00BB9C;height: 25px;width: 80px;line-height: 10px">发货</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <!-- 分页 -->
+                            <div class="simplePaging2" ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+    </div>
+<script src="../js/jquery.js"></script>  
+<script src="../js/cookie.js"></script> 
+<script src="../js/ajax.js"></script> 
+<script src="../js/bootstrap.js"></script> 
+<script src="../js/validator.min.js"></script> 
+<script src="../js/ValidatorSelf.js"></script>
+<script src="../js/all.js"></script>
+<script src="../js/index.js"></script>
+<script type="text/javascript" src="../js/page/simplePaging.js"></script>
+<script>
+    $(function(){
+        /*导入头部和左侧菜单栏*/
+        // $(".center-left").load("../all/left.html");
+        // 获取店铺信息
+        indexContent();
+    });
+</script> 
+<script>
+    $(function(){
+    var dataPages = 0;
+    // 渲染列表
+    function pageContent(data){
+        $(".ctentList").html("");
+        var yunMoney,status="";
+        for(var i = 0 , html = "" , time = ""; i < data.data.length; i++){
+            time = timestampToTime(data.data[i].addTime);
+            if(data.data[i].orderState == 20){
+                // 待卖家发货
+                status = '<button class="btn btn-sm color-b9c b-samll color-w bg-color-w editClick" data-id="'+data.data[i].goodsId+'" style="border-color: #00BB9C;height: 25px;width: 80px;line-height: 10px">发货</button> '
+               
+            }
+            else if(data.data[i].orderState == 30){
+                // 卖家已发货
+                status = "已发货"
+            }
+            else if(data.data[i].orderState == 40){
+                // 买家已收货
+                status = "已收货"
+            }
+            
+            if(data.data[i].shippingFee == null || data.data[i].shippingFee == 0){
+	           	 yunMoney = '（免运费）';
+            }
+            else{
+	           	 yunMoney = '运费为：'+data.data[i].shippingFee
+            }
+            html += '<div class="bg-f8 m-md-t">'+
+                    '<div class="p-lg-b ">'+
+                    '<div class="b-samll-b border-color-e8 m-sm-r m-sm-l p-md-t p-sm-b">'+
+                    '<div class="lf m-xxl-r">'+
+                    '<div  class="m-xs-t">订单编号：'+data.data[i].orderSn+'</div>'+
+                    '</div>'+
+                    '<div class="lf  m-xxl-r">'+
+                    '<div  class="m-xs-t">下单时间：'+time+'</div>'+
+                    '</div>'+
+                    '<div class="clear"></div>'+
+                    '</div>'+
+                    '<div class="heightAllDiv m-md-t">'+
+                    '<div class="lf text-center b-samll-r border-color-e8" style="width: 380px">'+
+                    '<div class="p-md-r p-md-l m-sm-t position-r" style="text-align: left;">'+
+                    '<img src="'+data.data[i].goodsImage+'" alt="" style="height: 80px;width: 80px;">'+
+                    '<div class="shName m-xs-t position-a " style="width: 160px;height: 40px;overflow: hidden;left: 110px;top: 15px">'+data.data[i].goodsName+'</div>'+
+                    '<div class="m-xs-t position-a text-center" style="width: 80px;height: 40px;overflow: hidden;right: 10px;top: 25px"><span class="color-b9c">'+data.data[i].goodsPrices+'</span> X <span>'+data.data[i].goodsNum+'</span></div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="lf  b-samll-r border-color-e8 p-md-r p-md-l" style="width: 380px">'+
+                    '<div class="m-sm-b text-right ">'+
+                    '<div class="lf" style="width: 80px">买家：</div>'+
+                    '<div class="lf m-xs-l">'+data.data[i].trueName+'</div>'+
+                    '<div class="clear"></div>'+
+                    '</div>'+
+                    '<div class="m-sm-b ">'+
+                    '<div class="lf text-right" style="width: 80px">收货信息：</div>'+
+                    '<div class="lf m-xs-l">'+
+                    '<div>'+data.data[i].areaInfo+' &nbsp;'+data.data[i].address+'</div>'+
+                    '<div class="m-xs-t">'+data.data[i].zipCode+' , '+data.data[i].mobPhone+' , '+data.data[i].telPhone+'</div>'+
+                    '</div>'+
+                    '<div class="clear"></div>'+
+                    '</div>'+
+                    '<div class="m-sm-b text-right">'+
+                    '<div class="lf" style="width: 80px">运费选择：</div>'+
+                    '<div class="lf m-xs-l">'+yunMoney+'</div>'+
+                    '<div class="clear"></div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="lf text-center " style="width: 150px">'+
+                    '<div class="m-xxl-t">'+
+                    '<div>'+status+'</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="clear"></div>'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>'
+        };
+        $(".ctentList").html(html);
+    };
+    function pageList(orderSta){
+        $(".simplePaging2").simplePaging({
+            allPage:dataPages,//总页数
+            showPage: 9,//显示页数
+            startPage: 1,//第一页页码数字
+            // initPage: 1,//加载完毕自动跳转到第n页
+            callBack: function (num) {
+                getPage(num,3,orderSta);
+            }
+        });
+    };
+    //加载列表
+    var indexS = true ;
+    function getPage(pages,conNum,orderStates){
+        var order_sn = $(".order_sn").val();
+        if(indexS == false){
+            // 搜索
+            $.ajax({
+                url:"http://47.104.204.162:8084/order/store/"+$.cookie("storeId"),
+                type:"post",
+                async:false,
+                data:{
+                    page:pages,
+                    orderState:orderStates,
+                    orderSn:order_sn,
+                    pageSize:conNum,
+                },
+                success:function(data){
+                    // 有值
+                    if(data.status == 200){
+                        // 渲染数据
+                        pageContent(data);
+                        // 渲染分页
+                        dataPages = data.totalPage;
+                       
+                    }
+                    // 无值
+                    else{
+                        $(".simplePaging2").children().remove();
+                        $(".ctentList").html('<div class="text-center m-xxl-t m-xxl-b"><img src="../../images/null.png"><div class="m-md-t">暂无订单信息</div></div>');
+                    };
+                     //设置左侧高度
+                     HeightCenter();
+                }
+            });
+        }
+        else{
+            $.ajax({
+                url:"http://47.104.204.162:8084/order/store/"+$.cookie("storeId"),
+                type:"post",
+                async:false,
+                data:{
+                    page:pages,
+                    pageSize:conNum,
+                    orderState:orderStates,
+                },
+                success:function(data){
+                    console.log(data)
+                    // 有值
+                    if(data.status == 200){
+                        // 渲染数据
+                        pageContent(data);
+                        // 渲染分页
+                        dataPages = data.totalPage;
+                      
+                    }
+                    // 无值
+                    else{
+                        $(".simplePaging2").children().remove();
+                        $(".ctentList").html('<div class="text-center m-xxl-t m-xxl-b"><img src="../../images/null.png"><div class="m-md-t">暂无订单信息</div></div>');
+                    }
+                    //设置左侧高度
+                    HeightCenter();
+                }
+            });
+        }
+       
+    };
+    //渲染
+    getPage(0,3,20);
+    //渲染分页
+    if(dataPages > 1){
+        pageList();
+    }else{
+        $(".simplePaging2").children().remove();
+    }
+    //点击搜索
+    $(".submitSeach").click(function() {
+        indexS = false;
+        $(".simplePaging2").children().remove();
+        getPage(0,3);
+        if(dataPages > 1){
+            pageList();
+        }else{
+            $(".simplePaging2").children().remove();
+        }
+    });
+    // 点击分类查找
+    $(".navList").on("click","li",function(){
+        var orderStates = $(this).attr("data-id");
+        indexS = true;
+        $(".simplePaging2").children().remove();
+        if(dataPages > 1){
+            pageList(orderStates)
+        }else{
+            $(".simplePaging2").children().remove();
+        }
+        getPage(0,3,orderStates);
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".order_sn").val("");
+    });
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="ie-comp">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>商家后台管理系统</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/self.css">
+    <link rel="icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/title.ico" type="image/x-icon"> 
+    <link href="../js/page/simplePaging.css" rel="stylesheet" media="screen">
+    <style>
+        html,body{
+            background: #f8f8f8
+        }
+        .centerbody{
+            width: 1200px;
+        }
+        .centerLeft{
+            width: 200px;
+        }
+        .centerRight{
+            width: 1000px;
+        }
+        .centerRightMargin{
+            width: 990px;
+        }
+        .dropdown-menu{
+            min-width: auto
+        }
+        .activeLi{
+            background: #D4FFF7;
+            border-left: 4px solid #00BB9C;
+        }
+        .center-left{
+            min-height: 600px
+        }
+        /* ************** */
+        .border-color-e8{
+            border-color:#E7E8E8
+        }
+        .heightAllDiv .lf{
+            height: 90px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="centerbody" style="margin: 0 auto">
+        <div class="herder" style="height:80px;">
+            <div class="lf centerLeft bg-color-b9c h-full text-center">
+                <img src="../../images/index/home_logo.png" style="margin-top: 18px" alt="">
+            </div>
+            <div class="rt centerRight bg-color-w h-full">
+                <div class="" style="margin-top: 25px">
+                    <div class="bg-f8 m-lg m-none-t p-xs p-xl-l p-md-r position-r" style="display: inline-block;border-radius: 5px"><img src="../../images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: 5px;" alt="">&nbsp;商家管理中心</div>
+                    <div class="display-lin" style="width: 215px"></div>
+                    <div class="display-lin position-r color-2b" >
+                        <img src="../../images/index/home_icon_head.png" alt="images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: -16px;">
+                        <span class="className" style="padding-left:70px ">....</span>
+                        <span > &nbsp;|&nbsp;</span>
+                        <span class="color-b9c quit" style="padding-right:30px ">退出</span>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    我的订单
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">待付款订单</a></li>
+                                <li><a href="#">待确认收货  </a></li>
+                                <li><a href="#">待评价交易</a></li>
+                              
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    我的收藏
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                <li><a href="#">收藏的商品</a></li>
+                                <li><a href="#">收藏的店铺</a></li>
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    客户服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                <li><a href="#">帮助中心</a></li>
+                                <li><a href="#">售后服务</a></li>
+                                <li><a href="#">客服中心</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    站点服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                <li><a href="#">商城首页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- center -->
+        <div class="">
+            <!-- center左边 -->
+            <div class="center-left lf centerLeft bg-color-w h-full text-center m-sm-r color-2b">
+                <div class="m-md-t text-md ">
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_manage.png" class="position-a" style="left: 50px;top: 2px" alt="">
+                            <b style="padding-left:25px ">商品管理</b>
+                        </div>
+                        <ul class="m-md-t text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b "><a href="../manager/edit.html" data-id="0" class="color-68 ">商品发布</a></li>
+                            <li class="p-xs-t p-xs-b "><a href="../manager/sell.html" data-id="1" class="color-68 ">出售中的商品</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/warehouse.html" data-id="2" class="color-68 ">仓库中的商品</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/brandList.html" data-id="3" class="color-68 ">品牌列表</a></li>
+                        </ul>
+                    </div>
+                    <div >
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_set.png" class="position-a" style="left: 50px;" alt="">
+                            <b style="padding-left:25px ">交易管理</b>
+                        </div>
+                        <ul class="m-md-t m-xl-b text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b"><a href="../order/index.html" data-id="4" class="color-68 ">订单管理</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/deliver.html" data-id="5" class="color-68 ">发货</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/address.html" data-id="6" class="color-68 ">发货设置</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/reimburse.html" data-id="7" class="color-68 ">退款退货</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/freight.html" data-id="8" class="color-68 ">物流工具</a></li>
+                            <li class="p-xs-t p-xs-b activeLi"><a href="../order/evaluate.html" data-id="9" class="color-68 ">评价管理</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_password.png" class="position-a" style="left: 50px;" alt="">
+                            <b style="padding-left:25px ">密码管理</b>
+                        </div>
+                        <ul class="m-md-t m-xl-b text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b"><a href="../index/findPwd.html" data-id="9" class="color-68 ">修改密码</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- center右边 -->
+            <div class="center-right rt centerRightMargin  h-full  color-2b">
+                <div class="bg-color-w m-sm-t h-full">
+                    <div class="p-lg p-none-t p-none-b" >
+                        <div class="b-samll-b border-color-e8" style="height: 50px;line-height: 50px">
+                            <div>
+                                <span>商家中心</span>
+                                <span>&nbsp;&gt;&nbsp;</span>
+                                <span class="color-b9c">评价管理</span>
+                            </div>
+                        </div>
+                        <div class="b-samll-b border-color-e8" >
+                            <div class="p-md-t p-md-b">
+                                <div class="lf" >
+                                    <button class="btn bg-color-b9c b-none color-w p-xxl-l  p-xxl-r addList">品牌申请</button>
+                                </div>
+                                <div class="rt">
+                                    <span  class="">品牌名称：</span>
+                                    <input type="text" class="p-xs b-none m-md-r brand_name"  style="width: 150px;background: #f8f8f8;height: 32px;border-radius: 3px">
+                                    <button class="btn color-b9c b-samll color-w rt bg-color-w p-lg-r p-lg-l submitSeach" style="height: 31px;border-color: #00BB9C;line-height: 18px;">搜索</button>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                        <div class="b-samll-b border-color-e8 p-sm-t p-sm-b">
+                            <div class="p-md-l p-md-r">
+                                <div class="lf text-center b-samll-r border-color-e8" style="width: 182px">
+                                        品牌图标
+                                </div>
+                                <div class="lf text-center b-samll-r border-color-e8" style="width: 182px">
+                                        品牌名称
+                                </div>
+                                <div class="lf text-center b-samll-r border-color-e8" style="width: 182px">
+                                        所属类别
+                                </div>
+                                <div class="lf text-center b-samll-r border-color-e8" style="width: 182px">
+                                        状态 
+                                    <span class="text-xs color-r">(点击查看未通过原因)</span>    
+                                </div>  
+                                <div class="lf text-center " style="width: 182px">
+                                        操作
+                                </div>
+                                
+                                <div class="clear"></div>
+                            </div>
+                            
+                        </div>
+                        <div class="p-md-l p-md-r m-md-t">
+                            <!-- 商品展示列表 -->
+                            <div class="ctentListSP">
+                                <div class="bg-f8 m-md-b">
+                                    <div class="p-lg-b p-lg-t">
+                                        <div class="heightAllDiv">
+                                            <div class="lf text-center b-samll-r border-color-e8" style="width: 182px">
+                                                <div class="p-md-r p-md-l position-r" >
+                                                    <img src="../../images/manger/issue_pic.png" alt="" style="height: 90px;width: 90px;">
+                                                </div>
+                                            </div>
+                                            <div class="lf text-center b-samll-r border-color-e8" style="width: 182px">
+                                                    <div style="width: 100px;margin: 0 auto;">
+                                                        <div class="diandian m-xxl-t">'+time+'</div>
+                                                    </div>
+                                                </div>
+                                            <div class="lf text-center b-samll-r border-color-e8" style="width: 182px">
+                                                    <div style="width: 100px;margin: 0 auto;">
+                                                        <div class="diandian m-xxl-t">'+time+'</div>
+                                                    </div>
+                                                </div>
+                                            <div class="lf text-center b-samll-r border-color-e8" style="width: 182px">
+                                                <div style="width: 100px;margin: 0 auto;">
+                                                    <div class="diandian m-xxl-t">'+time+'</div>
+                                                </div>
+                                            </div>
+                                            <div class="lf text-center " style="width: 182px">
+                                                <div class="m-lg-t">
+                                                    <div>
+                                                        <button class="btn btn-sm color-b9c b-samll color-w bg-color-w editClick" data-id="'+data.data[i].goodsId+'" style="border-color: #00BB9C;height: 25px;width: 80px;line-height: 10px">编辑品牌</button>
+                                                    </div>
+                                                    <div>
+                                                        <button class="btn btn-sm m-sm-t color-999 b-samll color-w bg-color-w delClick" data-id="'+data.data[i].goodsId+'" style="border-color: #999;height: 25px;width: 80px;line-height: 10px">删除</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <!-- 分页 -->
+                            <div class="simplePaging2" ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+       <!-- 品牌申请弹窗 -->
+        <div class="modal add-list"  style="width: 600px;margin: 200px auto 0"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">品牌申请</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-3 control-label">品牌名称：</label>
+                                <div class="col-sm-9">
+                                  <input type="text" style="width: 94.5%" class="form-control allINputNull brandName" id="inputEmail3" placeholder="请输入品牌名称">
+                                  <input type="hidden" class="brandId" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-3 control-label">品牌类别：</label>
+                                <div class="col-sm-9">
+                                    <div class="display-lin m-lg-r" style="width: 27%;">
+                                        <select name="" id="one"  class="form-control allINputNull">
+                                            <option value="">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="display-lin m-lg-r" style="width: 28%;">
+                                        <select name="" id="tow"  class="form-control allINputNull">
+                                            <option value="">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="display-lin m-lg-r" style="width: 28%;">
+                                        <select name="" id="tre"  class="form-control allINputNull ">
+                                            <option value="">请选择</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label  class="col-sm-3 control-label">品牌类别：</label>
+                                <div class="position-r col-sm-9">
+                                        <input type="hidden" value="" class="goodsImageMore " name="goodsImageMore">
+                                        <button type="button" class="btn color-w bg-color-b9c">
+                                        <input type="file" class="position-a display-lin allINputNull" accept="image/jpeg,image/jpg,image/png" name="uploadFile" style="opacity: 0;width: 80px;left: 15px;" onchange="selectImage(this);">
+                                        上传图片
+                                    </button>
+                                </div>
+                                <label  class="col-sm-3 m-sm-t control-label"></label>
+                                <div class="Imgall m-sm-t col-sm-9">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn bg-color-b9c color-w p-xl-l p-xl-r clickADD">确认</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script src="../js/jquery.js"></script>  
+<script src="../js/cookie.js"></script> 
+<script src="../js/ajax.js"></script> 
+<script src="../js/bootstrap.js"></script> 
+<script src="../js/validator.min.js"></script> 
+<script src="../js/ValidatorSelf.js"></script>
+<script src="../js/all.js"></script>
+<script src="../js/index.js"></script>
+<script type="text/javascript" src="../js/page/simplePaging.js"></script>
+<script>
+    
+    var image = '',dataPages = 0;
+
+    // 渲染品牌分类函数
+    function brank(ids,htmls){
+        $.ajax({
+            url:"http://47.104.204.162:8081/goods/cat",
+            type:"post",
+            async:false,
+            data: {
+                id:ids
+            },
+            success:function(data){
+                for(var i = 0 ,html = "";i < data.length ; i++){
+                    html+='<option value="'+data[i].gcId+'">'+data[i].gcName+'</option>'
+                }
+                $(htmls).html('<option value="">请选择</option>'+html);
+            }	
+        });              
+    };
+    // 渲染列表HTML
+    function cententList(dataList){
+        console.log('dataList is ',dataList);
+        let html = "";
+        for(let i = 0 ,  one = ""; i < dataList.data.length ; i++){
+            console.log(dataList.data)
+            if(dataList.data[i].brandApply == 0){
+                one = "审核中";
+            }
+            else if(dataList.data[i].brandApply == 1){
+                one = "审核通过";
+            }
+            else if(dataList.data[i].brandApply == 2){
+                one = '<a tabindex="0" class="btn btn-xs btn-danger example" role="button" data-toggle="popover" data-trigger="focus" title="未通过原因" data-content="'+dataList.data[i].nopassReason+'">未通过</a>'
+            }
+            html += '<div class="bg-f8 m-md-b">'+
+                    '<div class="p-lg-b p-lg-t">'+
+                    '<div class="heightAllDiv">'+
+                    '<div class="lf text-center b-samll-r border-color-e8" style="width: 182px">'+
+                    '<div class="p-md-r p-md-l position-r" >'+
+                    '<img src="'+dataList.data[i].brandPic+'" alt="" style="height: 90px;width: 90px;">'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="lf text-center b-samll-r border-color-e8" style="width: 182px">'+
+                    '<div style="width: 100px;margin: 0 auto;">'+
+                    ' <div class="diandian m-xxl-t">'+dataList.data[i].brandName+'</div>'+
+                    ' </div>'+
+                    ' </div>'+
+                    '<div class="lf text-center b-samll-r border-color-e8" style="width: 182px">'+
+                    '<div style="width: 100px;margin: 0 auto;">'+
+                    '<div class="diandian m-xxl-t">'+dataList.data[i].brandClass+'</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="lf text-center b-samll-r border-color-e8" style="width: 182px">'+
+                    '<div style="width: 100px;margin: 0 auto;">'+
+                    '<div class="diandian m-xxl-t">'+one+'</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="lf text-center " style="width: 182px">'+
+                    '<div class="m-lg-t">'+
+                    '<div>'+
+                    '<button class="btn btn-sm color-b9c b-samll color-w bg-color-w editClick" data-id="'+dataList.data[i].brandId+'" style="border-color: #00BB9C;height: 25px;width: 80px;line-height: 10px">编辑品牌</button>'+
+                    '</div>'+
+                    '<div>'+
+                    '<button class="btn btn-sm m-sm-t color-999 b-samll color-w bg-color-w delClick" data-id="'+dataList.data[i].brandId+'" style="border-color: #999;height: 25px;width: 80px;line-height: 10px">删除</button>'+
+                    '</div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="clear"></div>'+
+                    '</div>'+
+                    '</div>'+
+                    '<div class="clear"></div>'+
+                    '</div>'
+        };
+        $(".ctentListSP").html(html);
+    }
+    // 分页函数
+    function pageList(){
+        $(".simplePaging2").simplePaging({
+            allPage:dataPages,//总页数
+            showPage: 9,//显示页数
+            startPage: 1,//第一页页码数字
+            // initPage: 1,//加载完毕自动跳转到第n页
+            callBack: function (num) {
+                getPage(num,3);
+            }
+        });
+    };
+    var indexS = true;
+    // 渲染列表函数
+    function getPage($page,$pageSize){
+        if( indexS ==  false){
+            var brand_name = $(".brand_name").val();
+            //搜索
+            $.ajax({
+                url:"http://47.104.204.162:8081/brand/listByGcId/fy",
+                type:"post",
+                async:false,
+                data: {
+                    page:$page,
+                    brandName:brand_name,
+                    storeId:$.cookie("storeId"),
+                    pageSize:$pageSize,
+                },
+                success:function(data){
+                    if(data.status == 200){
+                        cententList(data);
+                        // 渲染分页
+                        dataPages = data.totalPage;
+                       
+                    }// 无值
+                    else{
+                        $(".simplePaging2").children().remove();
+                        $(".ctentListSP").html('<div class="text-center m-xxl-t m-xxl-b"><img src="../../images/null.png"><div class="m-md-t">暂无订单信息</div></div>');
+                    };
+                     // 设置左侧高度
+                     HeightCenter();
+                }
+            });  
+        }
+        else{
+            //进入页面
+            $.ajax({
+                url:"http://47.104.204.162:8081/brand/listByGcId/fy",
+                type:"post",
+                async:false,
+                data: {
+                    page:$page,
+                    storeId:$.cookie("storeId"),
+                    pageSize:$pageSize,
+                },
+                success:function(data){
+                    console.log(data)
+                    if(data.status == 200){
+                        cententList(data);
+                        // 渲染分页
+                        dataPages = data.totalPage;
+                        $('[data-toggle="popover"]').popover()
+                    } 
+                    else{
+                        $(".simplePaging2").children().remove();
+                        $(".ctentListSP").html('<div class="text-center m-xxl-t m-xxl-b"><img src="../../images/null.png"><div class="m-md-t">暂无订单信息</div></div>');
+                    };
+                      // 设置左侧高度
+                      HeightCenter();
+                }
+            });  
+            
+        };
+
+    };
+    $(function(){
+        /*导入头部和左侧菜单栏*/
+        // $(".center-left").load("../all/left.html");
+        // 获取店铺信息
+        indexContent();
+        //渲染品牌列表
+        getPage(0,3);
+        if(dataPages > 1){
+            pageList();
+        }else{
+            $(".simplePaging2").children().remove();
+        }
+        
+        // 点击搜索
+        $(".submitSeach").click(function() {
+            indexS = false;
+            $(".simplePaging2").children().remove();
+            getPage(0,3);
+            if(dataPages > 1){
+                pageList();
+            }else{
+                $(".simplePaging2").children().remove();
+            }
+        });
+        // 渲染品牌
+        brank(0,"#one");
+        //选择品牌类别
+        $("#one").change(function(){
+            brank($(this).val(),"#tow");
+            brank($('#tow option:selected').val(),"#tre");
+        });
+        $("#tow").change(function(){
+            brank($(this).val(),"#tre");
+            brandClasss = $('#tre option:selected').text();
+            gcIds = $('#tre option:selected').val();
+        });
+        $("#tre").change(function(){
+            gcIds = $(this).val();
+            brandClasss = $('#tre option:selected').text();
+        });
+    });
+</script> 
+<script>
+function myCheck(){
+    for(var i=0;i<$('.allINputNull').length-1;i++){
+        if($($('.allINputNull')[i]).val()==""){
+            $($('.allINputNull')[i]).focus();
+            return false;
+        }
+    }   
+    return true;
+};
+//点击添加或编辑品牌函数
+function addBand(num){
+    if(num == 0){ // 添加
+        
+        if(myCheck()){
+            console.log(data ={
+                    storeId:$.cookie("storeId"),
+                    brandName:$("#inputEmail3").val(),
+                    gcId:$("#tre").val(),
+                    brandClass:$("#tre option:selected").text(),
+                    brandPic:$(".goodsImageMore").val()
+                }, )
+            $.ajax({
+                url:"http://47.104.204.162:8081/brand/apply",
+                type:"post",
+                data:{
+                    storeId:$.cookie("storeId"),
+                    brandName:$("#inputEmail3").val(),
+                    gcId:$("#tre").val(),
+                    brandClass:$("#tre option:selected").text(),
+                    brandPic:$(".goodsImageMore").val()
+                },
+                success:function(data){
+                    console.log('添加品牌',data);
+                    if(data.status == 200){
+                        window.location.reload();
+                    }
+                },
+                error:function(data){
+                    console.log('失败',data);
+                }
+            });
+        };
+    }
+    else if(num == 1 ){ // 编辑
+        if(myCheck()){
+            $.ajax({
+                url:"http://47.104.204.162:8081/brand/eduit",
+                type:"post",
+                data:{
+                    brandId:$(".brandId").val(),
+                    brandName:$("#inputEmail3").val(),
+                    gcId:$("#tre").val(),
+                    brandClass:$("#tre option:selected").text(),
+                    brandPic:$(".goodsImageMore").val()
+                },
+                success:function(data){
+                    console.log('编辑品牌',data);
+                    if(data.status == 200){
+                        window.location.reload();
+                    }
+                }
+            });
+        };
+    };
+    
+}
+   
+$(function(){
+    //点击申请品牌按钮
+    $(".addList").click(function(){
+        $('.add-list').modal('toggle');
+        $(".clickADD").addClass("shenqing");
+        $(".clickADD").removeClass("bianji");
+        $(".brandName").val("");
+        $(".brandId").val("");
+        $(".Imgall").html("");
+        $(".goodsImageMore").val("");
+        brank(0,"#one");
+        $("#tow").html('<option value="">请选择</option>');
+        $("#tre").html('<option value="">请选择</option>');
+        // 点击申请
+        $(".shenqing").click(function(){
+            addBand(0)
+        });
+    });
+    //删除品牌 
+    $(".ctentListSP").on("click",".delClick",function(){
+        $.ajax({
+            url:"http://47.104.204.162:8081/brand/store/del",
+            type:"post",
+            // Form数据
+            data: {
+                storeId:$.cookie("storeId"),
+                brandId:$(this).attr("data-id")
+            },
+            success:function(data){
+                if(data.status == 200){
+                    window.location.reload()
+                }
+            }
+        });  
+    });
+    //编辑品牌 
+    $(".ctentListSP").on("click",".editClick",function(){
+        $.ajax({
+            url:"http://47.104.204.162:8081/brand/click",
+            type:"post",
+            // Form数据
+            data: {
+                storeId:$.cookie("storeId"),
+                brandId:$(this).attr("data-id")
+            },
+            async:false,
+            success:function(data){
+                console.log(data)
+                if(data.status == 200){
+                    $('.add-list').modal('toggle');
+                    $(".clickADD").addClass("bianji");
+                    $(".clickADD").removeClass("shenqing");
+                    $(".brandName").val(data.data.brand_name);
+                    $(".brandId").val(data.data.brand_id);
+                    $(".Imgall").html('<img src="'+data.data.brand_pic+'" alt="" style="width:80px;height:80px">');
+                    $(".goodsImageMore").val(data.data.brand_pic);
+                    brank(0,"#one");
+                    $("#one option[value='"+data.data.gc_parent_ids+"']").attr("selected","selected");
+                    brank(data.data.gc_parent_ids,"#tow");
+                    $("#tow option[value='"+data.data.gc_parent_id+"']").attr("selected","selected");
+                    brank(data.data.gc_parent_id,"#tre");	
+                    $("#tre option[value='"+data.data.gc_id+"']").attr("selected","selected");
+                    // 点击编辑
+                    $(".bianji").click(function(){
+                        addBand(1)
+                    });
+                }
+            }
+        });  
+    });
+})    
+</script>
+</body>
+</html>

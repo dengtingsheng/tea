@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="ie-comp">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>商家后台管理系统</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/self.css">
+    <link rel="icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/title.ico" type="image/x-icon">
+    <style>
+        html,body{
+            background: #f8f8f8
+        }
+        .centerbody{
+            width: 1200px;
+        }
+        .centerLeft{
+            width: 200px;
+        }
+        .centerRight{
+            width: 1000px;
+        }
+        .dropdown-menu{
+            min-width: auto
+        }
+        .activeLi{
+            background: #D4FFF7;
+            border-left: 4px solid #00BB9C;
+        }
+        .center-left{
+            min-height: 600px
+        }
+        /* ************** */
+        li:hover{
+            background: #00BB9C;
+            color: #fff;
+            cursor: pointer;
+        }
+        .border-color-e8{
+            border-color: #E7E8E8
+        }
+    </style>
+</head>
+<body>
+
+    <div class="centerbody" style="margin: 0 auto">
+        <div class="herder" style="height:80px;">
+            <div class="lf centerLeft bg-color-b9c h-full text-center">
+                <img src="../../images/index/home_logo.png" style="margin-top: 18px" alt="">
+            </div>
+            <div class="rt centerRight bg-color-w h-full">
+                <div class="" style="margin-top: 25px">
+                    <div class="bg-f8 m-lg m-none-t p-xs p-xl-l p-md-r position-r" style="display: inline-block;border-radius: 5px"><img src="../../images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: 5px;" alt="">&nbsp;商家管理中心</div>
+                    <div class="display-lin" style="width: 215px"></div>
+                    <div class="display-lin position-r color-2b" >
+                        <img src="../../images/index/home_icon_head.png" alt="images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: -16px;">
+                        <span class="className" style="padding-left:70px ">....</span>
+                        <span > &nbsp;|&nbsp;</span>
+                        <span class="color-b9c quit" style="padding-right:30px ">退出</span>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    我的订单
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">待付款订单</a></li>
+                                <li><a href="#">待确认收货  </a></li>
+                                <li><a href="#">待评价交易</a></li>
+                              
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    我的收藏
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                <li><a href="#">收藏的商品</a></li>
+                                <li><a href="#">收藏的店铺</a></li>
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    客户服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                <li><a href="#">帮助中心</a></li>
+                                <li><a href="#">售后服务</a></li>
+                                <li><a href="#">客服中心</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    站点服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                <li><a href="#">商城首页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- center -->
+        <div class="centerbody bg-color-w">
+            <!-- center右边 -->
+            <div class="center-right h-full m-sm-t color-2b">
+                <div class="p-md p-none-t">
+                    <div class="b-samll-b border-color-e8" style="height: 50px;line-height: 50px">
+                        <div>
+                            <span>商家中心</span>
+                            <span>&nbsp;&gt;&nbsp;</span>
+                            <span>订单管理</span>
+                            <span>&nbsp;&gt;&nbsp;</span>
+                            <span class="color-b9c">订单详情</span>
+                        </div>
+                    </div>
+                    <div class="text-center m-md-b m-md-t">
+                        <img src="../../images/order/order_btn_01.png" alt="">
+                        <img src="../../images/order/order_btn_1.png" alt="" class="display-none">
+                    </div>
+                    <div class="p-md">
+                        <div class="m-md-b"><b>订单编号：</b><span>65465465465464</span></div>
+                        <div class="bg-f8">
+                            <div class="b-samll-b text-center border-color-e8 p-sm row">
+                                <div class="col-lg-4 col-xs-4 text-left p-xl-l">商品名称</div>
+                                <div class="col-lg-2 col-xs-2">下单时间</div>
+                                <div class="col-lg-2 col-xs-2">买家</div>
+                                <div class="col-lg-2 col-xs-1">支付方式</div>
+                                <div class="col-lg-2 col-xs-1">退款金额</div>
+                            </div>
+                            <div class="p-sm p-lg-b row ">
+                                <div class="col-lg-4 col-xs-4">
+                                    <div class="p-md-r p-md-l m-sm-t position-r" style="text-align: left;">
+                                        <img src="../../images/pic_code.png" alt="" class="goodsImage" style="height: 70px;width: 70px;">
+                                        <div class="goodsName  position-a " style="overflow: hidden;left: 120px;top: 23px">
+                                            11111
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-xs-2 text-center m-xl-t ">2018-06-19 18:00:00</div>
+                                <div class="col-lg-2 col-xs-2 text-center m-lg-t ">
+                                    <div class="moverSHow position-r">
+                                        <div><img src="../../images/all/order_btn_info.png" alt=""></div>
+                                        <span class=" ">
+                                            王波 
+                                        </span>
+                                        <div class="popover fade bottom in" role="tooltip" id="111" style="top: 20px; left: -135px; display: none;width: 500px">
+                                            <div class="arrow" style="left: 78%;"></div>
+                                            <h3 class="popover-title" style="display: none;"></h3>
+                                            <div class="popover-content">
+                                                <div class="m-xs-b">
+                                                    收货人：
+                                                    <span class="dataAreaInfo"></span>
+                                                </div>
+                                                <div class="m-xs-b">
+                                                    联系电话：
+                                                    <span class="dataMobPhone"></span>
+                                                </div>
+                                                <div class="m-xs-b">
+                                                    详细地址：
+                                                    <span class="storeAddress"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-xs-2 text-center m-xl-t ">微信支付</div>
+                                <div class="col-lg-2 col-xs-2 text-center m-xl-t color-r">￥500</div>
+                            </div>
+                        </div>
+                        <div class="b-samll m-md-t m-xl-b border-color-e8 p-xl p-lg-t">
+                            <div class="m-sm-b">
+                                <b class="text-lg">请处理退货申请</b>
+                                <div class="display-lin position-r m-md-l">
+                                    <img src="" alt="" class="position-a" >
+                                    <span class="p-lg-l color-b9c">还剩4天12时26分</span>
+                                </div>
+                            </div>
+                            <div class="color-999 text-xs m-lg-b">请及时联系买家协商退货事宜</div>
+                            <div class="b-samll border-color-e8 ">
+                                <div class="b-samll-b border-color-e8 p-sm p-md-l p-md-r ">退款详情</div>
+                                <div class="p-md">
+                                    <div class="m-sm-b color-666">申请时间： 2018-06-08 12:14:00</div>
+                                    <div class="m-sm-b">
+                                        <img src="../images/all/order_pic.png" alt="" class="m-md-r" style="width: 100px;height: 100px;">
+                                        <img src="../images/all/order_pic.png" alt="" class="m-md-r" style="width: 100px;height: 100px;">
+                                    </div>
+                                    <div class="m-sm-b color-666">退款原因： <span class="color-333">长的太丑</span></div>
+                                    <div class="m-sm-b color-666">问题描述： <span class="color-333">无</span></div>
+                                </div>
+                            </div>
+                            <div class="m-xl-t">
+                                <button type="button" class="btn bg-color-b9c color-w  btn-sm " style="width: 250px;margin-right: 80px">同意申请</button>
+                                <button type="button" class="btn btn-default btn-sm border-color-e8 "  data-toggle="modal" data-target="#jujue" style="width: 250px;margin-right: 80px">拒绝申请</button>
+                            </div>
+                            <div class="p-sm b-samll m-lg-t liyouDIS display-none" style="border-color: #00BB9C">
+                                <div class="color-666">拒绝理由： <span class="color-333 liyou"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+    </div>
+    <!-- 拒绝理由弹窗 -->
+<div class="modal add-list"  id="jujue" style="width: 600px;margin: 200px auto 0"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+         
+            <div class="modal-body">
+                <div class="form-group">
+                    <textarea name="" id="" cols="30" rows="10" class="form-control textareaHtmls " placeholder="请输入拒绝理由"></textarea>
+                </div>
+                <div class="form-group m-none text-center">
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-6">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 80%">取消</button>
+                        </div>
+                        <div class="col-lg-6 col-xs-6">
+                            <button type="button" class="btn bg-color-b9c color-w clickADD" style="width: 80%">确认</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery.js"></script>  
+<script src="../js/cookie.js"></script> 
+<script src="../js/ajax.js"></script> 
+<script src="../js/bootstrap.js"></script> 
+<script src="../js/validator.min.js"></script> 
+<script src="../js/ValidatorSelf.js"></script>
+<script src="../js/all.js"></script>
+<script src="../js/index.js"></script>
+<script>
+    $(function(){
+        $('[data-toggle="popover"]').popover();
+        $(".moverSHow").mouseleave(function(){
+            $(this).find(".popover").css("display","none")
+        })
+        $(".moverSHow").mouseenter(function(){
+            $(this).find(".popover").css("display","block")
+        });
+        // 设置高度
+        $(".centerbody").css("height",window.innerHeight-100);
+        $(".hiddenCent").css("height",$(".hiddenIn").height());
+        $(".clickADD").click(function () {
+            if($(".textareaHtmls").val() != ""){
+                $(".liyou").html($(".textareaHtmls").val());
+                $(".textareaHtmls").val("")
+                $(".liyouDIS").css("display","block")
+            }
+            else{
+                $(".liyou").html("");
+                $(".liyouDIS").css("display","none")
+            }  
+            $('#jujue').modal('toggle'); 
+        })
+    });
+</script> 
+</body>
+</html>

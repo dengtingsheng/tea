@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="ie-comp">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>商家后台管理系统</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/self.css">
+    <link rel="icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/title.ico" type="image/x-icon">
+    <link href="../js/time/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link href="../js/page/simplePaging.css" rel="stylesheet" media="screen">
+
+    <style>
+        html,
+        body {
+            background: #f8f8f8
+        }
+
+        .centerbody {
+            width: 1200px;
+        }
+
+        .centerLeft {
+            width: 200px;
+        }
+
+        .centerRight {
+            width: 1000px;
+        }
+
+        .centerRightMargin {
+            width: 990px;
+        }
+
+        .dropdown-menu {
+            min-width: auto
+        }
+
+        .activeLi {
+            background: #D4FFF7;
+            border-left: 4px solid #00BB9C;
+        }
+
+        .center-left {
+            min-height: 600px
+        }
+        /* ************** */
+
+        .border-color-e8 {
+            border-color: #E7E8E8
+        }
+
+        .heightAllDiv>.lf {
+            height: 60px;
+        }
+
+        .activeBtn {
+            background: #00BB9C !important;
+            color: #fff !important;
+        }
+
+        .nav-tabs>li {
+            margin-bottom: -2px;
+        }
+
+        .nav-tabs>li.active>a,
+        .nav-tabs>li.active>a:hover,
+        .nav-tabs>li.active>a:focus {
+            border: 2px solid #00BB9C;
+            border-bottom-color: transparent;
+            color: #00BB9C;
+            font-weight: bold
+        }
+
+        .nav-tabs>li>a,
+        .nav-tabs>li>a:hover,
+        .nav-tabs>li>a:focus {
+            background: #fff;
+            border: none;
+            color: #666
+        }
+
+        tbody tr td {
+            height: 28px;
+            line-height: 28px;
+        }
+
+        .form-group {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .showMenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none;
+            float: left;
+            padding: 10px 10px 5px;
+            margin: 2px 0 0;
+            font-size: 14px;
+            text-align: left;
+            list-style: none;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        }
+
+        .sm_value:checked+label:after {
+            font-size: 10px;
+            position: absolute;
+            top: -3px;
+            left: 1px;
+            color: #00bb9c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centerbody" style="margin: 0 auto">
+        <div class="herder" style="height:80px;">
+            <div class="lf centerLeft bg-color-b9c h-full text-center">
+                <img src="../../images/index/home_logo.png" style="margin-top: 18px" alt="">
+            </div>
+            <div class="rt centerRight bg-color-w h-full">
+                <div class="" style="margin-top: 25px">
+                    <div class="bg-f8 m-lg m-none-t p-xs p-xl-l p-md-r position-r" style="display: inline-block;border-radius: 5px"><img src="../../images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: 5px;" alt="">&nbsp;商家管理中心</div>
+                    <div class="display-lin" style="width: 215px"></div>
+                    <div class="display-lin position-r color-2b ">
+                        <img src="../../images/index/home_icon_head.png" alt="images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: -16px;">
+                        <span class="className" style="padding-left:70px ">....</span>
+                        <span> &nbsp;|&nbsp;</span>
+                        <span class="color-b9c quit" style="padding-right:30px ">退出</span>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    我的订单
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">待付款订单</a></li>
+                                <li><a href="#">待确认收货  </a></li>
+                                <li><a href="#">待评价交易</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    我的收藏
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                <li><a href="#">收藏的商品</a></li>
+                                <li><a href="#">收藏的店铺</a></li>
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    客户服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                <li><a href="#">帮助中心</a></li>
+                                <li><a href="#">售后服务</a></li>
+                                <li><a href="#">客服中心</a></li>
+
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="true">
+                                    站点服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                <li><a href="#">商城首页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- center -->
+        <div class="">
+            <!-- center左边 -->
+            <div class="center-left lf centerLeft bg-color-w h-full text-center m-sm-r color-2b">
+                <div class="m-md-t text-md ">
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_manage.png" class="position-a" style="left: 50px;top: 2px" alt="">
+                            <b style="padding-left:25px ">商品管理</b>
+                        </div>
+                        <ul class="m-md-t text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b "><a href="../manager/edit.html" data-id="0" class="color-68 ">商品发布</a></li>
+                            <li class="p-xs-t p-xs-b "><a href="../manager/sell.html" data-id="1" class="color-68 ">出售中的商品</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/warehouse.html" data-id="2" class="color-68 ">仓库中的商品</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/brandList.html" data-id="3" class="color-68 ">品牌列表</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_set.png" class="position-a" style="left: 50px;" alt="">
+                            <b style="padding-left:25px ">交易管理</b>
+                        </div>
+                        <ul class="m-md-t m-xl-b text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b"><a href="../order/index.html" data-id="4" class="color-68 ">订单管理</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/deliver.html" data-id="5" class="color-68 ">发货</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/address.html" data-id="6" class="color-68 ">发货设置</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/reimburse.html" data-id="7" class="color-68 ">退款退货</a></li>
+                            <li class="p-xs-t p-xs-b activeLi"><a href="../order/freight.html" data-id="8" class="color-68 ">物流工具</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../order/evaluate.html" data-id="9" class="color-68 ">评价管理</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="position-r">
+                            <img src="../../images/index/home_icon_password.png" class="position-a" style="left: 50px;" alt="">
+                            <b style="padding-left:25px ">密码管理</b>
+                        </div>
+                        <ul class="m-md-t m-xl-b text-base" style="margin-bottom: 60px">
+                            <li class="p-xs-t p-xs-b"><a href="../index/findPwd.html" data-id="9" class="color-68 ">修改密码</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- center右边 -->
+            <div class="center-right rt centerRightMargin h-full color-2b">
+                <div class="bg-color-w m-sm-t h-full">
+                    <div class="p-lg p-none-t p-none-b">
+                        <div class="b-samll-b border-color-e8" style="height: 50px;line-height: 50px">
+                            <div>
+                                <span>商家中心</span>
+                                <span>&nbsp;&gt;&nbsp;</span>
+                                <span>物流工具</span>
+                                <span>&nbsp;&gt;&nbsp;</span>
+                                <span class="color-b9c ">新增模板</span>
+                            </div>
+                        </div>
+                        <div class="p-md">
+                            <!-- 商品展示列表  -->
+                            <div class="ctentList">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label p-none-l p-none-r">模板名称：</label>
+                                        <div class="col-sm-11">
+                                            <input type="text" class="form-control b-none conts tilteName" style="background: #f8f8f8">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label p-none-l p-none-r">运送方式：</label>
+                                        <div class="col-sm-11" style="margin-top: 7px">
+                                            除指定地区外，其余地区的运费采用"默认运费"
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-1 col-sm-11">
+                                            <div class="checkbox">
+                                                <label style="font-weight: normal;" class="position-r p-none">
+                                                    <input type="checkbox" checked  id="checkbox-1-1" class="sku_value regular-checkbox" value="kd">
+                                                    <label for="checkbox-1-1" class="m-none-b m-xs-r" style="margin-top: 1px;"></label>
+                                                <span class="rt text-md">快递</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-1 col-sm-11">
+                                            <div class="b-samll  p-md" style="border-color: #00BB9C;border-radius: 5px;background: #f8f8f8">
+                                                <div class="color-2b titleContent">
+                                                    <div class="lf m-xs-t">默认运费：</div>
+                                                    <div class="lf"> <input type="text" class="form-control conts snum" style="width:80px"></div>
+                                                    <div class="lf m-xs-t m-xs-l">件内，</div>
+                                                    <div class="lf"> <input type="text" class="form-control conts sprice" style="width:80px"></div>
+                                                    <div class="lf m-xs-t m-xs-l">元</div>
+                                                    <div class="lf m-xs-t m-md-l">每增加：</div>
+                                                    <div class="lf"> <input type="text" class="form-control conts xnum" style="width:80px"></div>
+                                                    <div class="lf m-xs-t m-xs-l">件，</div>
+                                                    <div class="lf m-xs-t m-xs-l">增加运费：</div>
+                                                    <div class="lf"> <input type="text" class="form-control conts xprice" style="width:80px"></div>
+                                                    <div class="lf m-xs-t m-xs-l">元</div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="m-md-t">
+                                                    <table class="table table-bordered bg-color-w">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>运送到&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                                                <th class="text-center">首件（个）</th>
+                                                                <th class="text-center">首费（元）</th>
+                                                                <th class="text-center">续件（个）</th>
+                                                                <th class="text-center">运费（元）</th>
+                                                                <th class="text-center">操作</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="padding: 12px 10px;width: 300px">
+                                                                    <input type="hidden" class=" topAreaId">
+                                                                    <input type="hidden" class=" areaId conts">
+                                                                    <input type="hidden" class=" areaName conts">
+                                                                    <div class="lf " style="width: 230px">
+                                                                        <div class="lf m-xs-r HieednInput display-none">
+                                                                            <input type="checkbox" id="0" class="sku_value regular-checkbox tc" value="0">
+                                                                            <label for="0" class="m-none-b  m-xs-r" style="margin-top: 1px;"></label>
+                                                                        </div>
+                                                                        <div class="lf diandian InputADDRESSname" style="width: 200px"> 未添加地区</div>
+                                                                        <div class="clear"></div>
+                                                                    </div>
+                                                                    <div class="rt color-b9c clickADDress" data-id="0" style="cursor: pointer;">编辑</div>
+                                                                    <div class="clear"></div>
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" class="form-control Toone conts snum" style="width: 60px;margin: 0 auto;height: 28px;background: #f8f8f8">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" class="form-control Totow conts sprice" style="width: 60px;margin: 0 auto;height: 28px;background: #f8f8f8">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" class="form-control Totre conts xnum" style="width: 60px;margin: 0 auto;height: 28px;background: #f8f8f8">
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" class="form-control Tofour conts xprice" style="width: 60px;margin: 0 auto;height: 28px;background: #f8f8f8">
+                                                                </td>
+                                                                <td class="text-center delRow" style="padding: 12px 0">
+                                                                    <a href="#" class="color-b9c"> 删除</a>
+
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="HieednInput display-none" style="padding: 0 12px">
+                                                    <div class="lf m-lg-r">
+                                                        <label style="font-weight: normal;" class="position-r">
+                                                            <input type="checkbox" id="checkbox-1-11" class="checkall regular-checkbox">
+                                                            <label for="checkbox-1-11" class="m-none-b  m-xs-r" ></label>
+                                                        <span class="rt">全选</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="lf ">
+                                                        <a href="#" class="color-b9c" data-toggle="modal" data-target="#address">批量设置</a>
+                                                        <a href="#" class="color-b9c m-sm-l allDelInput">批量删除</a>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <div class="" style="padding: 0 12px">
+                                                    <div class="lf ">
+                                                        <a href="#" class="color-b9c clickAddInput">为指定地区设置运费</a>
+                                                        <a href="#" class="color-b9c m-sm-l clickHieednInput">批量操作</a>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button type="button" class="btn bg-color-b9c b-none color-w btnSubmitCLICK" style="width: 200px">保存</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- 分页 -->
+                            <div class="simplePaging2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    </div>
+    <!-- 批量设置弹窗 -->
+    <div class="modal add-list" id="address" style="width: 1000px;margin: 200px auto 0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog w-full" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">批量设置</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal forms">
+                        <div class="color-2b">
+                            <div class="lf m-xs-t">默认运费：</div>
+                            <div class="lf"> <input type="text" class="form-control one modalInput" style="width:80px"></div>
+                            <div class="lf m-xs-t m-xs-l">件内，</div>
+                            <div class="lf"> <input type="text" class="form-control tow modalInput" style="width:80px"></div>
+                            <div class="lf m-xs-t m-xs-l">元</div>
+                            <div class="lf m-xs-t m-md-l">每增加：</div>
+                            <div class="lf"> <input type="text" class="form-control tre modalInput" style="width:80px"></div>
+                            <div class="lf m-xs-t m-xs-l">件，</div>
+                            <div class="lf m-xs-t m-xs-l">增加运费：</div>
+                            <div class="lf"> <input type="text" class="form-control four modalInput" style="width:80px"></div>
+                            <div class="lf m-xs-t m-xs-l">元</div>
+                            <div class="clear"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn bg-color-b9c color-w p-xl-l p-xl-r clickADD">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 编辑地址弹窗 -->
+    <div class="modal" id="addresswww" style="width: 900px;margin: 200px auto 0" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog w-full" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="">地址信息</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal formOne">
+                        <!-- <div class="form-group">
+                            <label style="font-weight: normal;" class="col-sm-2 position-r">
+                                <span class="rt text-md">快递&nbsp;&nbsp;&nbsp;</span>
+                                <input type="checkbox" checked="" id="10" class=" regular-checkbox" >
+                                <label for="10" class="m-none-b m-xs-r rt" style="margin-top: 1px;"></label>
+                            </label>
+                            <div class="col-sm-10">
+                                <div class="display-lin m-sm-b " style="width: 230px">
+                                    <div class="display-lin position-r" style="width: 220px; margin: 0 auto">
+                                        <input type="checkbox" checked="" id="20" class="sku_value regular-checkbox">
+                                        <label for="20" class="m-none-b m-xs-r" style="margin-top: 1px;"></label>
+                                        <i class="glyphicon glyphicon-triangle-bottom rt m-xs-t m-xs-l color-b9c text-xs clickMenu"></i>
+                                        <div class="showMenu" style="width: 500px">
+                                            <div class="display-lin m-sm-b" style="width: 155px">
+                                                <div class="display-lin" style="width: 140px; margin: 0 auto">
+                                                    <input type="checkbox" checked="" id="20" class="sm_value regular-checkbox">
+                                                    <label for="20" class="m-none-b m-xs-r" style="margin-top: 1px;padding: 6px"></label>
+                                                    <span class="rt text-sm display-lin diandian" style="width: 120px">快递快递快递快递快递快递</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="rt text-md display-lin diandian" style="width: 175px" >快递快递快递快递快递快递</span>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn bg-color-b9c color-w p-xl-l p-xl-r clickADDEdit">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/validator.min.js"></script>
+    <script src="../js/ValidatorSelf.js"></script>
+    <script src="../js/all.js"></script>
+    <script src="../js/index.js"></script>
+    <script>
+        $(function () {
+            /*导入头部和左侧菜单栏*/
+            // $(".center-left").load("../all/left.html");
+            // 获取店铺信息
+            indexContent();
+
+            // 渲染列表
+            function pageContent(data) {
+                var html = "";
+                $.each(data, function (i, val) {
+                    for (var j = 0, one = ""; j < val.length; j++) {
+                        for (var k = 0, tow = ""; k < val[j].children.length; k++) {
+
+                            tow += '<div class="display-lin m-sm-b" style="width: 155px">' +
+                                '<div class="display-lin" style="width: 140px; margin: 0 auto">' +
+                                '<input type="checkbox"  id="' + val[j].children[k].id + '" value="' + val[j].children[k].name + '" class="TreInput classInput sm_value regular-checkbox">' +
+                                '<label for="' + val[j].children[k].id + '" class="m-none-b m-xs-r" style="margin-top: 1px;padding: 6px"></label>' +
+                                '<span class="rt text-sm display-lin diandian" style="width: 120px">' + val[j].children[k].name + '</span>' +
+                                '</div>' +
+                                '</div>'
+                        }
+                        one += '<div class="display-lin m-sm-b " style="width: 230px;">' +
+                            '<div class="display-lin position-r" style="width: 180px;">' +
+                            '<input type="checkbox"  id="' + val[j].id + '" value="' + val[j].name + '" class="TowInput classInput regular-checkbox">' +
+                            '<label for="' + val[j].id + '" class="m-none-b m-xs-r" style="margin-top: 1px;"></label>' +
+                            '<i class="glyphicon glyphicon-triangle-bottom rt m-xs-t m-xs-l color-b9c text-xs clickMenu"></i>' +
+                            '<div class="showMenu" style="width: 487px">' + tow + '</div>' +
+                            '<span class="rt text-md display-lin diandian" style="width: 125px" >' + val[j].name + '</span>' +
+                            '</div>' +
+                            '</div>'
+                    }
+                    html += '<div class="form-group">' +
+                        '<label style="font-weight: normal;" class="col-sm-2 position-r">' +
+                        '<span class="rt text-md">' + i + '&nbsp;&nbsp;&nbsp;</span>' +
+                        '<input type="checkbox"  id="' + i + '" class="OneInput regular-checkbox" >' +
+                        '<label for="' + i + '" class="m-none-b m-xs-r rt" style="margin-top: 1px;"></label>' +
+                        '</label>' +
+                        '<div class="col-sm-10 treShowMenu">' + one + '</div>' +
+                        '</div>'
+
+                });
+                $(".formOne").html(html);
+            };
+            function getPage() {
+                $.ajax({
+                    url: "http://47.104.204.162:8088/area/getClassName",
+                    type: "get",
+                    success: function (data) {
+                        // 有值
+                        if (data) {
+                            // 渲染数据
+                            pageContent(data);
+                        }
+                        // 无值
+                        else {
+                            $(".simplePaging2").children().remove();
+                            $(".ctentList").html('<div class="text-center m-xxl-t m-xxl-b"><img src="../../images/null.png"><div class="m-md-t">暂无订单信息</div></div>');
+                        };
+                        //设置左侧高度
+                        HeightCenter();
+                    }
+                });
+            };
+            //渲染
+            getPage();
+        });
+    </script>
+    <script>
+        //获取url中"?"符后的字串 判断是编辑还是保存
+        var str = "";
+        function GetRequest() {
+            var url = location.search;
+            if (url.indexOf("?") != -1) {
+                str = url.substr(1);
+            }
+            return str;
+        }
+        var DataId = 0;
+        var arrGoogsId = [];
+        var n = 0;
+        // 验证表单
+        function myCheck(one) {
+            for (var i = 0; i < one.length; i++) {
+                if ($(one[i]).val() == "") {
+                    $(one[i]).focus();
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        // 全选
+        function checkallInput() {
+            $(".checkall").change(function () {
+                var $hobbies = $(".ctentList input[type=checkbox].tc");
+                var boole = $(this).prop("checked");
+                $hobbies.each(function (index, e) {
+                    if (boole == true) {
+                        arrGoogsId.push(e.value);
+                    }
+                    else {
+                        arrGoogsId = [];
+                    }
+                    e.checked = boole;
+                });
+            });
+            //单选
+            $(".ctentList").on("change", "input[type=checkbox].tc", function () {
+                var count = 0;
+                $(".ctentList input[type=checkbox].tc").each(function () {
+                    if ($(this).prop('checked') == false) {
+                        // 判断一组复选框是否有未选中的 
+                        $('.checkall').prop('checked', false);
+                    } else {
+                        count++;
+                        if (count == $(".ctentList input[type=checkbox].tc").length) {
+                            $('.checkall').prop('checked', true);
+                        }
+                    };
+                });
+            });
+        }
+        $(function () {
+            if (GetRequest()) {
+                //渲染页面
+                $.ajax({
+                    url: "http://47.104.204.162:8081/store/transport/getone",
+                    type: "post",
+                    data: {
+                        id: str,
+                    },
+                    success: function (data) {
+                        $(".tilteName").val(data.title);
+                        for (var i = 0, html = ""; i < data.extendList.length; i++) {
+                            n = data.extendList.length - 2;
+                            if (i == 0) {
+                                $(".tilteName").attr("data-id", data.extendList[i].id);
+                                $(".titleContent .snum").val(data.extendList[i].snum);
+                                $(".titleContent .sprice").val(data.extendList[i].sprice);
+                                $(".titleContent .xnum").val(data.extendList[i].xnum);
+                                $(".titleContent .xprice").val(data.extendList[i].xprice);
+                            }
+                            else {
+                                html += '<tr>' +
+                                    '<td  style="padding: 12px 10px;width: 300px" >' +
+                                    '<input type="hidden" class=" topAreaId" value="' + data.extendList[i].topAreaId + '">' +
+                                    '<input type="hidden"  class=" areaId"  data-id="' + data.extendList[i].id + '" value="' + data.extendList[i].areaId + '">' +
+                                    '<input type="hidden"  class=" areaName" value="' + data.extendList[i].areaName + '">' +
+                                    '<div class="lf " style="width: 230px">' +
+                                    '<div class="lf m-xs-r HieednInput display-none">' +
+                                    '<input type="checkbox" id="' + (i - 1) + '" class="regular-checkbox tc"  value="' + (i - 1) + '">' +
+                                    '<label for="' + (i - 1) + '" class="m-none-b  m-xs-r" style="margin-top: 1px;"></label>' +
+                                    '</div>' +
+                                    '<div class="lf diandian InputADDRESSname" style="width: 200px">' + data.extendList[i].areaName + ' </div>' +
+                                    '<div class="clear"></div>' +
+                                    '</div>' +
+                                    '<div class="rt color-b9c clickADDress" data-id="' + (i - 1) + '" style="cursor: pointer;">编辑</div>' +
+                                    '<div class="clear"></div>' +
+                                    '</td>' +
+                                    '<td>' +
+                                    '<input type="text" class="form-control Toone conts snum" value="' + data.extendList[i].snum + '" style="width: 60px;margin: 0 auto;height: 28px;background: #f8f8f8">' +
+                                    '</td>' +
+                                    '<td>' +
+                                    '<input type="text" class="form-control Totow conts sprice" value="' + data.extendList[i].sprice + '" style="width: 60px;margin: 0 auto;height: 28px;background: #f8f8f8">' +
+                                    '</td>' +
+                                    '<td>' +
+                                    '<input type="text" class="form-control Totre conts xnum" value="' + data.extendList[i].xnum + '" style="width: 60px;margin: 0 auto;height: 28px;background: #f8f8f8">' +
+                                    '</td>' +
+                                    '<td>' +
+                                    '<input type="text" class="form-control Tofour conts xprice" value="' + data.extendList[i].xprice + '" style="width: 60px;margin: 0 auto;height: 28px;background: #f8f8f8">' +
+                                    '</td>' +
+                                    '<td class="text-center delRow" style="padding: 12px 0">' +
+                                    '<a href="#" class="color-b9c"> 删除</a>  ' +
+                                    '</td>' +
+                                    '</tr>';
+                            }
+
+                        };
+                        $(".table tbody").html(html);
+                    }
+                })
+                // 点击提交 ，修改
+                $(".btnSubmitCLICK").click(function () {
+                    console.log('修改');
+                    if (myCheck($(".conts"))) {
+                        var arr = new Array();
+                        var writer = new Object();
+                        writer.type = "kd";
+                        writer.areaId = null;
+                        writer.topAreaId = null;
+                        writer.areaName = "全国";
+                        writer.snum = $(".titleContent .snum").val();
+                        writer.sprice = $(".titleContent .sprice").val();
+                        writer.xnum = $(".titleContent .xnum").val();
+                        writer.xprice = $(".titleContent .xprice").val();
+                        writer.isDefault = true;
+                        writer.id = $(".tilteName").attr("data-id");
+                        arr.push(writer);
+                        for (var i = 0; i < $(".table tbody tr").length; i++) {
+                            if ($(".table tbody tr").find("input[type=text]").val() !== "") {
+                                writer = {};
+                                writer.type = "kd";
+                                writer.areaId = $($(".table tbody tr")[i]).find(".areaId").val();
+                                writer.topAreaId = $($(".table tbody tr")[i]).find(".topAreaId").val();
+                                writer.areaName = $($(".table tbody tr")[i]).find(".areaName").val();
+                                writer.snum = $($(".table tbody tr")[i]).find(".snum").val();
+                                writer.sprice = $($(".table tbody tr")[i]).find(".sprice").val();
+                                writer.xnum = $($(".table tbody tr")[i]).find(".xnum").val();
+                                writer.xprice = $($(".table tbody tr")[i]).find(".xprice").val();
+                                writer.isDefault = false;
+                                writer.id = $($(".table tbody tr")[i]).find(".areaId").attr("data-id");
+                                arr.push(writer);
+                            }
+                        };
+                        console.log(
+                            {
+                                title: $(".tilteName").val(),
+                                id: str,
+                                storeId: $.cookie("storeId"),
+                                list: JSON.stringify(arr)
+                            }
+                        ); debugger;
+                        $.ajax({
+                            url: "http://47.104.204.162:8081/store/transport/add",
+                            type: "post",
+                            data: {
+                                title: $(".tilteName").val(),
+                                id: str,
+                                storeId: $.cookie("storeId"),
+                                list: JSON.stringify(arr)
+                            },
+                            success: function (data) {
+                                // console.log('修改后拿到的data',data);
+                                if (data.status == 200) {
+                                    window.location.href = "freight.html"
+                                }
+                            },
+                            error: function () {
+                                alert('修改失败');
+                            }
+                        })
+                    }
+                });
+            }
+            else {
+                //点击提交 ，新增
+                $(".btnSubmitCLICK").click(function () {
+                    console.log('新增');
+                    if (myCheck($(".conts"))) {
+                        var arr = new Array();
+                        var writer = new Object();
+                        writer.type = "kd";
+                        writer.areaId = null;
+                        writer.topAreaId = null;
+                        writer.areaName = "全国";
+                        writer.snum = $(".titleContent .snum").val();
+                        writer.sprice = $(".titleContent .sprice").val();
+                        writer.xnum = $(".titleContent .xnum").val();
+                        writer.xprice = $(".titleContent .xprice").val();
+                        writer.isDefault = true;
+                        writer.id = "";
+                        arr.push(writer);
+                        for (var i = 0; i < $(".table tbody tr").length; i++) {
+                            if ($(".table tbody tr").find("input[type=text]").val() !== "") {
+                                writer = {};
+                                writer.type = "kd";
+                                writer.areaId = $($(".table tbody tr")[i]).find(".areaId").val();
+                                writer.topAreaId = $($(".table tbody tr")[i]).find(".topAreaId").val();
+                                writer.areaName = $($(".table tbody tr")[i]).find(".areaName").val();
+                                writer.snum = $($(".table tbody tr")[i]).find(".snum").val();
+                                writer.sprice = $($(".table tbody tr")[i]).find(".sprice").val();
+                                writer.xnum = $($(".table tbody tr")[i]).find(".xnum").val();
+                                writer.xprice = $($(".table tbody tr")[i]).find(".xprice").val();
+                                writer.isDefault = false;
+                                writer.id = "";
+                                arr.push(writer);
+                            }
+                        };
+                        $.ajax({
+                            url: "http://47.104.204.162:8081/store/transport/add",
+                            type: "post",
+                            data: {
+                                title: $(".tilteName").val(),
+                                storeId: $.cookie("storeId"),
+                                list: JSON.stringify(arr)
+                            },
+                            success: function (data) {
+                                // console.log('新增后返回的data',data);
+                                if (data.status == 200) {
+                                    window.location.href = "freight.html"
+                                }
+                            }
+                        })
+                    }
+                });
+            }
+            // 点击取消批量
+            $(".clickHieednInput").click(function () {
+                if ($(this).text() == "批量操作") {
+                    $(this).text("取消批量");
+                    $(".ctentList .HieednInput").removeClass("display-none")
+                }
+                else {
+                    $(this).text("批量操作");
+                    $(".ctentList .HieednInput").addClass("display-none")
+                }
+
+            });
+            // 删除一行
+            $(".ctentList").on("click", ".delRow", function (e) {
+                e.preventDefault;
+                $(this).parents("tr").remove();
+            });
+            //批量删除
+            $(".allDelInput").click(function (e) {
+                var trChange = $(".ctentList .table tbody tr");
+                e.preventDefault;
+                for (var i = 0; i < trChange.length; i++) {
+                    if ($(trChange[i]).find(".regular-checkbox").prop("checked")) {
+                        $(trChange[i]).remove();
+                    }
+                };
+                $(".checkall").prop("checked", false)
+            });
+            //全选
+            checkallInput();
+            //点击添加一行
+
+            $(".clickAddInput").click(function (e) {
+                e.preventDefault;
+                var one = "";
+                if ($(".HieednInput").css("display") == "none") {
+                    one = '<div class="lf m-xs-r HieednInput display-none">'
+                }
+                else {
+                    one = '<div class="lf m-xs-r HieednInput">'
+                }
+                n++;
+                htmls = '<tr>' +
+                    '<td  style="padding: 12px 10px;width: 300px" >' +
+                    '<input type="hidden" class=" topAreaId" >' +
+                    '<input type="hidden"  class=" areaId" >' +
+                    '<input type="hidden"  class=" areaName" >' +
+                    '<div class="lf " style="width: 230px">' + one + '<input type="checkbox" id="' + n + '" class="regular-checkbox tc"  value="' + n + '">' +
+                    '<label for="' + n + '" class="m-none-b  m-xs-r" style="margin-top: 1px;"></label>' +
+                    '</div>' +
+                    '<div class="lf diandian InputADDRESSname" style="width: 200px"> 未添加地区</div>' +
+                    '<div class="clear"></div>' +
+                    '</div>' +
+                    '<div class="rt color-b9c clickADDress" data-id="' + n + '" style="cursor: pointer;">编辑</div>' +
+                    '<div class="clear"></div>' +
+                    '</td>' +
+                    '<td>' +
+                    '<input type="text" class="form-control Toone conts snum" style="width: 60px;margin: 0 auto;height: 28px;background: #f8f8f8">' +
+                    '</td>' +
+                    '<td>' +
+                    '<input type="text" class="form-control Totow conts sprice" style="width: 60px;margin: 0 auto;height: 28px;background: #f8f8f8">' +
+                    '</td>' +
+                    '<td>' +
+                    '<input type="text" class="form-control Totre conts xnum" style="width: 60px;margin: 0 auto;height: 28px;background: #f8f8f8">' +
+                    '</td>' +
+                    '<td>' +
+                    '<input type="text" class="form-control Tofour conts xprice" style="width: 60px;margin: 0 auto;height: 28px;background: #f8f8f8">' +
+                    '</td>' +
+                    '<td class="text-center delRow" style="padding: 12px 0">' +
+                    '<a href="#" class="color-b9c"> 删除</a>  ' +
+                    '</td>' +
+                    '</tr>';
+                $(".table tbody").append(htmls);
+                if ($(".centerRightMargin").height() < $(".centerRightMargin > div > div").height()) {
+                    $(".centerRightMargin").css("height", "auto");
+                }
+            });
+            // 批量设置
+            $(".clickADD").click(function () {
+                if (myCheck($(".modalInput"))) {
+                    var trChange = $(".ctentList .table tbody tr");
+                    for (var i = 0; i < trChange.length; i++) {
+                        if ($(trChange[i]).find(".regular-checkbox").prop("checked")) {
+                            $(trChange[i]).find(".Toone").val($(".one").val());
+                            $(trChange[i]).find(".Totow").val($(".tow").val());
+                            $(trChange[i]).find(".Totre").val($(".tre").val());
+                            $(trChange[i]).find(".Tofour").val($(".four").val());
+                        }
+                    };
+                    $('#address').modal("toggle");
+                }
+            });
+            //点击市级地址弹窗显示
+            $("#addresswww").on("click", ".clickMenu", function () {
+                if ($(this).next(".showMenu").css("display") == "block") {
+                    $(this).next(".showMenu").css("display", "none");
+                }
+                else {
+                    $(".treShowMenu>div:nth-child(3n)").find(".showMenu").css("left", "-320px")
+                    $(this).parents("#addresswww").find(".showMenu").css("display", "none");
+                    $(this).next(".showMenu").css("display", "block");
+
+                }
+            });
+            //地址全选
+            $("#addresswww").on("change", ".OneInput", function () {
+                var $hobbies = $(this).parents(".form-group").find("input[type=checkbox].TowInput");
+                var boole = $(this).prop("checked");
+                $hobbies.each(function (index, e) {
+                    if (boole == true) {
+                        arrGoogsId.push(e.value);
+                    }
+                    else {
+                        arrGoogsId = [];
+                    }
+                    e.checked = boole;
+                });
+                $(this).parents(".form-group").find("input[type=checkbox].TreInput").prop("checked", boole)
+            });
+            //单选
+            $("#addresswww").on("change", "input[type=checkbox].TowInput", function () {
+                var count = 0;
+                var that = $(this)
+                that.parents(".form-group").find("input[type=checkbox].TowInput").each(function (e) {
+                    if ($(this).prop('checked') == false) {
+                        $(this).siblings(".showMenu").find(".TreInput").prop('checked', false);
+                        // 判断一组复选框是否有未选中的 
+                        $(this).parents(".form-group").find(".OneInput").prop('checked', false);
+                    } else {
+                        $(this).siblings(".showMenu").find(".TreInput").prop('checked', true);
+                        count++;
+                        if (count == that.parents(".form-group").find("input[type=checkbox].TowInput").length) {
+                            $(this).parents(".form-group").find(".OneInput").prop('checked', true);
+                        }
+                    };
+                });
+            });
+            $("#addresswww").on("change", "input[type=checkbox].TreInput", function () {
+                var count = 0;
+                var that = $(this);
+                that.parents(".showMenu").find("input[type=checkbox].TreInput").each(function (e) {
+                    if ($(this).prop('checked') == false) {
+                        // 判断一组复选框是否有未选中的 
+                        $(this).parents(".showMenu").siblings(".TowInput").prop('checked', false);
+                        $(this).parents(".form-group").find(".OneInput").prop('checked', false);
+                    } else {
+                        count++;
+                        if (count == that.parents(".showMenu").find("input[type=checkbox].TreInput").length) {
+                            $(this).parents(".showMenu").siblings(".TowInput").prop('checked', true);
+                            var countTow = 0;
+                            $(this).parents(".treShowMenu").find(".TowInput").each(function (e, i) {
+                                if (i.checked == false) {
+                                    countTow = 1;
+                                }
+                                if (countTow == 0) {
+                                    $(this).parents(".form-group").find(".OneInput").prop('checked', true);
+                                }
+                                else if (countTow == 1) {
+                                    $(this).parents(".form-group").find(".OneInput").prop('checked', false);
+                                };
+                            });
+                        };
+                    };
+                });
+            });
+            //点击一行编辑
+            $(".ctentList").on("click", ".clickADDress", function () {
+                DataId = $(this).attr("data-id")
+                $('#addresswww').modal("toggle");
+
+            });
+            //编辑地址确定键
+            $(".clickADDEdit").click(function () {
+                var areaId = [], areaName = [], topAreaId = [];
+                $($(".table tbody tr")[DataId]).find(".InputADDRESSname").html("")
+                $($(".table tbody tr")[DataId]).find(".areaName").val("")
+                $($(".table tbody tr")[DataId]).find(".areaId").val("")
+                $($(".table tbody tr")[DataId]).find(".topAreaId").val("")
+                for (var j = 0; j < $("input.TowInput[type='checkbox']:checked").length; j++) {
+                    topAreaId.push($($("input.TowInput[type='checkbox']:checked")[j]).attr("id"));
+                    areaName.push($($("input.TowInput[type='checkbox']:checked")[j]).val())
+                }
+                for (var i = 0; i < $("input.TreInput[type='checkbox']:checked").length; i++) {
+                    if ($($("input.TreInput[type='checkbox']:checked")[i]).parents(".showMenu").siblings("input.TowInput[type='checkbox']").prop("checked") == false) {
+                        areaName.push($($("input.TreInput[type='checkbox']:checked")[i]).val())
+                    }
+                    areaId.push($($("input.TreInput[type='checkbox']:checked")[i]).attr("id"));
+                }
+                $($(".table tbody tr")[DataId]).find(".InputADDRESSname").html(areaName.join(","))
+                $($(".table tbody tr")[DataId]).find(".areaName").val(areaName.join(","))
+                $($(".table tbody tr")[DataId]).find(".areaId").val(areaId.join(","))
+                $($(".table tbody tr")[DataId]).find(".topAreaId").val(topAreaId.join(","))
+                $('#addresswww').find("input[type='checkbox']").prop("checked", false)
+                $('#addresswww').modal("toggle");
+            });
+
+        })
+    </script>
+</body>
+
+</html>

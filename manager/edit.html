@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="ie-comp">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>商家后台管理系统</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/self.css">
+    <link rel="icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/title.ico" type="image/x-icon">
+    <style>
+        html,body{
+            background: #f8f8f8
+        }
+        .centerbody{
+            width: 1200px;
+        }
+        .centerLeft{
+            width: 200px;
+        }
+        .centerRight{
+            width: 1000px;
+        }
+        .dropdown-menu{
+            min-width: auto
+        }
+        .activeLi{
+            background: #D4FFF7;
+            border-left: 4px solid #00BB9C;
+        }
+        .center-left{
+            min-height: 600px
+        }
+        /* ************** */
+        li:hover{
+            background: #00BB9C;
+            color: #fff;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="centerbody" style="margin: 0 auto">
+        <div class="herder" style="height:80px;">
+            <div class="lf centerLeft bg-color-b9c h-full text-center">
+                <img src="../../images/index/home_logo.png" style="margin-top: 18px" alt="">
+            </div>
+            <div class="rt centerRight bg-color-w h-full">
+                <div class="" style="margin-top: 25px">
+                    <div class="bg-f8 m-lg m-none-t p-xs p-xl-l p-md-r position-r" style="display: inline-block;border-radius: 5px"><img src="../../images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: 5px;" alt="">&nbsp;商家管理中心</div>
+                    <div class="display-lin" style="width: 215px"></div>
+                    <div class="display-lin position-r color-2b" >
+                        <img src="../../images/index/home_icon_head.png" alt="images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: -16px;">
+                        <span class="className" style="padding-left:70px ">....</span>
+                        <span > &nbsp;|&nbsp;</span>
+                        <span class="color-b9c quit" style="padding-right:30px ">退出</span>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    我的订单
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">待付款订单</a></li>
+                                <li><a href="#">待确认收货  </a></li>
+                                <li><a href="#">待评价交易</a></li>
+                              
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    我的收藏
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                <li><a href="#">收藏的商品</a></li>
+                                <li><a href="#">收藏的店铺</a></li>
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    客户服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                <li><a href="#">帮助中心</a></li>
+                                <li><a href="#">售后服务</a></li>
+                                <li><a href="#">客服中心</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    站点服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                <li><a href="#">商城首页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- center -->
+        <div class="centerbody" style="background: #D4FFF7">
+            <!-- center右边 -->
+            <div class="center-right h-full m-sm-t color-2b">
+               <!-- <div class="b-samll" style="border-color: #00BB9C"></div> -->
+               <div class="text-center p-xxl-b p-xxl-t">
+                   <div class="p-xxl-t text-center"><img src="../../images/manger/classify_pic_leaf.png" alt=""></div>
+                   <div class="p-lg-t text-center text-md"><b>选择商品所在分类</b></div>
+                   <!-- <div class="m-xl-t">
+                        <nav class="navbar text-center">
+                            <div class="container-fluid">
+                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                                <form class="navbar-form">
+                                    <div class="form-group">
+                                        <span class="m-sm-r color-999">分类搜索：</span>
+                                        <input type="text" class="form-control" style="width: 300px;" placeholder="请输入商品名称或分类属性名称">
+                                    </div>
+                                    <button type="submit" class="btn m-sm-l p-lg-l p-lg-r b-none bg-color-b9c color-w">搜索</button>
+                                </form>
+                                </div>
+                            </div>
+                        </nav>
+                   </div> -->
+                    <div class="form-group m-lg-t m-none-b">
+                        <label class="m-sm-b">商品标题：</label>
+                        <input type="text" class="form-control display-lin clickInputALL" style="width: 500px;background: #fff" readonly name="goodsName" data-id="" placeholder="点击请选择" maxlength="40">
+                    </div>
+                    <div class="hiddenIn display-none" style="width: 500px;background: #f8f8f8;margin: -3px 387px;min-height: 200px">
+                        <ul class=" b-samll-r lf p-xs-t hiddenCent centenOne" style="width: 165px;border-color: #e8e8e8">
+                          
+                        </ul>
+                        <ul class=" b-samll-r lf p-xs-t display-none hiddenCent centenTow" style="width: 165px;border-color: #e8e8e8">
+                            <li class=" p-md-r p-md-l p-xs-t p-xs-b m-xs-b m-xs-t">
+                                <div class="display-lin">茶叶</div>
+                                <div class="rt"><i class="glyphicon glyphicon-menu-right color-999 text-xs"></i></div>
+                                <div class="clear"></div>
+                            </li>
+                            <li class=" p-md-r p-md-l p-xs-t p-xs-b m-xs-b m-xs-t">
+                                <div class="display-lin">茶叶</div>
+                                <div class="rt"><i class="glyphicon glyphicon-menu-right color-999 text-xs"></i></div>
+                                <div class="clear"></div>
+                            </li>
+                        </ul>
+                        <ul class="lf p-xs-t hiddenCent display-none centenTre" style="width: 165px;">
+                            <li class=" p-md-r p-md-l p-xs-t p-xs-b m-xs-b m-xs-t">
+                                <div class="display-lin">茶叶</div>
+                            </li>
+                            <li class=" p-md-r p-md-l p-xs-t p-xs-b m-xs-b m-xs-t">
+                                <div class="display-lin">茶叶</div>
+                            </li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="form-group m-lg-t m-none-b cini display-none">
+                        <a href="index.html" class="btn bg-color-b9c color-w " style="width: 200px;">下一步</a>
+                        <!-- <button class="btn bg-color-b9c color-w nextStep" style="width: 200px;">下一步</button> -->
+                    </div>
+               </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+    </div>
+<script src="../js/jquery.js"></script>  
+<script src="../js/cookie.js"></script> 
+<script src="../js/ajax.js"></script> 
+<script src="../js/bootstrap.js"></script> 
+<script src="../js/validator.min.js"></script> 
+<script src="../js/ValidatorSelf.js"></script>
+<script src="../js/all.js"></script>
+<script src="../js/index.js"></script>
+<script>
+    $(function(){
+        var stapleName = "";
+        // 设置高度
+        $(".centerbody").css("height",window.innerHeight-100);
+        $(".hiddenCent").css("height",$(".hiddenIn").height());
+        // 获取商品种类
+        function selectAllShping (one,ids){
+            // centenOne , centenTow ,centenTre
+            $.ajax({
+                url:'http://47.104.204.162:8081/goods/cat',
+                type:'get',
+                async: false,
+                data:{
+                    id:ids
+                },
+                success:function(data){
+                    // console.log('this data is',data);
+                    for(var i = 0,html = "" ;i < data.length ; i++){
+                        html += '<li class=" p-md-r p-md-l p-xs-t p-xs-b m-xs-b m-xs-t" id="'+data[i].gcId+'" data-typeId="'+data[i].typeId+'">'+
+                                '    <div class="display-lin">'+data[i].gcName+'</div>'+
+                                '    <div class="rt"><i class="glyphicon glyphicon-menu-right color-999 text-xs"></i></div>'+
+                                '    <div class="clear"></div>'+
+                                '</li>'
+                    };
+                    one.html(html);
+                }
+            });
+        };
+        $(".clickInputALL").click(function(){
+            $(".hiddenIn").removeClass("display-none");
+        });
+        selectAllShping ($(".centenOne"));
+        $(".centenOne").on('click','li',function(){
+            stapleName +=$(this).text().replace(/\s+/g,"")+' > ';
+            $(".centenTow").removeClass("display-none");
+            selectAllShping ($(".centenTow"),$(this).attr("id"));
+        });
+        $(".centenTow").on('click','li',function(){
+            stapleName +=$(this).text().replace(/\s+/g,"")+' > ';
+            $(".centenTre").removeClass("display-none");
+            selectAllShping ($(".centenTre"),$(this).attr("id"));
+            $(".centenTre").find(".glyphicon").css("display","none")
+        });
+        $(".centenTre").on('click','li',function(){
+            stapleName +=$(this).text().replace(/\s+/g,"");
+            $(".cini").removeClass("display-none");
+            $.cookie("gcId",$(this).attr("id"),{ expires: 7 , path: '/' });
+            $.cookie("gcName",$(this).text().replace(/\s+/g,""),{ expires: 7 , path: '/' });
+            $.cookie("typeId",$(this).attr("data-typeId"),{ expires: 7 , path: '/' });
+            $.cookie("stapleName",stapleName,{ expires: 7 , path: '/' });
+            $(".clickInputALL").val($(this).text().replace(/\s+/g,""));
+        });
+        // function nextStep(){
+        //     console.log(1)
+        // };
+        indexContent()
+    });
+</script> 
+</body>
+</html>

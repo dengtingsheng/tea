@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="ie-comp">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>商家后台管理系统</title>
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/self.css">
+    <link rel="icon" href="../../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../images/title.ico" type="image/x-icon">
+    <style>
+        html,body{
+            background: #f8f8f8
+        }
+        .centerbody{
+            width: 1200px;
+        }
+        .centerLeft{
+            width: 200px;
+        }
+        .centerRight{
+            width: 1000px;
+        }
+        .dropdown-menu{
+            min-width: auto
+        }
+        .activeLi{
+            background: #D4FFF7;
+            border-left: 4px solid #00BB9C;
+        }
+        .center-left{
+            min-height: 600px
+        }
+        /* ************** */
+        li:hover{
+            background: #00BB9C;
+            color: #fff;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="centerbody" style="margin: 0 auto">
+        <div class="herder" style="height:80px;">
+            <div class="lf centerLeft bg-color-b9c h-full text-center">
+                <img src="../../images/index/home_logo.png" style="margin-top: 18px" alt="">
+            </div>
+            <div class="rt centerRight bg-color-w h-full">
+                <div class="" style="margin-top: 25px">
+                    <div class="bg-f8 m-lg m-none-t p-xs p-xl-l p-md-r position-r" style="display: inline-block;border-radius: 5px"><img src="../../images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: 5px;" alt="">&nbsp;商家管理中心</div>
+                    <div class="display-lin" style="width: 215px"></div>
+                    <div class="display-lin position-r color-2b" >
+                        <img src="../../images/index/home_icon_head.png" alt="images/index/home_icon_shop.png" class="position-a" style="left: 9px;top: -16px;">
+                        <span class="className" style="padding-left:70px ">....</span>
+                        <span > &nbsp;|&nbsp;</span>
+                        <span class="color-b9c quit" style="padding-right:30px ">退出</span>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    我的订单
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">待付款订单</a></li>
+                                <li><a href="#">待确认收货  </a></li>
+                                <li><a href="#">待评价交易</a></li>
+                              
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    我的收藏
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                <li><a href="#">收藏的商品</a></li>
+                                <li><a href="#">收藏的店铺</a></li>
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown m-lg-r">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    客户服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                                <li><a href="#">帮助中心</a></li>
+                                <li><a href="#">售后服务</a></li>
+                                <li><a href="#">客服中心</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="display-lin dropdown">
+                            <button class="btn  p-none b-none bg-color-w dropdown-toggle" type="button" id="dropdownMenu4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    站点服务
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                                <li><a href="#">商城首页</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- center -->
+        <div class="centerbody p-xxl-b" style="background: #fff">
+            <!-- center右边 -->
+            <div class="center-right h-full m-sm-t color-2b">
+               <div class="text-center p-sm-b p-sm-t color-w bg-color-b9c m-xxl-b" style="border-radius: 0 0 50px 50px;vertical-align: middle">
+                   <div class="display-lin position-r p-md-l p-md-r text-md">
+                        <span class="position-a" style="left: 0;top: 3px">*</span>
+                        店铺信息填写 
+                        <span class="position-a" style="right: 0;top: 3px">*</span>
+                   </div>
+               </div>
+               <div class="centerRight" style="margin: 0 auto">
+                    <form id="EditS">
+                        <div class="form-group m-xs-b">
+                            <label for="" class="display-lin text-right" style="width: 14%;">店铺名称：</label>
+                            <input type="text" class="form-control allINputNull display-lin" name="storeName" id="store_name" placeholder="请输入店铺名称" maxlength="20"  style="width: 84%;">
+                        </div>
+                        <div class="form-group m-sm-b">
+                            <label for="" class="display-lin text-right" style="width: 14%;"></label>
+                            <span class="color-999">请控制在20字内</span>
+                        </div>
+                        <div class="form-group m-lg-b">
+                            <label for="" class="display-lin text-right" style="width: 14%;">店铺分类：</label>
+                            <select class="form-control display-lin allINputNull"   id="sc_id"  style="width: 24%;margin-right: 5.5%">
+                            </select>
+                            <select class="form-control display-lin allINputNull"  name="scId" id="sc_id_tow" style="width: 24%;margin-right: 5.5%">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="form-group m-none-b">
+                            <label for="" class="display-lin text-right lf" style="width: 14%;">主营商品：</label>
+                            <textarea cols="30" rows="10" name="storeZy"  placeholder="请输入主营商品" id="main_commodity" class="form-control display-lin  allINputNull m-xs-l" style="width: 84%;height:83px;"></textarea>
+                        </div>
+                        <div class="form-group m-sm-b">
+                            <label for="" class="display-lin text-right" style="width: 14%;"></label>
+                            <div class="display-lin color-999">
+                                <div>主营商品关键字（Tag）有助于搜索店铺时找到您的店铺</div>
+                                <div>关键字最多可输入50字，请用‘，’进行分隔。列如：“男装，女装，童装”</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="display-lin text-right" style="width: 14%;">法人姓名：</label>
+                            <input type="text" class="form-control allINputNull display-lin" name="owner" placeholder="请输入法人姓名" style="width: 84%;">
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="display-lin text-right" style="width: 14%;">法人身份证号：</label>
+                            <input type="text" class="form-control allINputNull display-lin" placeholder="请输入法人身份证号" name="storeOwnerCard" style="width: 84%;">
+                        </div>
+                        <div class="form-group ">
+                            <label for="" class="display-lin text-right" style="width: 14%;">法人所在地：</label>
+                            <select class="form-control display-lin allINputNull select_province"  style="width: 24%;margin-right: 5.5%">
+                            </select>
+                            <select class="form-control display-lin allINputNull select_city" style="width: 24%;margin-right: 5.5%">
+                                <option value="" >请选择</option>
+                            </select>
+                            <select class="form-control display-lin allINputNull select_area" name="areaId" style="width: 24%;">
+                                <option value="" >请选择</option>
+                            </select>
+                            <input type="hidden" name="areaInfo">
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="display-lin text-right" style="width: 14%;">法人详细地址：</label>
+                            <input type="text" class="form-control allINputNull display-lin" placeholder="请输入法人详细地址" name="storeAddress" style="width: 84%;">
+                        </div>
+                        <div class="form-group m-sm-b">
+                            <label for="" class="display-lin text-right lf" style="width: 14%;">上传身份证：</label>
+                            <div class="display-lin m-xs-l">
+                                <div class="display-lin position-r">
+                                    <img src="../images/all/identity_btn_1.png" alt="" style="width: 160px;height: 110px;" class="m-xxl-r">
+                                    <input type="file" class="position-a" accept="image/jpeg,image/jpg,image/png" name="zm" onchange="imgUp(this)" style="width: 160px;height: 110px;left: 0;top: 0;opacity: 0;">
+                                </div>
+                                <div class="display-lin position-r">
+                                    <img src="../images/all/identity_btn_2.png" alt="" style="width: 160px;height: 110px;" class="m-xxl-r">
+                                    <input type="file" class="position-a" accept="image/jpeg,image/jpg,image/png" name="fm" onchange="imgUp(this)"  style="width: 160px;height: 110px;left: 0;top: 0;opacity: 0;">
+                                </div>
+                                <input type="hidden" name="storeImage" class="allINputNull">
+                            </div>
+                        </div>
+                        <div class="form-group m-sm-b">
+                            <label for="" class="display-lin text-right" style="width: 14%;"></label>
+                            <span class="color-999">支持格式jpg，jpeg，png，gif  &nbsp;&nbsp;&nbsp;&nbsp;情保证图片清晰且文件大小不超过400K</span>
+                        </div>
+                        <div class="form-group m-xs-b">
+                            <label for="" class="display-lin text-right" style="width: 14%;">公司名称：</label>
+                            <input type="text" class="form-control allINputNull display-lin" placeholder="请输入公司名称" name="company" style="width: 84%;">
+                        </div>
+                        <div class="form-group m-sm-b">
+                            <label for="" class="display-lin text-right" style="width: 14%;"></label>
+                            <span class="color-999">请控制在20字内</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="display-lin text-right" style="width: 14%;">营业执照注册号：</label>
+                            <input type="text" class="form-control allINputNull display-lin" placeholder="请输入营业执照注册号" name="charterNumber"  style="width: 84%;">
+                        </div>
+                        <div class="form-group ">
+                            <label for="" class="display-lin text-right" style="width: 14%;">营业执照所在区域：</label>
+                            <select class="form-control display-lin allINputNull select_province"  style="width: 24%;margin-right: 5.5%">
+                            </select>
+                            <select class="form-control display-lin allINputNull select_city" style="width: 24%;margin-right: 5.5%">
+                                <option value="" >请选择</option>
+                            </select>
+                            <select class="form-control display-lin allINputNull select_area" name="charterAreaId" style="width: 24%;">
+                                <option value="" >请选择</option>
+                            </select>
+                            <!-- <input type="hidden" name="charterAreaInfo"> -->
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="display-lin text-right" style="width: 14%;">营业执照详细地址：</label>
+                            <input type="text" class="form-control allINputNull display-lin" placeholder="请输入营业执照详细地址" name="charterAddress" style="width: 84%;">
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="display-lin text-right lf m-xs-t" style="width: 14%;">营业执照生效时间：</label>
+                            <div class="input-group m-xs-l date form_date display-lin position-r" style="width: 84%;" data-date-format="yyyy-MM-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                <input class="form-control " size="16" type="text" name="charterStart" style="background: #fff" value="" readonly  id="test1" placeholder="请输入营业执照生效时间">
+                                <span class="input-group-addon b-none display-lin position-a" style="left: 0;top: 10px; visibility: hidden;"><span class=" glyphicon-calendar"></span></span>
+                            </div>
+                            <input type="hidden" id="dtp_input2" value="" class="allINputNull"/><br/>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="display-lin text-right lf m-xs-t" style="width: 14%;">营业执照失效时间：</label>
+                            <div class="input-group m-xs-l date form_date display-lin position-r" style="width: 84%;" data-date-format="yyyy-MM-dd" data-link-field="dtp_input3" data-link-format="yyyy-mm-dd">
+                                <input class="form-control" size="16" type="text"  name="charterEnd" style="background: #fff" value="" readonly  id="test2"  placeholder="请输入营业执照失效时间">
+                                <span class="input-group-addon b-none display-lin position-a" style="left: 0;top: 10px; visibility: hidden;"><span class=" glyphicon-calendar"></span></span>
+                            </div>
+                            <input type="hidden" id="dtp_input3" value="" class="allINputNull"/><br/>
+                    </div>
+                        <div class="form-group m-sm-b">
+                            <label for="" class="display-lin text-right lf" style="width: 14%;">上传营业执照：</label>
+                            <div class="display-lin m-xs-l">
+                                <div class="display-lin position-r">
+                                    <img src="../images/all/business_btn_photo.png" alt="" style="width: 160px;height: 110px;" class="m-xxl-r">
+                                    <input type="file" class="position-a" accept="image/jpeg,image/jpg,image/png" onchange="imgUp(this)" style="width: 160px;height: 110px;left: 0;top: 0;opacity: 0;">
+                                </div>
+                                <input type="hidden" name="storeImage1" class="allINputNull">
+                            </div>
+                        </div>
+                        <div class="form-group m-sm-b">
+                            <label for="" class="display-lin text-right" style="width: 14%;"></label>
+                            <span class="color-999">支持格式jpg，jpeg，png，gif  &nbsp;&nbsp;&nbsp;&nbsp;情保证图片清晰且文件大小不超过400K</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="display-lin text-right" style="width: 14%;">邮政编码：</label>
+                            <input type="text" class="form-control allINputNull display-lin" placeholder="请输入邮政编码" name="storeZip" style="width: 84%;">
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="display-lin text-right" style="width: 14%;"></label>
+                            <label style="font-weight: normal;" class="position-r">
+                                <input type="checkbox" id="checkbox-1-11" class="disabledClick regular-checkbox"  >
+                                <label for="checkbox-1-11" class="m-none-b  m-xs-r"></label>
+                                <span class="rt">我已认真阅读并同意 <span class="color-b9c">开店协议</span> 中的所有条款</span>
+                            </label>
+                            <!-- <input type="text" class="form-control allINputNull display-lin" style="width: 84%;"> -->
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" class="user_name" name="storeId" />
+                            <input type="hidden" class="token" name="token">
+                            <label for="" class="display-lin text-right" style="width: 14%;"></label>
+                            <input type="button" disabled class="form-control display-lin bg-color-b9c color-w b-none clickSubmit" style="width: 30%;" value="立即开店">
+                        </div>
+                    </form>
+               </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+    </div>
+<script src="../../js/jquery.js"></script>  
+<script src="../../js/cookie.js"></script> 
+<script src="../../js/ajax.js"></script> 
+<script src="../../js/bootstrap.js"></script> 
+<script src="../../js/validator.min.js"></script> 
+<script src="../../js/ValidatorSelf.js"></script>
+<script src="./../js/all.js"></script>
+<script src="./../js/index.js"></script>
+<script src="../../js/site.js"></script>
+<script type="text/javascript" src="../js/time/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/time/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script>
+$(function(){
+    // 获取店铺信息
+    indexContent();
+    $(".user_name").val($.cookie("storeId"));
+    $(".token").val($.cookie("token"))
+    //设置日期时间控件
+    $('.form_date').datetimepicker({
+        language:  'zh-CN',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+});
+</script>
+<script>
+    //店铺分类
+    function selectAllShping (one,ids){
+        // centenOne , centenTow ,centenTre
+        $.ajax({
+            url:'http://47.104.204.162:8081/goods/cat',
+            type:'get',
+            async: false,
+            data:{
+                id:ids
+            },
+            success:function(data){
+                for(var i = 0,html = "" ;i < data.length ; i++){
+                    html += '<option value="'+data[i].gcId+'" data-typeId="'+data[i].typeId+'">'+data[i].gcName+'</option>'
+                };
+                one.html(html);
+            }
+        });
+    };
+$(function(){
+    // 调用地区三级联动
+    area_cont(0, 1 ,$(".select_province"));
+    $(".select_province").change(function(){
+        var vals = $(this);
+        area_cont(vals.val(), 2 ,vals,vals.next());
+        vals.next().next().html("<option >请选择</option>")
+        $(this).next().next().next().val($(".select_province").find("option:selected").text()+" "+ $(".select_city").find("option:selected").text())
+    });
+    $(".select_city").change(function(){
+        var vals = $(this);
+        area_cont(vals.val(), 3 ,vals.prev(),vals,vals.next());
+        $(this).next().next().val($(".select_province").find("option:selected").text()+" "+ $(".select_city").find("option:selected").text()+" "+ $(".select_area").find("option:selected").text())
+    });
+    $(".select_area").change(function(){
+        $(this).next().val($(".select_province").find("option:selected").text()+" "+ $(".select_city").find("option:selected").text()+" "+ $(".select_area").find("option:selected").text())
+    });
+    //店铺分类
+    selectAllShping($("#sc_id"));
+    selectAllShping($("#sc_id_tow"), $("#sc_id").find("option:selected").val())
+});
+</script> 
+<script>
+//上传图片函数    
+var arrImg =["",""]
+function imgUp(file){
+    var formdata = new FormData();
+    // $.cookie("storeId")
+        formdata.append("uploadFile", file.files[0]);
+        formdata.append("storeId", $.cookie("storeId"));
+        if(!file.files || !file.files[0]){
+            return;
+        }
+        $.ajax({
+            url:"http://47.104.204.162:8088/store/upload",
+            type:'post',
+            data: formdata,
+            async: false,
+            dataType: 'json',
+            cache:false,
+            contentType:false,
+            processData:false,
+            success: function(data){
+                if(data.status == 200){
+                    $(file).prev().attr("src",data.data)
+                    
+                    if($(file).parent().siblings("input[type=hidden]").attr("name") == "storeImage"){
+                        if($(file).attr("name") == "zm"){
+                            arrImg[0] = data.data 
+                        }
+                        else{
+                            arrImg[1] = data.data 
+                        }
+                        $(file).parent().siblings("input[type=hidden]").val(arrImg);
+                    }else{
+                        $(file).parent().siblings("input[type=hidden]").val(data.data);
+                    }
+                }
+            }
+        });  
+}
+// 验证表单
+function myCheck(one){
+    for(var i=0;i <one.length;i++){
+        if($(one[i]).val()==""){
+            $(one[i]).focus();
+            return false;
+        }
+    }   
+    return true;
+};
+$(function(){
+    //点击同意协议
+    $(".disabledClick").click(function(){
+        if($(this).prop("checked")){
+            $("input[type=button]").prop("disabled",false)
+        }
+        else{
+            $("input[type=button]").prop("disabled",true)
+        }
+    });
+    //点击提交
+    $(".clickSubmit").click(function(){
+        
+        if(myCheck($(".allINputNull"))){
+            $.ajax({
+                url:"http://47.104.204.162:8088/store/complete",
+                type:"post",
+                data:$("#EditS").serialize(),
+                success:function(data){
+                    console.log(data);
+                    if(data.status==200){
+                        var token1=$.cookie("token");
+                        $.ajax({
+                            url:"http://47.104.204.162:8088/token",
+                            async:false,
+                            data:{
+                                token:token1
+                            },
+                            success:function(data_){
+                                if(data_.status==200){
+                                    $.cookie('user_phone', data2.data.storeTel, { expires: 7 , path: '/' });
+                                    $.cookie('user_name', data2.data.storeName, { expires: 7 , path: '/' });
+                                }
+                            }
+                        });
+
+                        return
+                        alert("提交成功");
+                        setTimeout(function(){
+                            window.location.href="Towindex.html";
+                        },2000);  
+                    }
+                }
+            });
+        };
+    });
+}) ;   
+</script>
+</body>
+</html>

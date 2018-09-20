@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="renderer" content="ie-comp">
+    <meta name="renderer" content="ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>忘记密码</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/self.css">
+    <link rel="icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/title.ico" type="image/x-icon">
+    <style>
+        .all-content {
+            background: #00BB9C;
+            padding: 150px 0 0 0;
+        }
+        .centers {
+            background: #fff;
+            border-radius: 40px;
+        }
+        .padding-t-b {
+            padding: 126px 0 50px 0;
+        }
+        .form-horizontal .form-group {
+            margin-right: 0;
+            margin-left: 0;
+        }
+        .form-horizontal .control-label {
+            text-align: left
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid all-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-lg-12 centers p-none">
+                    <div class="row">
+                        <div class="col-xs-6 col-lg-6" style="height: 100%;margin-top: 64px; padding: 0;">
+                            <img src="../images/login_pic.png" alt="">
+                        </div>
+                        <div class="col-xs-6 col-lg-6 padding-t-b">
+                            <div class="m-xl-b p-md-l p-md-r">
+                                <b class="text-lg color-2b">忘记密码</b>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-9">
+                                        
+                                </div>
+                            </div>
+                           
+                            <div>
+                                <form class="form-horizontal text-md">
+                                    <div class="row ">
+                                        <div class="col-lg-9 col-md-9 col-xs-9 p-none">
+                                                <div class="b-samll-b m-md-l m-md-r m-lg-b " style="border-color:#D3D3D3 "></div>
+                                        </div>
+                                    </div>
+                                   <!-- 手 机 号 -->
+                                   <div class="form-group m-xl-b position-r">
+                                        <label class="col-lg-2 col-md-3 col-xs-3 control-label color-68 p-none-r">手&nbsp;&nbsp;&nbsp;机&nbsp;&nbsp;&nbsp;号</label>
+                                        <div class="col-lg-7 col-md-6 col-xs-6">
+                                            <input type="text" class="form-control border50  userName" placeholder="请输入手机号">
+                                        </div>
+                                        <span class="color-r position-a text-base userNameSpan" style="bottom: -23px;left: 125px"></span>
+                                    </div>
+                                    <!--  验 证 码 -->
+                                    <div class="form-group position-r m-xl-b">
+                                        <label class="col-lg-2 col-md-3 col-xs-3 control-label p-none-r color-68">验&nbsp;&nbsp;&nbsp;证&nbsp;&nbsp;&nbsp;码</label>
+                                        <div class="col-lg-4 col-md-3 col-xs-3 ">
+                                            <input type="text" class="form-control border50 codeImg" placeholder="请输入验证码">
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-xs-3 p-none-l">
+                                            <img src="../images/pic_code.png" class="w-full" id="codeimage" style="height: 34px;" alt="">
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-xs-3 p-none-l  " style="margin-top: 7px">
+                                            <a href="#" class="color-r text-base changeImg">看不清，换一张</a>      
+                                        </div>
+                                        <span class="color-r position-a text-base codeImgSpan" style="bottom: -23px;left: 125px"></span>
+                                    </div>
+                                     <!-- 短 信 验 证 码 -->
+                                    <div class="form-group position-r">
+                                        <label class="col-lg-2 col-md-3 col-xs-3 control-label p-none-r color-68">短信验证码</label>
+                                        <div class="col-lg-4 col-md-3 col-xs-3 ">
+                                            <input type="text" class="form-control border50 code" placeholder="请输入验证码">
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-xs-3 p-none-l">
+                                                <button type="button" class="btn  border50 w-full b-none clickCode" style=" background:#00BB9C;color: #ffff ">获取验证码</button>
+                                        </div>
+                                        <span class="color-r position-a text-base codeSpan" style="bottom: -23px;left: 125px"></span>
+                                    </div>
+                                     <!-- 提 交 -->
+                                    <div class="form-group m-sm-b">
+                                        <label class="col-lg-2 col-md-3 col-xs-4"></label>
+                                        <div class="col-lg-7 col-md-6 col-xs-6  m-md-t">
+                                            <button type="button" class="btn  border50 w-full b-none clickSubmit" style=" background:#00BB9C;color: #ffff ">提交</button>
+                                        </div>
+                                    </div>
+                                   
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div class="bg-color-w  w-full p-lg-b p-md-t" style="position:fixed;bottom:0;">
+            <div class="container text-center">
+                <a href="#" class="color-68">&nbsp;首页&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;|&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;招聘英才&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;|&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;广告合作&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;|&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;联系我们&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;|&nbsp;</a>
+                <a href="#" class="color-68">&nbsp;关于我们&nbsp;</a>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script src="../../js/ajax.js"></script> 
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/validator.min.js"></script>
+    <script src="../js/ValidatorSelf.js"></script>
+    <script src="../js/all.js"></script>
+    <script>
+        $(function(){
+            // 获取屏幕高度
+            HeightTOP()
+            // 失去焦点验证
+            $(".userName").blur(function(){
+                checkPhone($(".userName"),$(".userNameSpan"))
+            });
+            $(".codeImg").blur(function(){
+                checkBear($(".codeImg"),$(".codeImgSpan"))
+            });
+            $(".code").blur(function(){
+                checkBear($(".code"),$(".codeSpan"))
+            });
+            //进入页面生成验证图片
+            function clickImg(){
+                var xmlhttp;
+                xmlhttp=new XMLHttpRequest();
+                xmlhttp.open("post","http://47.104.204.162:8088/store/captcha",true);
+                xmlhttp.responseType = "blob";
+                xmlhttp.onload = function(){
+                    console.log(this);
+                    if (this.status == 200) {
+                        var blob = this.response;
+                        var img = document.getElementById("codeimage");
+                        img.onload = function(e) {
+                            window.URL.revokeObjectURL(img.src); 
+                        };
+                        img.src = window.URL.createObjectURL(blob);
+                    }
+                }
+                xmlhttp.send();
+            }
+            clickImg();
+            //点击获取图片
+            $(".changeImg").click(function(){
+                clickImg();
+            })
+            // 点击获取短信验证码
+            getInfoRegTow($(".clickCode"))
+            //点击登录
+            $(".clickSubmit").click(function(){
+                if(checkPhone($(".userName"),$(".userNameSpan"))&& checkBear($(".codeImg"),$(".codeImgSpan"))&&checkBear($(".code"),$(".codeSpan"))){
+                    alert(0)
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
