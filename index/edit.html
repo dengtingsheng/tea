@@ -8,10 +8,10 @@
     <meta name="renderer" content="ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=7">
     <title>商家后台管理系统</title>
-    <link rel="stylesheet" href="../../css/bootstrap.css">
-    <link rel="stylesheet" href="../../css/self.css">
-    <link rel="icon" href="../../images/title.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../../images/title.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/self.css">
+    <link rel="icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/title.ico" type="image/x-icon">
     <style>
         html,body{
             background: #f8f8f8
@@ -157,7 +157,7 @@
                             <label for="" class="display-lin text-right" style="width: 14%;">法人身份证号：</label>
                             <input type="text" class="form-control allINputNull display-lin" placeholder="请输入法人身份证号" name="storeOwnerCard" style="width: 84%;">
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group fr">
                             <label for="" class="display-lin text-right" style="width: 14%;">法人所在地：</label>
                             <select class="form-control display-lin allINputNull select_province"  style="width: 24%;margin-right: 5.5%">
                             </select>
@@ -203,7 +203,7 @@
                             <label for="" class="display-lin text-right" style="width: 14%;">营业执照注册号：</label>
                             <input type="text" class="form-control allINputNull display-lin" placeholder="请输入营业执照注册号" name="charterNumber"  style="width: 84%;">
                         </div>
-                        <div class="form-group ">
+                        <div class="form-group yy">
                             <label for="" class="display-lin text-right" style="width: 14%;">营业执照所在区域：</label>
                             <select class="form-control display-lin allINputNull select_province"  style="width: 24%;margin-right: 5.5%">
                             </select>
@@ -275,15 +275,15 @@
         </div>
         
     </div>
-<script src="../../js/jquery.js"></script>  
-<script src="../../js/cookie.js"></script> 
-<script src="../../js/ajax.js"></script> 
-<script src="../../js/bootstrap.js"></script> 
-<script src="../../js/validator.min.js"></script> 
-<script src="../../js/ValidatorSelf.js"></script>
-<script src="./../js/all.js"></script>
-<script src="./../js/index.js"></script>
-<script src="../../js/site.js"></script>
+<script src="../js/jquery.js"></script>  
+<script src="../js/cookie.js"></script> 
+<script src="../js/ajax.js"></script> 
+<script src="../js/bootstrap.js"></script> 
+<script src="../js/validator.min.js"></script> 
+<script src="../js/ValidatorSelf.js"></script>
+<script src="../js/all.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/site.js"></script>
 <script type="text/javascript" src="../js/time/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="../js/time/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
 <script>
@@ -339,7 +339,10 @@ $(function(){
         $(this).next().next().val($(".select_province").find("option:selected").text()+" "+ $(".select_city").find("option:selected").text()+" "+ $(".select_area").find("option:selected").text())
     });
     $(".select_area").change(function(){
-        $(this).next().val($(".select_province").find("option:selected").text()+" "+ $(".select_city").find("option:selected").text()+" "+ $(".select_area").find("option:selected").text())
+        let realAdress = '';
+        realAdress = $(".select_province").find("option:selected").text()+" "+ $(".select_city").find("option:selected").text()+" "+ $(".select_area").find("option:selected").text();
+        realAdress = realAdress.replace(/请选择/g,'');
+        $(this).next().val(realAdress);
     });
     //店铺分类
     selectAllShping($("#sc_id"));
@@ -407,12 +410,26 @@ $(function(){
     });
     //点击提交
     $(".clickSubmit").click(function(){
-        
-        if(myCheck($(".allINputNull"))){
+        let province = $('.fr .select_province option:selected').text();
+        let city = $('.fr .select_city option:selected').text();
+        let area = $('.fr .select_area option:selected').text();
+        console.log(province,city,area);
+
+        let province2 = $('.yy .select_province option:selected').text();
+        let city2 = $('.yy .select_city option:selected').text();
+        let area2 = $('.yy .select_area option:selected').text();
+        console.log(province2,city2,area2);
+
+        let charterAreaInfo =  encodeURIComponent(province2+' '+city2+' '+area2)+'&';
+
+        let EditS = '';
+        EditS = 'charterAreaInfo='+charterAreaInfo + $("#EditS").serialize()
+        console.log(EditS);
+        if(true){ // 此处为true
             $.ajax({
                 url:"http://47.104.204.162:8088/store/complete",
                 type:"post",
-                data:$("#EditS").serialize(),
+                data:EditS,
                 success:function(data){
                     console.log(data);
                     if(data.status==200){
@@ -424,19 +441,21 @@ $(function(){
                                 token:token1
                             },
                             success:function(data_){
+                                console.log('data_ is',data_);
                                 if(data_.status==200){
-                                    $.cookie('user_phone', data2.data.storeTel, { expires: 7 , path: '/' });
-                                    $.cookie('user_name', data2.data.storeName, { expires: 7 , path: '/' });
+                                    $.cookie('user_phone', data_.data.storeTel, { expires: 7 , path: '/' });
+                                    $.cookie('user_name', data_.data.storeName, { expires: 7 , path: '/' });
                                 }
                             }
                         });
 
-                        return
-                        alert("提交成功");
                         setTimeout(function(){
                             window.location.href="Towindex.html";
                         },2000);  
                     }
+                },
+                error:function(data){
+                    console.log('失败返回的data',data)
                 }
             });
         };

@@ -34,7 +34,6 @@ function indexContent() {
 
     // 点击退出
     $('.quit').click(function () {
-        console.log('quit!');
         $.ajax({
             url: "http://47.104.204.162:8088/store/logout",
             type: "post",

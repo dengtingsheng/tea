@@ -2,10 +2,10 @@
 function checkPhone(one,tow) {
     if (!validator.isLength(one.val(), {min: 11, max: 11})) {
         tow.html("输入不足11位");
-        one.focus();
+        // one.focus();
     }else if(!validator.isMobilePhone(one.val(),["zh-CN"])) {
         tow.html("请输入手机号");
-        one.focus();
+        // one.focus();
     }else {
         tow.html("");
         return true;	
@@ -16,10 +16,10 @@ function checkPhone(one,tow) {
 function checkNull(one,tow) {
     if (validator.isEmpty(one.val())) {
         tow.html("不能为空");
-        one.focus();
+        // one.focus();
     }else if(!validator.isAlphanumeric(one.val(),["en-US"])) {
         tow.html("格式不对");
-        one.focus();
+        // one.focus();
     }else {
         tow.html("");
         return true;
@@ -29,7 +29,7 @@ function checkNull(one,tow) {
 function checkBear(one,tow) {
     if (validator.isEmpty(one.val())) {
         tow.html("不能为空");
-        one.focus();
+        // one.focus();
     }else {
         tow.html("");
         return true;
@@ -49,8 +49,12 @@ function towchanged(one,tow,tre) {
 // 检查是否为空
 function checkOneBear(one) {
     if (validator.isEmpty(one.val())) {
-        one.focus();
+        // one.focus();
     }else {
         return true;
     } 
 }
+
+$("#reg input").focus(function () {
+    $(this).parent().parent().find("span").html('')
+});

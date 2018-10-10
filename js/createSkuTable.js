@@ -81,7 +81,7 @@ function credS() {
 		for (var t = 0; t < skuTypeArr.length; t++) {
 			SKUTableDom += '<td style="vertical-align: middle;width:60px"><b>' + skuTypeArr[t].skuTypeTitle + '</b></td>';
 		}
-		SKUTableDom += '<td style="vertical-align: middle;"><b>价格</b></td><td style="vertical-align: middle;"><b>库存</b></td><td style="vertical-align: middle;"><b>商家编码</b></td><td style="vertical-align: middle;"><b>商品条形码</b></td>';
+		SKUTableDom += '<td style="vertical-align: middle;"><b>价格</b></td><td style="vertical-align: middle;"><b>库存</b></td><td style="vertical-align: middle;"><b>商品批次</b></td><td style="vertical-align: middle;"><b>商品条形码</b></td>';
 		SKUTableDom += "</tr>";
 		//循环处理表体
 		for (var i = 0; i < totalRow; i++) {//总共需要创建多少行

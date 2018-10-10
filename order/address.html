@@ -175,6 +175,7 @@
                             <li class="p-xs-t p-xs-b "><a href="../manager/sell.html" data-id="1" class="color-68 ">出售中的商品</a></li>
                             <li class="p-xs-t p-xs-b"><a href="../manager/warehouse.html" data-id="2" class="color-68 ">仓库中的商品</a></li>
                             <li class="p-xs-t p-xs-b"><a href="../manager/brandList.html" data-id="3" class="color-68 ">品牌列表</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/businessBatch.html" data-id="4" class="color-68 ">商品批次</a></li>
                         </ul>
                     </div>
                     <div>
@@ -404,6 +405,20 @@
             </div>
         </div>
     </div>
+    <!-- 提示模态框 -->
+    <div class="modal add-success " tabindex="-1" role="dialog" style="margin-top: 300px">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header p-sm-t p-sm-b">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="error400">删除成功</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="../js/jquery.js"></script>
     <script src="../js/cookie.js"></script>
     <script src="../js/ajax.js"></script>
@@ -567,10 +582,17 @@
                 },
                 success: function (data) {
                     if (data.status == 200) {
-                        alert("删除成功");
-                        location.reload();
+                        $(".error400").html("删除成功");
+                        $('.add-success').modal('toggle');
+                        setInterval(function () {
+                            location.reload();
+                        }, 2000)
                     } else {
-                        alert("删除失败");
+                        $(".error400").html("删除失败");
+                        $('.add-success').modal('toggle');
+                        setInterval(function () {
+                            location.reload();
+                        }, 2000)
                     }
                 }
             })

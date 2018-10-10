@@ -207,6 +207,7 @@
                             <li class="p-xs-t p-xs-b "><a href="../manager/sell.html" data-id="1" class="color-68 ">出售中的商品</a></li>
                             <li class="p-xs-t p-xs-b"><a href="../manager/warehouse.html" data-id="2" class="color-68 ">仓库中的商品</a></li>
                             <li class="p-xs-t p-xs-b"><a href="../manager/brandList.html" data-id="3" class="color-68 ">品牌列表</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/businessBatch.html" data-id="4" class="color-68 ">商品批次</a></li>
                         </ul>
                     </div>
                     <div>
@@ -540,7 +541,7 @@
         });
     </script>
     <script>
-        //获取url中"?"符后的字串 判断是编辑还是保存
+        //获取url中"?"符后的字串 判断是编辑还是新增
         var str = "";
         function GetRequest() {
             var url = location.search;
@@ -655,7 +656,7 @@
                 })
                 // 点击提交 ，修改
                 $(".btnSubmitCLICK").click(function () {
-                    console.log('修改');
+                    alert('修改');
                     if (myCheck($(".conts"))) {
                         var arr = new Array();
                         var writer = new Object();
@@ -693,7 +694,7 @@
                                 storeId: $.cookie("storeId"),
                                 list: JSON.stringify(arr)
                             }
-                        ); debugger;
+                        ); 
                         $.ajax({
                             url: "http://47.104.204.162:8081/store/transport/add",
                             type: "post",
@@ -704,9 +705,9 @@
                                 list: JSON.stringify(arr)
                             },
                             success: function (data) {
-                                // console.log('修改后拿到的data',data);
+                                console.log('修改后拿到的data',data);
                                 if (data.status == 200) {
-                                    window.location.href = "freight.html"
+                                    // window.location.href = "freight.html"
                                 }
                             },
                             error: function () {
@@ -719,7 +720,7 @@
             else {
                 //点击提交 ，新增
                 $(".btnSubmitCLICK").click(function () {
-                    console.log('新增');
+                    alert('新增');
                     if (myCheck($(".conts"))) {
                         var arr = new Array();
                         var writer = new Object();

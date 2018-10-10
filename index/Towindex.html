@@ -8,10 +8,10 @@
     <meta name="renderer" content="ie-stand">
     <meta http-equiv="X-UA-Compatible" content="IE=7">
     <title>商家后台管理系统</title>
-    <link rel="stylesheet" href="../../css/bootstrap.css">
-    <link rel="stylesheet" href="../../css/self.css">
-    <link rel="icon" href="../../images/title.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="../../images/title.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/self.css">
+    <link rel="icon" href="../images/title.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/title.ico" type="image/x-icon">
     <style>
         html,body{
             background: #f8f8f8
@@ -39,7 +39,10 @@
             min-height: 600px
         }
         /* ************** */
-       
+        /* 设置了禁止点击 */
+        a{
+            pointer-events:none;
+        }
 
     </style>
 </head>
@@ -122,6 +125,7 @@
                             <li class="p-xs-t p-xs-b "><a href="../manager/sell.html" data-id="1" class="color-68 ">出售中的商品</a></li>
                             <li class="p-xs-t p-xs-b"><a href="../manager/warehouse.html" data-id="2" class="color-68 ">仓库中的商品</a></li>
                             <li class="p-xs-t p-xs-b"><a href="../manager/brandList.html" data-id="3" class="color-68 ">品牌列表</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/businessBatch.html" data-id="4" class="color-68 ">商品批次</a></li>
                         </ul>
                     </div>
                     <div >
@@ -170,14 +174,14 @@
         </div>
         
     </div>
-<script src="../../js/jquery.js"></script>  
-<script src="../../js/cookie.js"></script> 
-<script src="../../js/ajax.js"></script> 
-<script src="../../js/bootstrap.js"></script> 
-<script src="../../js/validator.min.js"></script> 
-<script src="../../js/ValidatorSelf.js"></script>
-<script src="./../js/all.js"></script>
-<script src="./../js/index.js"></script>
+<script src="../js/jquery.js"></script>  
+<script src="../js/cookie.js"></script> 
+<script src="../js/ajax.js"></script> 
+<script src="../js/bootstrap.js"></script> 
+<script src="../js/validator.min.js"></script> 
+<script src="../js/ValidatorSelf.js"></script>
+<script src="../js/all.js"></script>
+<script src="../js/index.js"></script>
 <script>
     $(function(){
         /*导入头部和左侧菜单栏*/

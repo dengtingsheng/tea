@@ -48,12 +48,25 @@
 // }
 var image = '';
 var ListVal = [];
+setTimeout(function(){  // 
+    if (localStorage.oldImg.indexOf(',') != -1) {
+        ListVal = localStorage.oldImg.split(',');
+        console.log('多图',ListVal);
+    } else if(localStorage.oldImg!='') {
+        ListVal.push(localStorage.oldImg);
+        console.log('单图',ListVal);
+    }
+},100)
+
 var imgNumber = 0 ;
 var clcikDisbaled = 0;
+
+
 //点击选择图片
 function selectImage(file){
     if(clcikDisbaled < 5 ){
         var htmls= "";
+      
         var formdata = new FormData();
         formdata.append("uploadFile", file.files[0]);
         if(!file.files || !file.files[0]){
@@ -76,9 +89,10 @@ function selectImage(file){
                             ' <dd class="m-sm-t" style="cursor: pointer;"><button type="button" class="btn btn-default btn-sm clickDelImg">删除上图 </button></dd>'+
                             ' </dl>';
                     ListVal.push(data.url);
+                    console.log('点击添加图片时，图片的数组：ListVal',ListVal);
                     $(".Imgall").append(htmls);
                     $(".goodsImageMore").val(ListVal);  
-                    clcikDisbaled = $(".Imgall").children(".chiNumberImg").length
+                    clcikDisbaled = $(".Imgall").children(".chiNumberImg").length // 图片上传个数
                 }
             },
             error: function(err){
@@ -86,8 +100,7 @@ function selectImage(file){
             }
         });
     }else{
-        $(".error400").hmtl("图片上传已达上限");
-        $('.add-success').modal('toggle');
+        alert("图片上传已达上限");
     }
 
 }

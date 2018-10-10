@@ -4,6 +4,7 @@ function area_cont(pid, id , one , tow , tre) {
         url :"http://47.104.204.162:8088/area/getByPid/" + pid,
         async:false,
         success : function(data) {
+            // console.log('data:',data);
             var html = "<option value=''>请选择</option>";
             for (var i = 0; i < data.length; i++) {
                 html += "<option value="+data[i].id+">"

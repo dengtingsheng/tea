@@ -177,6 +177,7 @@
                             <li class="p-xs-t p-xs-b "><a href="../manager/sell.html" data-id="1" class="color-68 ">出售中的商品</a></li>
                             <li class="p-xs-t p-xs-b"><a href="../manager/warehouse.html" data-id="2" class="color-68 ">仓库中的商品</a></li>
                             <li class="p-xs-t p-xs-b"><a href="../manager/brandList.html" data-id="3" class="color-68 ">品牌列表</a></li>
+                            <li class="p-xs-t p-xs-b"><a href="../manager/businessBatch.html" data-id="4" class="color-68 ">商品批次</a></li>
                         </ul>
                     </div>
                     <div>
@@ -190,8 +191,7 @@
                             <li class="p-xs-t p-xs-b"><a href="../order/address.html" data-id="6" class="color-68 ">发货设置</a></li>
                             <li class="p-xs-t p-xs-b"><a href="../order/reimburse.html" data-id="7" class="color-68 ">退款退货</a></li>
                             <li class="p-xs-t p-xs-b"><a href="../order/freight.html" data-id="8" class="color-68 ">物流工具</a></li>
-                            <li class="p-xs-t p-xs-b"><a href="../order/evaluate.html" data-id="9" class="color-68 ">评价管理</a></li>
-                            
+                            <li class="p-xs-t p-xs-b"><a href="#" class="color-68">评价管理</a></li>
                         </ul>
                     </div>
                     <div>
@@ -440,7 +440,8 @@
                                 <button class="btn bg-color-b9c color-w" id="clickSUBmit" style="width: 200px;" type="button">提交</button>
                             </div>
                             <div class="lf" style="width: 50%;">
-                                <button class="btn btn-default" id="clickBELall" style="width: 200px;">重置</button>
+                                <!-- <button class="btn btn-default" id="clickBELall" style="width: 200px;">重置</button> -->
+                                <a href="" class="btn btn-default" id="clickBELall" style="width: 200px;">重置</a>
                             </div>
                             <div class="clear"></div>
                         </div>
@@ -483,7 +484,7 @@
                     </div>
                 </div>
                 <div class="modal-footer" style="text-align: left">
-                    <button type="button" class="btn bg-color-b9c b-none color-w">新增模板</button>
+                    <button type="button" class="btn bg-color-b9c b-none color-w newTemplate">新增模板</button>
                     <button type="button" class="btn btn-default rt  m-lg-l" data-dismiss="modal">取消</button>
                     <button type="button" class="btn bg-color-b9c rt m-lg-l b-none color-w clickRadioSuccess">确定</button>
                 </div>
@@ -505,6 +506,7 @@
             </div>
         </div>
     </div>
+
     <script src="../js/jquery.js"></script>
     <script src="../js/cookie.js"></script>
     <script src="../js/ajax.js"></script>
@@ -542,93 +544,95 @@
                 storeId: $.cookie("storeId")
             },
             success: function (data) {
-                console.log('渲染的data', data)
-                function showSelect(one, two) {
-                    var allText = '<option value="">请选择</option>';
-                    for (var j = 0; j < two.list.length; j++) {
-                        allText += '<option value="' + two.list[j].attrValueId + '">' + two.list[j].attrValueName + '</option>';
-                    }
-                    one.attr("data-item", two.attrId);
-                    one.html(allText);
-                }
-                // data.listSpec为SKU
-                var tableDate = "<div class=\"demo-title m-md-b\"><b>选择生成商品规格表格：</b></div>";
-                $.each(data.listSpec, function (id, obj) {
-                    tableDate += "<ul class=\"SKU_TYPE lf\"><li is_required=\"1\" propid=\"" + obj.spId + "\" sku-type-name=\"" + obj.spName + "\"><em class='color-b9c m-xs-r'>*</em>" + obj.spName + "：</li></ul> <ul class='lf'>";
-                    $.each(obj.listValue, function (id, value) {
-                        tableDate += "<li class='lf m-xs-b'><label style='font-weight: normal;' class='position-r'><input type=\"checkbox\" id='checkbox-1-" + value.spValueId + "' class=\"sku_value regular-checkbox\" propvalid=\"" + value.spValueId + "\" value=\"" + value.spValueName + "\" /><label for='checkbox-1-" + value.spValueId + "' class='m-none-b m-md-l m-xs-r' style='margin-top: 1px;'></label><span class='rt'>" + value.spValueName + "</span></label></li>";
-                    });
-                    tableDate += "</ul> <div class=\"clear\"></div>";
-                });
-                $("#skuCheckBox").html(tableDate);
-                var listAttr = data.listAttr;
-                for (var i = 0; i < listAttr.length; i++) {
-                    if (i == 0) {
-                        // 品牌
-                        listAttr[i].list = [{
-                            attrValueId: 10, attrValueName: $.cookie('gcName'), attrId: 2, attrValueSort: null
-                        }]
-                        showSelect($("#brand"), listAttr[i]);
-                        console.log(listAttr[i]);
-                        // console.log($.cookie());
-                    }
-                    if (i == 1) {
-                        // 价格区间
-                        showSelect($("#priceInterval"), listAttr[i])
-                    }
-                    if (i == 2) {
-                        // 年份
-                        showSelect($("#creatYear"), listAttr[i])
-                    }
-                    if (i == 3) {
-                        // 形状
-                        showSelect($("#xingzhuang"), listAttr[i])
-                    }
-                    if (i == 4) {
-                        // 工艺
-                        showSelect($("#gongyi"), listAttr[i])
-                    }
-                    if (i == 5) {
-                        // 需求
-                        showSelect($("#xuqiu"), listAttr[i])
-                    }
-                    if (i == 6) {
-                        // 重量
-                        showSelect($("#zhongliang"), listAttr[i])
-                    }
-                    if (i == 7) {
-                        // 茶区
-                        $("#chaqu").attr("data-item", listAttr[i].attrId);
-                    }
-                    if (i == 8) {
-                        // 厂名
-                        $("#changming").attr("data-item", listAttr[i].attrId);
-                    }
-                    if (i == 9) {
-                        // 厂址
-                        $("#changzhi").attr("data-item", listAttr[i].attrId);
-                    }
-                    if (i == 10) {
-                        // 产地
-                        $("#changdi").attr("data-item", listAttr[i].attrId);
-                    }
-                    if (i == 11) {
-                        // 原料
-                        $("#yuanliao").attr("data-item", listAttr[i].attrId);
-                    }
-                    if (i == 12) {
-                        // 保质期
-                        $("#baozhiqi").attr("data-item", listAttr[i].attrId);
-                    }
-                    if (i == 13) {
-                        // 储藏方法
-                        $("#chuchang").attr("data-item", listAttr[i].attrId);
-                    }
-                    if (i == 14) {
-                        // 规格
-                        $("#guige").attr("data-item", listAttr[i].attrId);
-                    }
+                console.log('商品name ', $.cookie("stapleName"));
 
+                if (data.listAttr[0].list[0].attrValueName == '') {  //新添加，没有品牌时
+                    alert('没有此品牌，请添加品牌');
+                    window.location.href = "brandList.html";
+                }
+                else {
+                    function showSelect(one, two) {
+                        var allText = '<option value="">请选择</option>';
+                        for (var j = 0; j < listAttr[i].list.length; j++) {
+                            allText += '<option value="' + listAttr[i].list[j].attrValueId + '">' + listAttr[i].list[j].attrValueName + '</option>';
+                        }
+                        one.attr("data-item", listAttr[i].attrId);
+                        one.html(allText);
+                    }
+                    // data.listSpec为SKU
+                    var tableDate = "<div class=\"demo-title m-md-b\"><b>选择生成商品规格表格：</b></div>";
+                    $.each(data.listSpec, function (id, obj) {
+                        tableDate += "<ul class=\"SKU_TYPE lf\"><li is_required=\"1\" propid=\"" + obj.spId + "\" sku-type-name=\"" + obj.spName + "\"><em class='color-b9c m-xs-r'>*</em>" + obj.spName + "：</li></ul> <ul class='lf'>";
+                        $.each(obj.listValue, function (id, value) {
+                            tableDate += "<li class='lf m-xs-b'><label style='font-weight: normal;' class='position-r'><input type=\"checkbox\" id='checkbox-1-" + value.spValueId + "' class=\"sku_value regular-checkbox\" propvalid=\"" + value.spValueId + "\" value=\"" + value.spValueName + "\" /><label for='checkbox-1-" + value.spValueId + "' class='m-none-b m-md-l m-xs-r' style='margin-top: 1px;'></label><span class='rt'>" + value.spValueName + "</span></label></li>";
+                        });
+                        tableDate += "</ul> <div class=\"clear\"></div>";
+                    });
+                    $("#skuCheckBox").html(tableDate);
+                    var listAttr = data.listAttr;
+                    for (var i = 0; i < listAttr.length; i++) {
+                        if (i == 0) {
+                            // 品牌
+                            showSelect($("#brand"), listAttr[i])
+                        }
+                        if (i == 1) {
+                            // 价格区间
+                            showSelect($("#priceInterval"), listAttr[i])
+                        }
+                        if (i == 2) {
+                            // 年份
+                            showSelect($("#creatYear"), listAttr[i])
+                        }
+                        if (i == 3) {
+                            // 形状
+                            showSelect($("#xingzhuang"), listAttr[i])
+                        }
+                        if (i == 4) {
+                            // 工艺
+                            showSelect($("#gongyi"), listAttr[i])
+                        }
+                        if (i == 5) {
+                            // 需求
+                            showSelect($("#xuqiu"), listAttr[i])
+                        }
+                        if (i == 6) {
+                            // 重量
+                            showSelect($("#zhongliang"), listAttr[i])
+                        }
+                        if (i == 7) {
+                            // 茶区
+                            $("#chaqu").attr("data-item", listAttr[i].attrId);
+                        }
+                        if (i == 8) {
+                            // 厂名
+                            $("#changming").attr("data-item", listAttr[i].attrId);
+                        }
+                        if (i == 9) {
+                            // 厂址
+                            $("#changzhi").attr("data-item", listAttr[i].attrId);
+                        }
+                        if (i == 10) {
+                            // 产地
+                            $("#changdi").attr("data-item", listAttr[i].attrId);
+                        }
+                        if (i == 11) {
+                            // 原料
+                            $("#yuanliao").attr("data-item", listAttr[i].attrId);
+                        }
+                        if (i == 12) {
+                            // 保质期
+                            $("#baozhiqi").attr("data-item", listAttr[i].attrId);
+                        }
+                        if (i == 13) {
+                            // 储藏方法
+                            $("#chuchang").attr("data-item", listAttr[i].attrId);
+                        }
+                        if (i == 14) {
+                            // 规格
+                            $("#guige").attr("data-item", listAttr[i].attrId);
+                        }
+
+                    }
                 }
             }
         });
@@ -643,7 +647,7 @@
             indexContent();
             //编辑器
             $('#edit').editable({ inlineMode: false, alwaysBlank: true })
-            // 删除上传的图片
+            // 删除上传的图片  @@@@@
             $(".Imgall").on("click", ".clickDelImg", function () {
                 var imgURLdel = $(this).parents("dl").find("img").attr("src");
                 for (var i = 0; i <= ListVal.length; i++) {
@@ -661,7 +665,7 @@
                 var vals = $(this).val();
                 area_cont(vals, 2, $(".select_province"), $(".select_city"));
             });
-            // 选择运费方式
+            // 选择运费方式 +++++++
             $(".radioCange").on("change", "input", function () {
                 if ($(this).attr("id") == "MAYs") {
                     $(".radioDiv").removeClass("display-none");
@@ -697,18 +701,25 @@
                     url: "http://47.104.204.162:8081/store/transport",
                     type: "post",
                     data: {
-                        storeId: $.cookie("storeId")
+                        storeId: $.cookie("storeId"),
+                        page: 1,
+                        pageSize: 100
                     },
                     success: function success(data) {
-                        for (var i = 0, html = ""; i < data.length; i++) {
+                        // console.log('成功后的data：',data);
+                        for (var i = 0, html = ""; i < data.data.length; i++) {
                             html += '<div class="display-lin position-r m-sm-b" style="width: 185px">  ' +
-                                '<input type="radio" data-id="' + i + '" id="' + data[i].id + '"  name="radioSet" class="regular-radio" />' +
-                                '<label for="' + data[i].id + '"></label>' +
-                                '<span class="position-a positionSpan" style="left:30px ;top: 0px;">' + data[i].title +
+                                '<input type="radio" data-id="' + i + '" id="' + data.data[i].id + '"  name="radioSet" class="regular-radio" />' +
+                                '<label for="' + data.data[i].id + '"></label>' +
+                                '<span class="position-a positionSpan" style="left:30px ;top: 0px;">' + data.data[i].title +
                                 '</span>' +
                                 '</div>'
                         };
+                        console.log('html结构 ', html);
                         $(".radioEach").html(html);
+                    },
+                    error: function (data) {
+                        console.log('失败后的data：', data);
                     }
                 });
             })
@@ -734,9 +745,10 @@
                                 '<td>' + extendList[i].xprice + '</td>' +
                                 '</tr>';
                         }
-                        $(".table tbody").html(htmls);
+                        $(".tableRadioEach .table tbody").html(htmls);
                         $(".table").attr("id", data.id);
                         $(".table").attr("data-title", data.title);
+                        localStorage.dataTitle = data.title;
                     }
                 });
             });
@@ -748,7 +760,11 @@
                     $(".radioVal").val($(".table").attr("id"))
                 }
             });
-            $('.fr-bttn[data-cmd="html"]').css("display", "none")
+            $('.fr-bttn[data-cmd="html"]').css("display", "none");
+            // 添加模板，跳转物流工具页面 
+            $(".newTemplate").click(function () {
+                location.href = "../order/freight.html";
+            });
         });
     </script>
     <script>
@@ -763,37 +779,37 @@
                 return true;
             };
             //重置表单
-            $("#clickBELall").click(function () {
-                $("#itemAddForm").reset();
-            });
+            // $("#clickBELall").click(function(){
+            //     $("#itemAddForm").reset();
+            // });
             //提交表单
             $("#clickSUBmit").click(function () {
-                // 检验是否为空
-                // console.log($.cookie());
-                if (true) {
+                // console.log(decodeURIComponent('q '));
+                if (myCheck() && !location.search.split('?')[1]) {  // 检验是否为空 true 换成 myCheck() 
                     $("#gcId").val($.cookie('gcId'));
-                    $("#gcName").val($.cookie('gcName'));
+                    $("#gcName").val($.cookie('stapleName'));
                     $("#typeId").val($.cookie('typeId'));
                     $("#storeId").val($.cookie('storeId'));
                     $("#stapleName").val($.cookie('stapleName'));
                     //将文本编辑器的类容放入input
-                    $(".goodsDescription").val($('#edit>.not-msie').html());
+                    $(".goodsDescription").val($('#edit>.not-msie').html())
                     //创建一个空的对象和数组select
                     var attr = {}, attrArray = [];
                     //创建一个空的对象和数组input
                     var attrInput = {}, attrArrayInput = [];
-                    // 商品显示属性select
-                    var allText = $('#allText>div');
+
+                    // 商品显示属性select 下拉框部分 =============================
+                    var allText = $('#allText>div')
                     for (var i = 0; i < allText.length; i++) {
                         var attrName = $(allText[i]).find("select").attr("id");
                         if (i == allText.length - 1) {
                             var attrChangedId = $(allText[i]).find("input").attr("data-item");
                             var attrChangedVal = $(allText[i]).find("input").val();
-                            var Top = {
+                            var Top_ = {
                                 'attrChangedId': attrChangedId,
                                 'attrChangedVal': attrChangedVal
                             };
-                            attrArrayInput.push(Top);
+                            attrArrayInput.push(Top_);
                         }
                         else {
                             // 检验是否有品牌
@@ -806,14 +822,16 @@
                                     'attrValId': $(allText[i]).find("option:selected").val(),
                                     'attrValName': $(allText[i]).find("option:selected").text()
                                 }
+                                $.cookie('shangpinId', $(allText[i]).find("option:selected").val());
                                 attrArray.push(attr);
                             }
                         }
                     }
                     attrArray = JSON.stringify(attrArray);
+                    // console.log(attrArray);    // 商品显示属性 下拉框部分
                     //将select的值数组放入input
                     $("#itemAddForm [name=attrParams]").val(attrArray);
-                    // 商品显示属性input
+                    // 商品显示属性input  填写数值部分 -----------------------------------
                     $('#allInput>div').each(function () {
                         var attrChangedId = $(this).find(".inputs").attr("data-item");
                         var attrChangedVal = $(this).find(".inputs").val();
@@ -824,12 +842,14 @@
                         attrArrayInput.push(attrInput);
                     });
                     attrArrayInput = JSON.stringify(attrArrayInput);
+                    // console.log(attrArrayInput);    // 商品显示属性 填写数值部分
                     //将select的值数组放入input
                     $("#itemAddForm [name=attrChangedParams]").val(attrArrayInput);
-
+                    // ----------------------------------------------------
                     //SKU表格数据
                     var spec = {};//创建一个空的json
                     var Array = [];//一个空的数组
+
                     $('#skuTable tbody .sku_table_tr').each(function () {
                         spec = {
                             'specIds': $(this).attr("propids"),
@@ -846,44 +866,203 @@
                     Array = JSON.stringify(Array);
                     //将SKU表格表格数据放入input内
                     $("#itemAddForm [name=skuParams]").val(Array);
+                    let dataStr = $("#itemAddForm").serialize();
+                    let brand_id = $.cookie('shangpinId') + '';
+                    let transportName = encodeURIComponent(localStorage.dataTitle);   // 添加模板名称
+                    let newDataStr = dataStr.replace('brandId=', 'transportName=' + transportName + 'brandId=' + brand_id);
+                    // console.log(brand_id);
+                    // console.log('newDataStr',newDataStr);
+                    let new_Data = '';
+                    if (newDataStr.indexOf('goods_transfee_charge=0') != -1) {
+                        new_Data = newDataStr.replace('goods_transfee_charge=0', 'goodsTransfeeCharge=false');
+                    } else {
+                        new_Data = newDataStr.replace('goods_transfee_charge=1', 'goodsTransfeeCharge=true');
+                    }
+
+                    console.log('添加商品的数据new_Data', new_Data);
                     $.ajax({
-                        // 方法报错
-                        url: 'http://47.104.204.162:8081/item/add',
+                        url: 'http://47.104.204.162:8081/item/add',    // 真实的添加商品
                         type: 'post',
-                        data: $("#itemAddForm").serialize(),
+                        data: new_Data,
                         success: function (data) {
-                            // console.log('111',data)
+                            console.log(data);
                             if (data.status == 200) {
                                 $(".error400").html("添加成功");
                                 $('.add-success').modal('toggle');
+                                localStorage.oldImg = '';
                                 setInterval(function () {
                                     window.location.href = "sell.html";
                                 }, 2000)
+                            }else if(data.status == 412){
+                                alert('请检查信息是否填写完整');
                             }
+                            localStorage.batch = '';
                         },
                         error: function () {
                             alert("添加失败")
                         }
                     });
                 }
+                else if (location.search.split('?')[1]) {
+                    // 做判断，再调用编辑商品方法
+
+                    $("#gcId").val($.cookie('gcId'));
+                    $("#gcName").val($.cookie('stapleName'));
+                    $("#typeId").val($.cookie('typeId'));
+                    $("#storeId").val($.cookie('storeId'));
+                    $("#stapleName").val($.cookie('stapleName'));
+                    //将文本编辑器的类容放入input
+                    $(".goodsDescription").val($('#edit>.not-msie').html())
+                    //创建一个空的对象和数组select
+                    var attr = {}, attrArray = [];
+                    //创建一个空的对象和数组input
+                    var attrInput = {}, attrArrayInput = [];
+
+                    // 商品显示属性select 下拉框部分 =============================
+                    var allText = $('#allText>div')
+                    for (var i = 0; i < allText.length; i++) {
+                        var attrName = $(allText[i]).find("select").attr("id");
+                        if (i == allText.length - 1) {
+                            var attrChangedId = $(allText[i]).find("input").attr("data-item");
+                            var attrChangedVal = $(allText[i]).find("input").val();
+                            var Top_ = {
+                                'attrChangedId': attrChangedId,
+                                'attrChangedVal': attrChangedVal
+                            };
+                            attrArrayInput.push(Top_);
+                        }
+                        else {
+                            // 检验是否有品牌
+                            // if(attrName=="brand"){
+                            //     $("#brandId").val($(this).find("option:selected").val());
+                            // }
+                            if (attrName) {
+                                attr = {
+                                    'attrId': $(allText[i]).find("select").attr("data-item"),
+                                    'attrValId': $(allText[i]).find("option:selected").val(),
+                                    'attrValName': $(allText[i]).find("option:selected").text()
+                                }
+                                $.cookie('shangpinId', $(allText[i]).find("option:selected").val());
+                                attrArray.push(attr);
+                            }
+                        }
+                    }
+                    attrArray = JSON.stringify(attrArray);
+                    // console.log(attrArray);    // 商品显示属性 下拉框部分
+                    //将select的值数组放入input
+                    $("#itemAddForm [name=attrParams]").val(attrArray);
+                    // 商品显示属性input  填写数值部分 -----------------------------------
+                    $('#allInput>div').each(function () {
+                        var attrChangedId = $(this).find(".inputs").attr("data-item");
+                        var attrChangedVal = $(this).find(".inputs").val();
+                        attrInput = {
+                            'attrChangedId': attrChangedId,
+                            'attrChangedVal': attrChangedVal
+                        }
+                        attrArrayInput.push(attrInput);
+                    });
+                    attrArrayInput = JSON.stringify(attrArrayInput);
+                    // console.log(attrArrayInput);    // 商品显示属性 填写数值部分
+                    //将select的值数组放入input
+                    $("#itemAddForm [name=attrChangedParams]").val(attrArrayInput);
+                    // ----------------------------------------------------
+                    //SKU表格数据
+                    var spec = {};//创建一个空的json
+                    var Array = [];//一个空的数组
+
+                    $('#skuTable tbody .sku_table_tr').each(function () {
+                        spec = {
+                            'specIds': $(this).attr("propids"),
+                            'specValIds': $(this).attr("propvalids"),
+                            'specValNames': $(this).attr("propvalnames"),
+                            'specNames': $(this).attr("propnames"),
+                            'price': $(this).find("#price").val(),
+                            'stock': $(this).find("#stock").val(),
+                            'serial': $(this).find("#serial").val(),
+                            'barcode': $(this).find("#barcode").val()
+                        };//把每一个tr的数据写成一个json数据
+                        Array.push(spec);//把json数据写入数组
+                    });
+                    Array = JSON.stringify(Array);
+                    //将SKU表格表格数据放入input内
+                    $("#itemAddForm [name=skuParams]").val(Array);
+                    let dataStr = $("#itemAddForm").serialize();
+                    let brand_id = $.cookie('shangpinId') + '';
+                    let transportName = encodeURIComponent(localStorage.dataTitle);   // 添加模板名称
+                    let newDataStr = dataStr.replace('brandId=', 'transportName=' + transportName + 'brandId=' + brand_id);
+                    // console.log(brand_id);
+                    // console.log('newDataStr',newDataStr);
+                    let new_Data = '';
+                    if (newDataStr.indexOf('goods_transfee_charge=0') != -1) {
+                        new_Data = newDataStr.replace('goods_transfee_charge=0', 'goodsTransfeeCharge=false');
+                    } else {
+                        new_Data = newDataStr.replace('goods_transfee_charge=1', 'goodsTransfeeCharge=true');
+                    }
+
+                    console.log('编辑时，传的参数', new_Data);
+
+
+                    var goodsIds = location.search.split('?')[1]
+                    $.ajax({
+                        url: "http://47.104.204.162:8081/item/edit", // 真实的编辑商品
+                        type: "post",
+                        async: false,
+                        data: new_Data,
+                        success: function (data) {
+                            $(".error400").html("编辑成功");
+                            $('.add-success').modal('toggle');
+                            localStorage.oldImg = '';
+                            setInterval(function () {
+                                window.location.href = "sell.html";
+                            }, 2000)
+                        },
+                        error: function (data) {
+                            console.log('编辑失败返回的', data);
+                        }
+                    })
+                }
+
             });
         })
     </script>
-    <!-- <script>
+    <script>
         $(function () {
-            if (location.search.split('?')[1]) {
-                var goodsIds = location.search.split('?')[1]
+            if (location.search.split('?')[1]) {  // 此处只是渲染编辑时的数据 +++++++
+
+                var goodsIds = location.search.split('?')[1];
                 $.ajax({
-                    // 编辑商品
                     url: "http://47.104.204.162:8081/goods/store/edit/" + $.cookie("storeId"),
                     type: "post",
                     async: false,
                     data: {
-                        storeId: $.cookie("storeId"),
                         goodsId: goodsIds
                     },
-                    success: function (data) {
-                        console.log(data);
+                    success: function (data) {  // @@@@
+                        console.log('编辑页面渲染时的data', data.data);
+                        localStorage.oldImg = data.data.goodsImageMore.split(',');
+
+                        if (data.data.transportId != 0) {
+                            console.log('-> !0');
+
+                            // $(".radioHtml").html();
+                        } else {
+                            console.log('-> 0')
+                            $('#modelInput')[0].checked = false;
+                            $('#modelRadio')[0].checked = true;
+                        }
+                        if (data.data.goodsTransfeeCharge == false) {
+                            $('#MAYs')[0].checked = true;
+                            $('#MAY')[0].checked = false;
+                            $(".radioDiv").removeClass("display-none");
+                            $(".radioDiv").find("input").prop("disabled", false);
+                        } else {
+                            $('#MAYs')[0].checked = false;
+                            $('#MAY')[0].checked = true;
+                            $('#modelInput')[0].checked = true;
+                            $('#modelRadio')[0].checked = false;
+                        }
+
+
                         var List = data.data.attrList;
                         var tableList = data.data.selectedList;
                         var skuList = data.data.skuList;
@@ -907,6 +1086,7 @@
                         $(".Imgall").html(htmls)
                         $(".goodsImageMore").val(goodsImageMoreA);
                         for (var i = 0; i < tableList.length; i++) {
+                            // 生成商品规格表格的选中
                             $("#skuCheckBox .sku_value[value='" + tableList[i].spValueName + "']").prop("checked", true);
                         };
                         credS();
@@ -914,11 +1094,12 @@
                         for (var b = 0; b < trInput.length; b++) {
                             for (var l = 0; l < skuList.length; l++) {
                                 if ($(trInput[b]).attr("propvalnames") == skuList[l].specName) {
+                                    // console.log(skuList);
                                     $(trInput[b]).attr("id", skuList[l].specId);
                                     $(trInput[b]).find(".setting_sku_price").val(skuList[l].specGoodsPrice);
                                     $(trInput[b]).find(".setting_sku_stock").val(skuList[l].specGoodsStorage);
                                     $(trInput[b]).find(".setting_sku_serial").val(skuList[l].specGoodsSerial);
-                                    $(trInput[b]).find(".setting_sku_barcode").val(skuList[l].specGoodsColor);
+                                    $(trInput[b]).find(".setting_sku_barcode").val(skuList[l].specGoodsBarcode);
                                     getAlreadySetSkuVals();
                                 }
                             }
@@ -953,10 +1134,12 @@
                         $(".select_city option[value='" + data.data.cityId + "']").prop("selected", true);
                     }
                 });
-            }
-        })
 
-    </script> -->
+            }
+
+        })
+    </script>
+
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,35 +18,45 @@
             background: #00BB9C;
             padding: 150px 0 0 0;
         }
+
         .centers {
             background: #fff;
             border-radius: 40px;
         }
+
         .padding-t-b {
             padding: 65px 0;
-           
         }
+
         .form-horizontal .form-group {
             margin-right: 0;
             margin-left: 0;
         }
+
         .form-horizontal .control-label {
             text-align: left
         }
-        .padding-center{
+
+        .padding-center {
             padding: 60px;
-            border-top-left-radius:40px;
-            border-bottom-left-radius:40px;
+            border-top-left-radius: 40px;
+            border-bottom-left-radius: 40px;
             background: #CDFEF6;
+            height: 620px;
         }
-        .thumbnail{
+
+        .marginTop30 {
+            margin-top: 30px;
+        }
+
+        .thumbnail {
             background: #CDFEF6;
         }
     </style>
 </head>
 
 <body>
-    <div class="container-fluid all-content">
+    <div class="container-fluid all-content" id="reg">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-lg-12 centers p-none">
@@ -60,7 +71,7 @@
                                     <div class="thumbnail b-none">
                                         <img src="../images/enroll_icon_car.png" alt="...">
                                         <div class="caption text-center m-sm-t">
-                                                购买商品支付订单
+                                            购买商品支付订单
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +79,7 @@
                                     <div class="thumbnail b-none">
                                         <img src="../images/enroll_icon_shop.png" alt="...">
                                         <div class="caption text-center m-sm-t">
-                                                申请开店销售商品
+                                            申请开店销售商品
                                         </div>
                                     </div>
                                 </div>
@@ -76,7 +87,7 @@
                                     <div class="thumbnail b-none">
                                         <img src="../images/enroll_icon_attention.png" alt="...">
                                         <div class="caption text-center m-sm-t">
-                                                空间好友推送分享
+                                            空间好友推送分享
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +95,7 @@
                                     <div class="thumbnail b-none">
                                         <img src="../images/enroll_icon_attention.png" alt="...">
                                         <div class="caption text-center m-sm-t">
-                                                收藏商品关注店铺
+                                            收藏商品关注店铺
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +103,7 @@
                                     <div class="thumbnail b-none">
                                         <img src="../images/enroll_icon_evaluation.png" alt="...">
                                         <div class="caption text-center m-sm-t">
-                                                商品咨询服务评价
+                                            商品咨询服务评价
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +111,7 @@
                                     <div class="thumbnail b-none">
                                         <img src="../images/enroll_icon_security.png" alt="...">
                                         <div class="caption text-center m-sm-t">
-                                                安全交易诚信无忧
+                                            安全交易诚信无忧
                                         </div>
                                     </div>
                                 </div>
@@ -129,7 +140,7 @@
                                                 <input type="text" class="form-control border50 code" placeholder="请输入验证码">
                                             </div>
                                             <div class="col-lg-4 col-md-4 col-xs-4 p-none-l">
-                                                    <button type="button" class="btn  border50 w-full b-none clickCode" style=" background:#00BB9C;color: #ffff ">获取验证码</button>
+                                                <button type="button" class="btn  border50 w-full b-none clickCode" style=" background:#00BB9C;color: #ffff ">获取验证码</button>
                                             </div>
                                             <span class="color-r position-a text-base codeSpan" style="bottom: -23px;left: 129px"></span>
                                         </div>
@@ -149,6 +160,15 @@
                                             </div>
                                             <span class="color-r position-a text-base towPasswordSpan" style="bottom: -23px;left: 129px"></span>
                                         </div>
+                                        <!-- 邀 请 码 -->
+                                        <div class="form-group marginTop30 position-r m-xl-b">
+                                            <label class="col-lg-3 col-md-4 col-xs-4 control-label p-none-r color-68">邀 请 码</label>
+                                            <div class="col-lg-5 col-md-4 col-xs-4 p-none-l">
+                                                <input type="text" class="form-control border50 invitationCode" placeholder="请输入邀请码">
+                                            </div>
+                                            <span class="color-r position-a text-base invitationCodeSpan" style="bottom: -23px;left: 129px"></span>
+                                        </div>
+                                        <!-- 注册按钮 -->
                                         <div class="form-group m-sm-b">
                                             <label class="col-lg-3 col-md-4 col-xs-4"></label>
                                             <div class="col-lg-9 col-md-8 col-xs-8  m-md-t p-none-l">
@@ -159,15 +179,16 @@
                                             <label class="col-lg-3 col-md-4 col-xs-4"></label>
                                             <div class="col-lg-9 col-md-8 col-xs-8 p-none-l">
                                                 <div class="color-68 p-sm-l text-base">
-                                                     如果您已是本站用户,请&nbsp;
-                                                    <a href="login.html" class="btn border50 btn-xs p-md-l p-md-r b-none" style=" background:#00BB9C;color:#ffff ">登录</a>&nbsp;或是<a href="forget.html" style="color: #00BB9C;">忘记密码？</a>
+                                                    如果您已是本站用户,请&nbsp;
+                                                    <a href="login.html" class="btn border50 btn-xs p-md-l p-md-r b-none" style=" background:#00BB9C;color:#ffff ">登录</a>&nbsp;或是
+                                                    <a href="forget.html" style="color: #00BB9C;">忘记密码？</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -188,10 +209,10 @@
             </div>
         </div>
     </div>
-        <!-- 提示模态框 -->
-        <div class="modal bs-example-login-success " tabindex="-1" role="dialog" style="margin-top: 300px">
-            <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
+    <!-- 提示模态框 -->
+    <div class="modal bs-example-login-success " tabindex="-1" role="dialog" style="margin-top: 300px">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
                 <div class="modal-header p-sm-t p-sm-b">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">提示</h4>
@@ -199,61 +220,69 @@
                 <div class="modal-body">
                     <p class="error400"></p>
                 </div>
-                
-                </div>
+
             </div>
         </div>
+    </div>
     <script src="../js/jquery.js"></script>
     <script src="../js/cookie.js"></script>
-    <script src="../../js/ajax.js"></script> 
+    <script src="../js/ajax.js"></script>
     <script src="../js/bootstrap.js"></script>
     <script src="../js/validator.min.js"></script>
     <script src="../js/ValidatorSelf.js"></script>
+    <!-- 注册的表单验证 -->
     <script src="../js/all.js"></script>
     <script>
-        $(function(){
-            HeightTOP()
+        $(function () {
+            HeightTOP();
+
             // 失去焦点验证
-            $(".userName").blur(function(){
-                checkPhone($(".userName"),$(".userNameSpan"))
+            $(".userName").blur(function () {
+                checkPhone($(".userName"), $(".userNameSpan"))
             });
-            $(".onePassword").blur(function(){
-                checkNull($(".onePassword"),$(".onePasswordSpan"))
+            $(".onePassword").blur(function () {
+                checkNull($(".onePassword"), $(".onePasswordSpan"))
             });
-            $(".towPassword").blur(function(){
-                checkNull($(".towPassword"),$(".towPasswordSpan"));
-                if(checkNull($(".towPassword"),$(".towPasswordSpan"))){
-                    towchanged($(".onePassword"),$(".towPassword"),$(".towPasswordSpan"))
+            $(".towPassword").blur(function () {
+                checkNull($(".towPassword"), $(".towPasswordSpan"));
+                if (checkNull($(".towPassword"), $(".towPasswordSpan"))) {
+                    towchanged($(".onePassword"), $(".towPassword"), $(".towPasswordSpan"))
                 }
             });
-            $(".code").blur(function(){
-                checkBear($(".code"),$(".codeSpan"))
+            $(".code").blur(function () {
+                checkBear($(".code"), $(".codeSpan"))
             });
+            // $(".invitationCode").blur(function () {
+            //     checkBear($(".invitationCode"), $(".invitationCodeSpan"))
+            // });
             // 点击获取验证码 
-            getInfoReg($(".clickCode"),$(".userName"),$(".userNameSpan"))
-            //点击登录
-            $(".clickSubmit").click(function(){
-                var $smscaptcha =  $(".code").val(),$storePassword =  $(".onePassword").val,$storeTel = $(".userName").val();
-                if(checkPhone($(".userName"),$(".userNameSpan"))
-                &&checkBear($(".code"),$(".codeSpan"))
-                &&checkNull($(".onePassword"),$(".onePasswordSpan"))
-                &&checkNull($(".towPassword"),$(".towPasswordSpan"))
-                &&towchanged($(".onePassword"),$(".towPassword"),$(".towPasswordSpan"))){
+            getInfoReg($(".clickCode"), $(".userName"), $(".userNameSpan"))
+            //点击注册
+            $(".clickSubmit").click(function () {
+                var $smscaptcha = $(".code").val(), $storePassword = $(".onePassword").val(), $storeTel = $(".userName").val(), $invitationCodeNum = $(".invitationCode").val()
+                if (checkPhone($(".userName"), $(".userNameSpan"))
+                    && checkBear($(".code"), $(".codeSpan"))
+                    // && checkBear($(".invitationCode"), $(".invitationCodeSpan"))
+                    && checkNull($(".onePassword"), $(".onePasswordSpan"))
+                    && checkNull($(".towPassword"), $(".towPasswordSpan"))
+                    && towchanged($(".onePassword"), $(".towPassword"), $(".towPasswordSpan"))) {
                     $.ajax({
-                        url:"http://47.104.204.162:8088/store/regist/phone",
-                        data:{
-                            smscaptcha:$smscaptcha,
-                            storePassword:$storePassword,
-                            storeTel:$storeTel
+                        url: "http://47.104.204.162:8088/store/regist/phone",
+                        data: {
+                            smscaptcha: $smscaptcha,
+                            storePassword: $storePassword,
+                            storeTel: $storeTel,
+                            pushCode: $invitationCodeNum  // 新改动，邀请码数据13548430993
                         },
-                        success:function(data){
-                            console.log(data.status);
-                            if(data.status==200){
-                                setTimeout(function(){
-                                    window.location.href="login.html";
-                                },2000);
+                        success: function (data) {
+
+                            if (data.status == 200) {
+                                console.log('注册成功 ', data);
+                                setTimeout(function () {
+                                    window.location.href = "login.html";
+                                }, 1000)
                             }
-                            if(data.status==400){
+                            if (data.status == 400) {
                                 $('.bs-example-login-success').modal('toggle');
                                 $(".error400").html(data.msg)
                             }
@@ -261,7 +290,9 @@
                     })
                 }
             });
+
         })
     </script>
 </body>
+
 </html>

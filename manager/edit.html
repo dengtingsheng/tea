@@ -132,7 +132,7 @@
                         </nav>
                    </div> -->
                     <div class="form-group m-lg-t m-none-b">
-                        <label class="m-sm-b">商品标题：</label>
+                        <label class="m-sm-b">商品分类：</label>
                         <input type="text" class="form-control display-lin clickInputALL" style="width: 500px;background: #fff" readonly name="goodsName" data-id="" placeholder="点击请选择" maxlength="40">
                     </div>
                     <div class="hiddenIn display-none" style="width: 500px;background: #f8f8f8;margin: -3px 387px;min-height: 200px">
@@ -181,12 +181,16 @@
 <script src="../js/index.js"></script>
 <script>
     $(function(){
-        var stapleName = "";
+        var stapleName1 = "";
+        var stapleName2 = "";
+        var stapleName3 = "";
+        localStorage.oldImg = '';
         // 设置高度
         $(".centerbody").css("height",window.innerHeight-100);
         $(".hiddenCent").css("height",$(".hiddenIn").height());
         // 获取商品种类
         function selectAllShping (one,ids){
+            console.log(one,ids);
             // centenOne , centenTow ,centenTre
             $.ajax({
                 url:'http://47.104.204.162:8081/goods/cat',
@@ -196,7 +200,7 @@
                     id:ids
                 },
                 success:function(data){
-                    // console.log('this data is',data);
+                    console.log(data);
                     for(var i = 0,html = "" ;i < data.length ; i++){
                         html += '<li class=" p-md-r p-md-l p-xs-t p-xs-b m-xs-b m-xs-t" id="'+data[i].gcId+'" data-typeId="'+data[i].typeId+'">'+
                                 '    <div class="display-lin">'+data[i].gcName+'</div>'+
@@ -213,24 +217,26 @@
         });
         selectAllShping ($(".centenOne"));
         $(".centenOne").on('click','li',function(){
-            stapleName +=$(this).text().replace(/\s+/g,"")+' > ';
+            stapleName1 =$(this).text().replace(/\s+/g,"");
             $(".centenTow").removeClass("display-none");
             selectAllShping ($(".centenTow"),$(this).attr("id"));
+            $(".clickInputALL").val(stapleName1);
         });
         $(".centenTow").on('click','li',function(){
-            stapleName +=$(this).text().replace(/\s+/g,"")+' > ';
+            stapleName2 = '>' + $(this).text().replace(/\s+/g,"");
             $(".centenTre").removeClass("display-none");
             selectAllShping ($(".centenTre"),$(this).attr("id"));
-            $(".centenTre").find(".glyphicon").css("display","none")
+            $(".centenTre").find(".glyphicon").css("display","none");
+            $(".clickInputALL").val(stapleName1+''+stapleName2);
         });
         $(".centenTre").on('click','li',function(){
-            stapleName +=$(this).text().replace(/\s+/g,"");
+            stapleName3 = '>' + $(this).text().replace(/\s+/g,"");
             $(".cini").removeClass("display-none");
             $.cookie("gcId",$(this).attr("id"),{ expires: 7 , path: '/' });
             $.cookie("gcName",$(this).text().replace(/\s+/g,""),{ expires: 7 , path: '/' });
             $.cookie("typeId",$(this).attr("data-typeId"),{ expires: 7 , path: '/' });
-            $.cookie("stapleName",stapleName,{ expires: 7 , path: '/' });
-            $(".clickInputALL").val($(this).text().replace(/\s+/g,""));
+            $.cookie("stapleName",stapleName1+''+stapleName2+''+stapleName3,{ expires: 7 , path: '/' });
+            $(".clickInputALL").val(stapleName1+''+stapleName2+''+stapleName3);
         });
         // function nextStep(){
         //     console.log(1)
